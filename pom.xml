@@ -8,7 +8,12 @@
   <artifactId>LightFileManagement</artifactId>
   <version>1.0-SNAPSHOT</version>
   <modules>
-    <module>cloud-nacos</module>
+    <module>cloud-user</module>
+    <module>cloud-gateway-auth</module>
+    <module>cloud-file</module>
+    <module>cloud-monitor</module>
+    <module>cloud-provider</module>
+    <module>cloud-commons</module>
   </modules>
   <packaging>pom</packaging>
 
@@ -29,6 +34,8 @@
     <mysql.version>5.1.47</mysql.version>
     <druid.version>1.1.16</druid.version>
     <mybatis.plus.boot.starter.version>3.4.1</mybatis.plus.boot.starter.version>
+    <!-- 跳过单元测试 -->
+    <skipTests>true</skipTests>
   </properties>
 
   <!-- 子模块继承之后，提供作用：锁定版本+子modlue不用写groupId和version  -->
@@ -94,6 +101,11 @@
         <artifactId>lombok</artifactId>
         <version>${lombok.version}</version>
         <optional>true</optional>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <scope>test</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
