@@ -1,4 +1,4 @@
-package com.xrw.springCloudAlibaba.entities;
+package com.xrw.springCloudAlibaba.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

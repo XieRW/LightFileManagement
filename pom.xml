@@ -12,7 +12,7 @@
     <module>cloud-gateway-auth</module>
     <module>cloud-file</module>
     <module>cloud-monitor</module>
-    <module>cloud-provider</module>
+    <module>cloud-consumer</module>
     <module>cloud-commons</module>
   </modules>
   <packaging>pom</packaging>
