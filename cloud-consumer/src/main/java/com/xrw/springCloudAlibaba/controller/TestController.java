@@ -3,6 +3,7 @@ package com.xrw.springCloudAlibaba.controller;
 import com.xrw.springCloudAlibaba.service.FileFeignService;
 import com.xrw.springCloudAlibaba.vo.CommonResult;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -37,5 +38,12 @@ public class TestController {
     public CommonResult<String> uploadByFeign(){
         CommonResult serverResult = fileFeignService.upload();
         return new CommonResult<>(serverResult.getData().toString());
+    }
+
+    @GetMapping(value = "/feign/timeout")
+    public CommonResult<String> paymentFeignTimeout()
+    {
+        // OpenFeign客户端一般默认等待1秒钟
+        return fileFeignService.paymentFeignTimeout();
     }
 }

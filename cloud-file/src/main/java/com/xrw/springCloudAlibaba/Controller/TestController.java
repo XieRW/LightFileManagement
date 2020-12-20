@@ -2,9 +2,12 @@ package com.xrw.springCloudAlibaba.Controller;
 
 import com.xrw.springCloudAlibaba.vo.CommonResult;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * @program: LightFileManagement
@@ -28,6 +31,21 @@ public class TestController {
     @RequestMapping("/upload")
     public CommonResult<String> upload(){
         return new CommonResult<String>("cloud-file:"+port+"/cloud/consumer/upload"+"调用成功！");
+    }
+
+    /**
+     * @Description: paymentFeignTimeout 超时控制
+     * @param :
+     * @return: java.lang.String
+     * @Author: 谢荣旺
+     * @Date: 2020/12/21
+     */
+    @GetMapping(value = "/feign/timeout")
+    public CommonResult<String> paymentFeignTimeout()
+    {
+        // 业务逻辑处理正确，但是需要耗费3秒钟
+        try { TimeUnit.SECONDS.sleep(3); } catch (InterruptedException e) { e.printStackTrace(); }
+        return new CommonResult<String>("cloud-file:"+port+"/cloud/consumer/feign/timeout"+"调用成功！");
     }
 
 }
