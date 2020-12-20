@@ -21,4 +21,8 @@ public class CommonResult<T>  {
     public CommonResult(Integer code,String message){
         this(code,message,null);
     }
+
+    public CommonResult(T data){
+        this(200,"success",data);
+    }
 }

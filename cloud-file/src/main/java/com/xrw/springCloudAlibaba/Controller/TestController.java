@@ -1,5 +1,6 @@
 package com.xrw.springCloudAlibaba.Controller;
 
+import com.xrw.springCloudAlibaba.vo.CommonResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,21 +12,18 @@ import org.springframework.web.bind.annotation.RestController;
  * @create: 2020-12-14 22:11
  **/
 @RestController
-@RequestMapping("/cloud/consumer")
+@RequestMapping("/cloud/file")
 public class TestController {
-
 
     /**
      * @Description: 测试类
-     * @param s:
-     * @param a:
      * @return: void
      * @Author: 谢荣旺
      * @Date: 2020/12/14
      */
-    @RequestMapping("/ss")
-    public void test(@RequestParam("ss")String s,@RequestParam("ss")String a){
-        return;
+    @RequestMapping("/upload")
+    public CommonResult<String> upload(){
+        return new CommonResult<String>("cloud-file:"+"/cloud/consumer/upload"+"调用成功！");
     }
 
 }

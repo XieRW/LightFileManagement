@@ -1,0 +1,18 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: cloud-file
+  cloud:
+    nacos:
+      discovery:
+        #配置Nacos地址
+        server-addr: 49.234.63.142:8848
+
+# 配置actuator端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
