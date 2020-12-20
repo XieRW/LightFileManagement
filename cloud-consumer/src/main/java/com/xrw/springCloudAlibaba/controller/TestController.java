@@ -1,5 +1,6 @@
 package com.xrw.springCloudAlibaba.controller;
 
+import com.xrw.springCloudAlibaba.service.FileFeignService;
 import com.xrw.springCloudAlibaba.vo.CommonResult;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,8 @@ public class TestController {
 
     @Resource
     private RestTemplate restTemplate;
+    @Resource
+    private FileFeignService fileFeignService;
 
     @Value("${service-url.nacos-service-cloud-file}")
     private String serverUrl;
@@ -27,6 +30,12 @@ public class TestController {
     @RequestMapping("/upload")
     public CommonResult<String> upload(){
         CommonResult serverResult = restTemplate.getForObject(serverUrl+"/cloud/file/upload",CommonResult.class);
+        return new CommonResult<>(serverResult.getData().toString());
+    }
+
+    @RequestMapping("/uploadByFeign")
+    public CommonResult<String> uploadByFeign(){
+        CommonResult serverResult = fileFeignService.upload();
         return new CommonResult<>(serverResult.getData().toString());
     }
 }

@@ -12,6 +12,11 @@
     <artifactId>cloud-consumer</artifactId>
 
     <dependencies>
+        <!--openfeign-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
         <!--nacos-config-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
