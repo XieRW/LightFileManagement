@@ -26,7 +26,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-        <!-- 引入自己定义的api通用包，可以使用Payment支付Entity -->
+        <!-- 引入自己定义的api通用包 -->
         <dependency>
             <groupId>com.xrw.springCloudAlibaba</groupId>
             <artifactId>cloud-commons</artifactId>

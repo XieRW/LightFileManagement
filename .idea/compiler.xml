@@ -7,8 +7,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="cloud-nacos" />
+        <module name="cloud-user" />
+        <module name="cloud-commons" />
+        <module name="cloud-consumer" />
+        <module name="cloud-gateway-auth" />
+        <module name="cloud-file" />
+        <module name="cloud-monitor" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cloud-auth" target="1.8" />
+      <module name="cloud-nacos" target="1.8" />
+      <module name="cloud-sentinel" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

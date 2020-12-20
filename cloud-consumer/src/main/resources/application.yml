@@ -1,0 +1,15 @@
+server:
+  port: 9101
+
+spring:
+  application:
+    name: cloud-consumer
+  cloud:
+    nacos:
+      discovery:
+        #配置Nacos地址
+        server-addr: 49.234.63.142:8848
+
+#消费者将要去访问的微服务名称(注册成功进nacos的微服务提供者)
+service-url:
+  nacos-service-cloud-file: http://cloud-file

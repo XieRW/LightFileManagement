@@ -5,24 +5,23 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * @program: LightFileManagement
  * @description: 主启动类
  * @author: 谢荣旺 1429382875@qq.com
- * @create: 2020-12-20 19:54
+ * @create: 2020-12-21 00:03
  **/
 @SpringBootApplication
 @EnableDiscoveryClient
-public class CloudFileApplication extends SpringBootServletInitializer {
+public class CloudConsumerApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
-        SpringApplication.run(CloudFileApplication.class,args);
+        SpringApplication.run(CloudConsumerApplication.class,args);
     }
 
     @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(CloudFileApplication.class);
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder){
+        return builder.sources(CloudConsumerApplication.class);
     }
 }
