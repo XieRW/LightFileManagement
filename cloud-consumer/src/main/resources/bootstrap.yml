@@ -22,6 +22,11 @@ spring:
       # nacos中dataId的完整格式：
       # ${spring.application.name}-${spring.profile.active}.${spring.cloud.nacos.config.file-extension}
       # nacos-config-client-dev.yaml
+    sentinel:
+      transport:
+        dashboard: 49.234.63.142:8849
+        port: 8719
+
 
 #消费者将要去访问的微服务名称(注册成功进nacos的微服务提供者)
 service-url:
@@ -33,3 +38,8 @@ ribbon:
   ReadTimeout: 5000
   #指的是建立连接后从服务器读取到可用资源所用的时间
   ConnectTimeout: 5000
+
+feign:
+  sentinel:
+    #激活Sentinel对Feign的支持
+    enabled: true
