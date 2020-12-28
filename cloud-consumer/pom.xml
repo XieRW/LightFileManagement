@@ -12,6 +12,11 @@
     <artifactId>cloud-consumer</artifactId>
 
     <dependencies>
+        <!--包含了sleuth+zipkin,用于服务链路追踪-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
         <!--SpringCloud ailibaba sentinel-datasource-nacos 后续做sentinel持久化用到-->
         <dependency>
             <groupId>com.alibaba.csp</groupId>

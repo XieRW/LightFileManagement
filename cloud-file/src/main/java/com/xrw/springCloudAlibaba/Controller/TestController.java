@@ -48,10 +48,30 @@ public class TestController {
         return new CommonResult<String>("cloud-file:"+port+"/cloud/consumer/feign/timeout"+"调用成功！");
     }
 
+    /**
+     * @Description: testSentinelResource3
+     * @param :
+     * @return: com.xrw.springCloudAlibaba.vo.CommonResult
+     * @Author: 谢荣旺
+     * @Date: 2020/12/28
+     */
     @RequestMapping("/testSentinelResource3")
     public CommonResult testSentinelResource3(){
 //        throw new IllegalArgumentException ("IllegalArgumentException,非法参数异常....");
         return new CommonResult("=========testSentinelResource3");
+    }
+
+    /**
+     * @Description: 测试zipkin链路追踪
+     * @param :
+     * @return: java.lang.String
+     * @Author: 谢荣旺
+     * @Date: 2020/12/28
+     */
+    @GetMapping("/zipkin")
+    public CommonResult cloudFileZipkin()
+    {
+        return new CommonResult("hi ,i'am cloudFileZipkin server fall back，welcome to cloudXRW，O(∩_∩)O哈哈~");
     }
 
 }

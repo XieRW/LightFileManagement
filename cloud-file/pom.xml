@@ -12,6 +12,11 @@
     <artifactId>cloud-file</artifactId>
 
     <dependencies>
+        <!--包含了sleuth+zipkin,用于服务链路追踪-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
         <!--SpringCloud ailibaba nacos -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>

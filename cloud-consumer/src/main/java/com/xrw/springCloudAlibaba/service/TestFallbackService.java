@@ -12,7 +12,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @create: 2020-12-28 18:48
  **/
 @Component
-public class TestFallbackService implements TestService{
+public class TestFallbackService implements FileFeignService{
+
+    @Override
+    public CommonResult<String> upload() {
+        return new CommonResult<>(44444,"服务降级返回,---TestFallbackService");
+    }
+
+    @Override
+    public CommonResult<String> paymentFeignTimeout() {
+        return new CommonResult<>(44444,"服务降级返回,---TestFallbackService");
+    }
 
     @Override
     public CommonResult testSentinelResource3() {

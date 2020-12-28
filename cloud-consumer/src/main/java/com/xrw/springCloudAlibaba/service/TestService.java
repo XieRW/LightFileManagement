@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Author: 谢荣旺 1429382875@qq.com
  * @Date: 2020/12/28
  */
-@FeignClient(value = "cloud-file",fallback = TestFallbackService.class)
+//@FeignClient(value = "cloud-file",fallback = TestFallbackService.class)
 public interface TestService {
 
     @RequestMapping("/cloud/file/testSentinelResource3")

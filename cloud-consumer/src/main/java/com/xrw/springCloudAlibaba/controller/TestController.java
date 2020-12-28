@@ -4,7 +4,7 @@ import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.xrw.springCloudAlibaba.config.exception.CustomSentinelBlockHandler;
 import com.xrw.springCloudAlibaba.config.exception.CustomSentinelFallbackHandler;
-//import com.xrw.springCloudAlibaba.service.FileFeignService;
+import com.xrw.springCloudAlibaba.service.FileFeignService;
 import com.xrw.springCloudAlibaba.service.TestService;
 import com.xrw.springCloudAlibaba.vo.CommonResult;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,10 +28,8 @@ public class TestController {
 
     @Resource
     private RestTemplate restTemplate;
-//    @Resource
-//    private FileFeignService fileFeignService;
     @Resource
-    private TestService testService;
+    private FileFeignService fileFeignService;
 
     @Value("${service-url.nacos-service-cloud-file}")
     private String serverUrl;
@@ -42,18 +40,18 @@ public class TestController {
         return new CommonResult<>(serverResult.getData().toString());
     }
 
-//    @RequestMapping("/uploadByFeign")
-//    public CommonResult<String> uploadByFeign(){
-//        CommonResult serverResult = fileFeignService.upload();
-//        return new CommonResult<>(serverResult.getData().toString());
-//    }
+    @RequestMapping("/uploadByFeign")
+    public CommonResult<String> uploadByFeign(){
+        CommonResult serverResult = fileFeignService.upload();
+        return new CommonResult<>(serverResult.getData().toString());
+    }
 
-//    @GetMapping(value = "/feign/timeout")
-//    public CommonResult<String> paymentFeignTimeout()
-//    {
-//        // OpenFeign客户端一般默认等待1秒钟
-//        return fileFeignService.paymentFeignTimeout();
-//    }
+    @GetMapping(value = "/feign/timeout")
+    public CommonResult<String> paymentFeignTimeout()
+    {
+        // OpenFeign客户端一般默认等待1秒钟
+        return fileFeignService.paymentFeignTimeout();
+    }
 
     @RequestMapping("/testHotKey")
     @SentinelResource(value = "testHotKey",blockHandler = "deal_testHotKey")
@@ -94,7 +92,21 @@ public class TestController {
             fallback = "fallbackHandle")
     public CommonResult testSentinelResource3(){
 //        throw new IllegalArgumentException ("IllegalArgumentException,非法参数异常....");
-        return testService.testSentinelResource3();
+        return fileFeignService.testSentinelResource3();
+    }
+
+    /**
+     * @Description: 测试zipkin链路追踪
+     * @param :
+     * @return: java.lang.String
+     * @Author: 谢荣旺
+     * @Date: 2020/12/28
+     */
+    @GetMapping("/zipkin")
+    public CommonResult cloudFileZipkin()
+    {
+        CommonResult result = restTemplate.getForObject(serverUrl+"/cloud/file/zipkin",CommonResult.class);
+        return result;
     }
 
 }
