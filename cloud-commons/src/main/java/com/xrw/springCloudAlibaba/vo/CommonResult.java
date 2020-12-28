@@ -25,4 +25,5 @@ public class CommonResult<T>  {
     public CommonResult(T data){
         this(200,"success",data);
     }
+
 }

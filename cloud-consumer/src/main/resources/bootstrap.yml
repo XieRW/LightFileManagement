@@ -24,8 +24,18 @@ spring:
       # nacos-config-client-dev.yaml
     sentinel:
       transport:
-        dashboard: 49.234.63.142:8849
+        dashboard: localhost:8080
         port: 8719
+        clientIp: 192.168.3.41
+      datasource:
+        ds1:
+          nacos:
+            #配置Nacos服务注册地址
+            server-addr: 49.234.63.142:8848
+            dataId: ${spring.application.name}
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: flow
 
 
 #消费者将要去访问的微服务名称(注册成功进nacos的微服务提供者)
@@ -38,6 +48,13 @@ ribbon:
   ReadTimeout: 5000
   #指的是建立连接后从服务器读取到可用资源所用的时间
   ConnectTimeout: 5000
+
+# 配置actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 
 feign:
   sentinel:

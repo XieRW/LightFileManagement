@@ -48,4 +48,10 @@ public class TestController {
         return new CommonResult<String>("cloud-file:"+port+"/cloud/consumer/feign/timeout"+"调用成功！");
     }
 
+    @RequestMapping("/testSentinelResource3")
+    public CommonResult testSentinelResource3(){
+//        throw new IllegalArgumentException ("IllegalArgumentException,非法参数异常....");
+        return new CommonResult("=========testSentinelResource3");
+    }
+
 }
