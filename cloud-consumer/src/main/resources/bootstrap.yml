@@ -8,16 +8,16 @@ spring:
   cloud:
     nacos:
       discovery:
-        #配置Nacos服务注册地址
+        # 配置Nacos服务注册地址
         server-addr: 49.234.63.142:8848
       config:
-        #配置Nacos配置中心地址
+        # 配置Nacos配置中心地址
         server-addr: 49.234.63.142:8848
-        #指定yaml格式的配置,目前只支持yaml和properties类型
+        # 指定yaml格式的配置,目前只支持yaml和properties类型
         file-extension: yaml
-        #组
+        # 组
         group: DEV_GROUP
-        #命名空间,默认为public保留空间，否则为命名空间id，如b705b760-02dd-4df1-aac6-f99eca98b28e
+        # 命名空间,默认为public保留空间，否则为命名空间id，如b705b760-02dd-4df1-aac6-f99eca98b28e
         namespace:
       # nacos中dataId的完整格式：
       # ${spring.application.name}-${spring.profile.active}.${spring.cloud.nacos.config.file-extension}
@@ -30,7 +30,7 @@ spring:
       datasource:
         ds1:
           nacos:
-            #配置Nacos服务注册地址
+            # 配置Nacos服务注册地址
             server-addr: 49.234.63.142:8848
             dataId: ${spring.application.name}
             groupId: DEFAULT_GROUP
@@ -40,18 +40,45 @@ spring:
     base-url: http://localhost:9411
   sleuth:
     sampler:
-    #采样率值介于 0 到 1 之间，1 则表示全部采集
+    # 采样率值介于 0 到 1 之间，1 则表示全部采集
     probability: 1
+  # redis相关配置
+  redis:
+    # ip
+    host: localhost
+    # Redis数据库索引（默认为0）
+    database: 0
+    # Redis服务器连接端口
+    port: 6379
+    # Redis服务器连接密码（默认为空）
+    password: chinaemt
+    # 连接超时时间（毫秒）
+    timeout: 5000
+    # 选用lettuce连接池
+    lettuce:
+      pool:
+        # 连接池最大连接数（使用负值表示没有限制）
+        max-active: 8
+        # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: -1
+        # 连接池中的最大空闲连接
+        max-idle: 8
+        # 连接池中的最小空闲连接
+        min-idle: 0
+    # 自定义配置
+    myconfig:
+      # 缓存时间
+      time-to-live: 86400
 
-#消费者将要去访问的微服务名称(注册成功进nacos的微服务提供者)
+# 消费者将要去访问的微服务名称(注册成功进nacos的微服务提供者)
 service-url:
   nacos-service-cloud-file: http://cloud-file
 
-#设置feign客户端超时时间(OpenFeign默认支持ribbon)
+# 设置feign客户端超时时间(OpenFeign默认支持ribbon)
 ribbon:
-  #指的是建立连接所用的时间，适用于网络状况正常的情况下,两端连接所用的时间
+  # 指的是建立连接所用的时间，适用于网络状况正常的情况下,两端连接所用的时间
   ReadTimeout: 5000
-  #指的是建立连接后从服务器读取到可用资源所用的时间
+  # 指的是建立连接后从服务器读取到可用资源所用的时间
   ConnectTimeout: 5000
 
 # 配置actuator
@@ -63,5 +90,5 @@ management:
 
 feign:
   sentinel:
-    #激活Sentinel对Feign的支持
+    # 激活Sentinel对Feign的支持
     enabled: true

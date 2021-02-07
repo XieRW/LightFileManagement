@@ -71,7 +71,7 @@ public class TestController {
     @GetMapping("/zipkin")
     public CommonResult cloudFileZipkin()
     {
-        return new CommonResult("hi ,i'am cloudFileZipkin server fall back，welcome to cloudXRW，O(∩_∩)O哈哈~");
+        return new CommonResult("hi ,i'am cloudFileZipkin server，welcome to cloudXRW，O(∩_∩)O哈哈~");
     }
 
 }
