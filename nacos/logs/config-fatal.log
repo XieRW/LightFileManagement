@@ -1,4 +1,0 @@
-2021-11-02 17:21:44,132 WARN [master-db] jdbc:mysql://114.215.177.78:3306/light_file_management?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai
-
-2021-11-02 17:21:46,204 WARN isQuickStart:false
-

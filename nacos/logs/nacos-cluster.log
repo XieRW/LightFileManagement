@@ -1,4 +1,0 @@
-2021-11-02 17:21:45,491 INFO Current addressing mode selection : StandaloneMemberLookup
-
-2021-11-02 17:21:45,495 WARN [serverlist] updated to : [Member{ip='26.26.26.1', port=8848, state=UP, extendInfo={raftPort=7848}}]
-
