@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: cloud-file
+    name: cloud-auth
   cloud:
     nacos:
       discovery:
