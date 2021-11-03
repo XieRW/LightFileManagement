@@ -1,3 +1,5 @@
 /nacos/logs/
 /logs/
 /nacos/bin/logs/
+/cloud-commons/target/
+/cloud-gateway/target/classes/
