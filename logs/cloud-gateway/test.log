@@ -1,0 +1,138 @@
+2021-11-03 18:49:24.338 [main] INFO  com.xrw.springCloudAlibaba.CloudGatewayApplication - The following profiles are active: dev
+2021-11-03 18:49:25.826 [main] INFO  com.xrw.springCloudAlibaba.config.rocketMQ.RocketMQConfiguration - localhost:9876
+2021-11-03 18:49:25.827 [main] INFO  com.xrw.springCloudAlibaba.config.rocketMQ.RocketMQConfiguration - user_group
+2021-11-03 18:49:25.827 [main] INFO  com.xrw.springCloudAlibaba.config.rocketMQ.RocketMQConfiguration - 1
+2021-11-03 18:49:25.827 [main] INFO  com.xrw.springCloudAlibaba.config.rocketMQ.RocketMQConfiguration - user_consumer_group
+2021-11-03 18:49:25.827 [main] INFO  com.xrw.springCloudAlibaba.config.rocketMQ.RocketMQConfiguration - user_consumer_instance
+2021-11-03 18:49:25.827 [main] INFO  com.xrw.springCloudAlibaba.config.rocketMQ.RocketMQConfiguration - user_producer_instance
+2021-11-03 18:49:25.828 [main] INFO  com.xrw.springCloudAlibaba.config.rocketMQ.RocketMQConfiguration - user_producer_transacition
+2021-11-03 18:49:25.828 [main] INFO  com.xrw.springCloudAlibaba.config.rocketMQ.RocketMQConfiguration - order_transaction
+2021-11-03 18:49:25.828 [main] INFO  com.xrw.springCloudAlibaba.config.rocketMQ.RocketMQConfiguration - false
+2021-11-03 18:49:25.828 [main] INFO  com.xrw.springCloudAlibaba.config.rocketMQ.RocketMQConfiguration - false
+2021-11-03 18:49:25.828 [main] INFO  com.xrw.springCloudAlibaba.config.rocketMQ.RocketMQConfiguration - false
+2021-11-03 18:49:25.828 [main] INFO  com.xrw.springCloudAlibaba.config.rocketMQ.RocketMQConfiguration - user-topic:white
+2021-11-03 18:49:26.448 [main] INFO  com.xrw.springCloudAlibaba.config.rocketMQ.RocketMQConfiguration - rocketmq producer server is starting....
+2021-11-03 18:49:26.924 [main] INFO  com.xrw.springCloudAlibaba.config.rocketMQ.RocketMQConfiguration - rocketmq transaction producer server is starting....
+2021-11-03 18:49:27.238 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2021-11-03 18:49:27.238 [main] INFO  com.netflix.config.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-11-03 18:49:27.243 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2021-11-03 18:49:27.243 [main] INFO  com.netflix.config.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-11-03 18:49:28.580 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from System Property :null
+2021-11-03 18:49:28.581 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from System Environment :null
+2021-11-03 18:49:28.582 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from System Property :null
+2021-11-03 18:49:28.708 [main] INFO  com.alibaba.cloud.sentinel.SentinelWebFluxAutoConfiguration - [Sentinel Starter] register Sentinel SentinelWebFluxFilter
+2021-11-03 18:49:28.879 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:49:28.970 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:49:29.893 [main] INFO  com.alibaba.nacos.client.naming - [BEAT] adding beat: {"cluster":"DEFAULT","ip":"26.26.26.1","metadata":{"preserved.register.source":"SPRING_CLOUD"},"period":5000,"port":9101,"scheduled":false,"serviceName":"DEFAULT_GROUP@@cloud-gateway","stopped":false,"weight":1.0} to beat map.
+2021-11-03 18:49:29.972 [main] INFO  com.alibaba.nacos.client.naming - [REGISTER-SERVICE] dev-namespace registering service DEFAULT_GROUP@@cloud-gateway with instance: {"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ip":"26.26.26.1","ipDeleteTimeout":30000,"metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":9101,"weight":1.0}
+2021-11-03 18:49:29.979 [main] INFO  com.alibaba.cloud.nacos.registry.NacosServiceRegistry - nacos registry, cloud-gateway 26.26.26.1:9101 register finished
+2021-11-03 18:49:29.985 [main] INFO  com.xrw.springCloudAlibaba.CloudGatewayApplication - Started CloudGatewayApplication in 6.841 seconds (JVM running for 8.352)
+2021-11-03 18:49:29.990 [main] INFO  com.alibaba.nacos.client.config.impl.ClientWorker - [fixed-127.0.0.1_8849-dev-namespace] [subscribe] cloud-gateway-dev.yaml+DEFAULT_GROUP+dev-namespace
+2021-11-03 18:49:29.990 [main] INFO  com.alibaba.nacos.client.config.impl.CacheData - [fixed-127.0.0.1_8849-dev-namespace] [add-listener] ok, tenant=dev-namespace, dataId=cloud-gateway-dev.yaml, group=DEFAULT_GROUP, cnt=1
+2021-11-03 18:49:29.991 [main] INFO  com.alibaba.nacos.client.config.impl.ClientWorker - [fixed-127.0.0.1_8849-dev-namespace] [subscribe] cloud-gateway.yaml+DEFAULT_GROUP+dev-namespace
+2021-11-03 18:49:29.991 [main] INFO  com.alibaba.nacos.client.config.impl.CacheData - [fixed-127.0.0.1_8849-dev-namespace] [add-listener] ok, tenant=dev-namespace, dataId=cloud-gateway.yaml, group=DEFAULT_GROUP, cnt=1
+2021-11-03 18:49:34.537 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:49:36.580 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:49:36.581 [Thread-19] INFO  com.xrw.springCloudAlibaba.config.rocketMQ.RocketMQConfiguration - rocketmq consumer server is starting....
+2021-11-03 18:49:38.626 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:49:40.672 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:49:42.709 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:49:58.505 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:49:58.982 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:50:10.663 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:50:28.517 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:50:28.994 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:50:32.715 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:50:34.757 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:50:40.873 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:50:56.805 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:50:58.485 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:50:58.856 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:50:58.979 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:51:01.041 [reactor-http-nio-2] INFO  com.netflix.config.ChainedDynamicProperty - Flipping property: cloud-auth.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2021-11-03 18:51:01.058 [reactor-http-nio-2] INFO  com.netflix.loadbalancer.BaseLoadBalancer - Client: cloud-auth instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=cloud-auth,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2021-11-03 18:51:01.065 [reactor-http-nio-2] INFO  com.netflix.loadbalancer.DynamicServerListLoadBalancer - Using serverListUpdater PollingServerListUpdater
+2021-11-03 18:51:01.117 [reactor-http-nio-2] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
+2021-11-03 18:51:01.118 [reactor-http-nio-2] INFO  com.netflix.loadbalancer.DynamicServerListLoadBalancer - DynamicServerListLoadBalancer for client cloud-auth initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=cloud-auth,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:com.alibaba.cloud.nacos.ribbon.NacosServerList@51532679
+2021-11-03 18:51:02.123 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
+2021-11-03 18:51:04.551 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:51:06.586 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:51:08.636 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:51:12.129 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
+2021-11-03 18:51:22.133 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
+2021-11-03 18:51:22.928 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:51:28.510 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:51:28.985 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:51:32.138 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
+2021-11-03 18:51:38.614 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:51:42.142 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
+2021-11-03 18:51:44.971 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:51:47.015 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:51:52.145 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
+2021-11-03 18:51:58.487 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:51:58.965 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:52:02.151 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
+2021-11-03 18:52:04.549 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:52:06.596 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:52:08.638 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:52:10.671 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:52:12.158 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
+2021-11-03 18:52:12.747 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:52:22.168 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
+2021-11-03 18:52:28.513 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:52:28.979 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:52:32.173 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
+2021-11-03 18:52:34.540 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:52:36.584 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:52:38.625 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:52:40.668 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:52:42.178 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
+2021-11-03 18:52:52.200 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
+2021-11-03 18:52:58.485 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:52:58.967 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:53:02.205 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
+2021-11-03 18:53:02.711 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:53:04.763 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:53:06.809 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:53:08.841 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:53:12.223 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
+2021-11-03 18:53:22.229 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
+2021-11-03 18:53:27.742 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:53:28.488 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:53:28.984 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:53:29.784 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:53:32.233 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
+2021-11-03 18:53:34.550 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:53:36.592 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:53:38.642 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:53:42.246 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
+2021-11-03 18:53:51.830 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:53:52.251 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
+2021-11-03 18:53:53.868 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:53:58.499 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:53:58.976 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:54:02.254 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
+2021-11-03 18:54:06.597 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:54:08.635 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:54:12.273 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
+2021-11-03 18:54:15.909 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:54:17.947 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:54:22.295 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
+2021-11-03 18:54:28.498 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:54:28.980 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:54:32.300 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
+2021-11-03 18:54:34.523 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:54:36.556 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:54:38.596 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:54:40.636 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:54:42.303 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
+2021-11-03 18:54:42.665 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:54:52.306 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
+2021-11-03 18:54:58.491 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:54:58.969 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:55:02.310 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
+2021-11-03 18:55:04.549 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:55:06.586 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:55:08.636 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:55:10.673 [NettyClientSelector_1] INFO  RocketmqRemoting - closeChannel: close the connection to remote address[] result: true
+2021-11-03 18:55:12.314 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@cloud-auth -> []
