@@ -28,13 +28,13 @@
 
 默认缓存是2小时，使用5分钟缓存：@Cacheable(cacheManager = "cacheManagerIn1Minutes",value=RedisAutoCacheValue.PLATFORM_LIST)
 
-# Nacos使用说明
+## Nacos使用说明
 
-## 官方文档
+### 官方文档
   https://nacos.io/zh-cn/docs/what-is-nacos.html
 
 
-## 单机模式支持mysql
+### 单机模式支持mysql
   在0.7版本之前，在单机模式时nacos使用嵌入式数据库实现数据的存储，不方便观察数据存储的基本情况。0.7版本增加了支持mysql数据源能力，具体的操作步骤：
   
   1.安装数据库，版本要求：5.6.5+
@@ -51,7 +51,7 @@
   db.password=youdontknow
   再以单机模式启动nacos，nacos所有写嵌入式数据库的数据都写到了mysql
   ```
-## Nacos启动
+### Nacos启动
   Linux/Unix/Mac：
   
   sh startup.sh -m standalone.
