@@ -28,7 +28,7 @@
 
 默认缓存是2小时，使用5分钟缓存：@Cacheable(cacheManager = "cacheManagerIn1Minutes",value=RedisAutoCacheValue.PLATFORM_LIST)
 
-## Nacos使用说明
+## Nacos
 
 ### 官方文档
   https://nacos.io/zh-cn/docs/what-is-nacos.html
