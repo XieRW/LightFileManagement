@@ -2,6 +2,8 @@ package com.xrw.springCloudAlibaba.utils;
 
 import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.core.annotation.Order;
 import org.springframework.data.redis.core.*;
 import org.springframework.stereotype.Component;
 
@@ -11,10 +13,14 @@ import java.util.concurrent.TimeUnit;
 /**
  * @program: LightFileManagement
  * @description: Redis工具类
+ * ‘@ConditionalOnMissingBean’注解表示当IOC容器中没有指定名称或类型的Bean时候，就注册它。
+ * 这样做还有一个好处，就是如果子系统需要的话可以定义自己的日志处理方法，来覆盖我们功能模块中定义的方法。
  * @author: 谢荣旺 1429382875@qq.com
  * @create: 2020-12-14 22:11
  **/
 @Component
+@Order(1)
+@ConditionalOnMissingBean(name = "RedisUtils")
 public class RedisUtils {
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
