@@ -3,6 +3,8 @@ server:
   port: 9101
 
 spring:
+  profiles:
+    active: dev
   application:
     name: cloud-gateway
   cloud:
@@ -19,7 +21,7 @@ spring:
         # 命名空间,默认为public保留空间，否则为命名空间id，如b705b760-02dd-4df1-aac6-f99eca98b28e
         namespace: ${spring.cloud.namespace}
         # 指定yaml格式的配置,目前只支持yaml和properties类型
-        file-extension: yaml
+        file-extension: yml
         # 组，默认DEFAULT_GROUP
         # group: DEV_GROUP
       # nacos中dataId的完整格式：

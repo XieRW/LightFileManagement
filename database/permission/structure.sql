@@ -68,8 +68,9 @@ CREATE TABLE user_friend_application(
 
 DROP TABLE IF EXISTS captcha;
 CREATE TABLE captcha(
-    uuid char(36) NOT NULL AUTO_INCREMENT  COMMENT '主键' ,
+    uuid char(36) NOT NULL   COMMENT '主键' ,
     code VARCHAR(10)    COMMENT '验证码' ,
     expire_time DATETIME   DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '过期时间' ,
     PRIMARY KEY (uuid)
 )  COMMENT = '系统验证码';
+

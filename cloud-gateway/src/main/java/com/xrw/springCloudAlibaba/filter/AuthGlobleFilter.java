@@ -172,5 +172,6 @@ public class AuthGlobleFilter implements GlobalFilter, Ordered {
 
     static {
         IGNORE_URL.add("/auth/test/**");
+        IGNORE_URL.add("/auth/captcha.jpg/**");
     }
 }

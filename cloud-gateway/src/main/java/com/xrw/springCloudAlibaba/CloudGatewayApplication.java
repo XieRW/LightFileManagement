@@ -17,14 +17,16 @@ import org.springframework.context.annotation.Bean;
 @EnableDiscoveryClient
 public class CloudGatewayApplication {
     public static void main(String[] args) {
-        SpringApplication.run(CloudGatewayApplication.class,args);
+        SpringApplication.run(CloudGatewayApplication.class, args);
     }
 
     @Bean
-    public RouteLocator customRouteLocator(RouteLocatorBuilder builder){
+    public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
                 .route("cloud-auth", r -> r.path("/auth/**")
                         .uri("lb://cloud-auth"))
+                .route("path_route_atguigu", r -> r.path("/test/guonei")
+                        .uri("http://news.baidu.com/guonei"))
                 .build();
     }
 }
