@@ -39,6 +39,6 @@ public class CorsResponseHeaderFilter implements GlobalFilter, Ordered {
     @Override
     public int getOrder() {
         // 指定位于 NettyWriteResponseFilter 处理完响应体后移除重复 CORS 响应头
-        return NettyWriteResponseFilter.WRITE_RESPONSE_FILTER_ORDER + 1;
+        return NettyWriteResponseFilter.WRITE_RESPONSE_FILTER_ORDER + 2;
     }
 }
