@@ -22,7 +22,7 @@ public class SysCaptchaEntity extends Model<SysCaptchaEntity> {
     /**
      * 验证码
      */
-    private String code;
+    private String errorcode;
     /**
      * 过期时间
      */

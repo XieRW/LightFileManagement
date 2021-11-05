@@ -38,33 +38,27 @@ public class ResponseJSON extends JSONObject implements Serializable {
 
     public ResponseJSON() {
         super.put("errorcode", 0);
-        super.put("code", 0);
         super.put("msg", "SUCCESS");
     }
 
     public ResponseJSON(Integer errorCode, String msg) {
         super.put("errorcode", errorCode);
-        super.put("code", errorCode);
         super.put("msg", msg);
     }
 
     public ResponseJSON(ApiError apiError) {
         super.put("errorcode", apiError.errorCode);
-        super.put("code", apiError.errorCode);
-
         super.put("msg", apiError.msg);
     }
 
     public ResponseJSON(ApiError apiError, Object data) {
         super.put("errorcode", apiError.errorCode);
-        super.put("code", apiError.errorCode);
         super.put("msg", apiError.msg);
         super.put("data", data);
     }
 
     public ResponseJSON(Object data) {
         super.put("errorcode", 0);
-        super.put("code", 0);
         super.put("msg", "SUCCESS");
         if (data == null) {
             super.put("data", "");
@@ -78,7 +72,6 @@ public class ResponseJSON extends JSONObject implements Serializable {
         this.filters.addAll(Arrays.asList(filters));
 
         super.put("errorcode", 0);
-        super.put("code", 0);
         super.put("msg", "SUCCESS");
         if (data == null) {
             super.put("data", "");
@@ -96,7 +89,6 @@ public class ResponseJSON extends JSONObject implements Serializable {
         }
 
         super.put("errorcode", 0);
-        super.put("code", 0);
         super.put("msg", "SUCCESS");
         if (data == null) {
             super.put("data", "");
@@ -110,7 +102,6 @@ public class ResponseJSON extends JSONObject implements Serializable {
             this.filters.add(propertyFilter);
         }
         super.put("errorcode", 0);
-        super.put("code", 0);
         super.put("msg", "SUCCESS");
         if (data == null) {
             super.put("data", "");

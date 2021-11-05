@@ -71,7 +71,7 @@ public class LoginAuthSuccessHandler extends AbstractResponseHandler implements 
                 }
                 //登陆成功后把用户信息存到缓存里
                 jsonObject.put("token", ((CustomUserDetails) principal).getToken());
-                jsonObject.put("code", 0);
+                jsonObject.put("errorcode", 0);
                 jsonObject.put("msg", "success");
                 String responseStr = jsonObject.toJSONString();
                 // 设置登录session永久不过期
@@ -89,7 +89,7 @@ public class LoginAuthSuccessHandler extends AbstractResponseHandler implements 
                 jsonObject.fluentPut("userId", mailContactorEntity.getId());
                 //登陆成功后把用户信息存到缓存里
                 jsonObject.put("token", ((CustomUserDetails) principal).getToken());
-                jsonObject.put("code", 0);
+                jsonObject.put("errorcode", 0);
                 jsonObject.put("msg", "success");
                 // 设置登录session永久不过期
                 HttpSession session = request.getSession();

@@ -154,7 +154,7 @@ public class AuthGlobleFilter implements GlobalFilter, Ordered {
     private Mono<Void> out(ServerHttpResponse response) {
         JsonObject message = new JsonObject();
         message.addProperty("success", false);
-        message.addProperty("code", 28004);
+        message.addProperty("errorcode", 28004);
         message.addProperty("data", "鉴权失败");
         message.addProperty("msg", "鉴权失败");
         byte[] bits = message.toString().getBytes(StandardCharsets.UTF_8);

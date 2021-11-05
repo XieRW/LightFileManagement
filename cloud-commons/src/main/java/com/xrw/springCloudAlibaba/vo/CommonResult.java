@@ -14,12 +14,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CommonResult<T>  {
 
-    private Integer code;
+    private Integer errorcode;
     private String  message;
     private T       data;
 
-    public CommonResult(Integer code,String message){
-        this(code,message,null);
+    public CommonResult(Integer errorcode,String message){
+        this(errorcode,message,null);
     }
 
     public CommonResult(T data){

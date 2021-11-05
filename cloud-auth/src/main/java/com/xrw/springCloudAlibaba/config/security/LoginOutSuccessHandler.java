@@ -42,7 +42,7 @@ public class LoginOutSuccessHandler implements LogoutSuccessHandler {
 
     public void  response(HttpServletResponse response) throws IOException {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("code",0);
+        jsonObject.put("errorcode",0);
         jsonObject.put("msg","success");
         String responseStr = jsonObject.toJSONString();
         PrintWriter out = response.getWriter();

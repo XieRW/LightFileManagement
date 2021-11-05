@@ -13,7 +13,7 @@ public class Result {
     /**
      * 自定义状态吗
      */
-    private int code;
+    private int errorcode;
 
     /**
      * 返回的提示信息
@@ -26,14 +26,14 @@ public class Result {
     private Object data;
 
 
-    private Result(int code, Object data) {
-        this.code = code;
-        this.msg = ResultMsg.msg(code);
+    private Result(int errorcode, Object data) {
+        this.errorcode = errorcode;
+        this.msg = ResultMsg.msg(errorcode);
         this.data = data;
     }
 
-    private Result(int code, String msg, Object data) {
-        this.code = code;
+    private Result(int errorcode, String msg, Object data) {
+        this.errorcode = errorcode;
         this.msg = msg;
         this.data = data;
     }
@@ -42,12 +42,12 @@ public class Result {
         return new Result(ResultCode.SUCCESS, data);
     }
 
-    public static Result fail(int code){
-        return new Result(code, null);
+    public static Result fail(int errorcode){
+        return new Result(errorcode, null);
     }
 
-    public static Result fail(int code, String msg){
-        return new Result(code, msg, null);
+    public static Result fail(int errorcode, String msg){
+        return new Result(errorcode, msg, null);
     }
 
 
@@ -62,11 +62,11 @@ public class Result {
 
 
     public int getCode() {
-        return code;
+        return errorcode;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    public void setCode(int errorcode) {
+        this.errorcode = errorcode;
     }
 
     public String getMsg() {

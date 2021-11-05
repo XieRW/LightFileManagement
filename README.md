@@ -12,6 +12,16 @@
 <img src="IMG/微文件管理系统整体架构图.jpg"/>
 
 # 技术框架使用注意事项
+## 接口规范
+接口统一输出标准
+```json
+#com.xrw.springCloudAlibaba.vo.ResponseJSON.java
+{
+    "errorcode": "错误码",
+    "data": "数据体",
+    "msg": "错误信息"
+}
+```
 
 ## Redis
 启动Redis服务：redis-server ./redis.windows.conf

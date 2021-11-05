@@ -31,8 +31,8 @@ public class ResultMsg {
         map.put(ResultCode.DUTY_UPLOAD_FILE_NULL,"文件为空！");
     }
 
-    public static String msg(int code) {
-        return map.get(code);
+    public static String msg(int errorcode) {
+        return map.get(errorcode);
     }
 
 }
