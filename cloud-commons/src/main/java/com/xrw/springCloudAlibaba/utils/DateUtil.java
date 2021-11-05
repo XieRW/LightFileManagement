@@ -80,7 +80,7 @@ public class DateUtil {
      * @param pattern 转换格式
      * @Return: java.lang.String
      * @Author: xearin
-     * @Date: 2019/11/18 11:13
+     * @Date: 2021/11/18 11:13
      */
     public static String dateToStrWithPattern(Date dateDate, String pattern) {
         SimpleDateFormat formatter = new SimpleDateFormat(pattern);

@@ -1,8 +1,5 @@
 package com.xrw.springCloudAlibaba.config.security;
 
-
-
-import com.alibaba.nacos.common.util.HttpMethod;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -11,11 +8,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-
-//import com.xrw.springCloudAlibaba.config.security.sso.eerduosi.SsoEErDuoSiAuthenticationProvider;
-//import com.xrw.springCloudAlibaba.config.security.sso.eerduosi.SsoEErDuoSiLoginFilter;
 
 /**
  * @author xearin
@@ -24,13 +16,10 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
     private LoginAuthSuccessHandler loginAuthSuccessHandler;
     private LoginAuthFailHandler loginAuthFailHandler;
-
     @Autowired
     private CustomAuthenticationProvider customAuthenticationProvider;
-
 
     @Autowired
     private LoginOutSuccessHandler loginOutSuccessHandler;
@@ -41,7 +30,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         this.loginAuthFailHandler = loginAuthFailHandler;
         this.loginAuthSuccessHandler = loginAuthSuccessHandler;
     }
-
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -65,7 +53,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .antMatchers("/rsa/publicKey").permitAll()
 //                .anyRequest().authenticated();
         http.authenticationProvider(customAuthenticationProvider);
-
     }
 
     @Bean
@@ -73,5 +60,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
-
 }

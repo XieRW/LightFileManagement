@@ -3,7 +3,7 @@ package com.xrw.springCloudAlibaba.enums;
 /**
  * @author xearin
  * @Description 基本常量
- * @data 2019/11/28
+ * @data 2021/11/28
  */
 public interface FileConstant {
 
