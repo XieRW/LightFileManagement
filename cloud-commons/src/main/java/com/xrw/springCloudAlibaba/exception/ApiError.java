@@ -1,7 +1,7 @@
 package com.xrw.springCloudAlibaba.exception;
 
 /**
- * @author unknown
+ * @author xearin
  */
 public enum ApiError {
     //============通用：权限相关=============

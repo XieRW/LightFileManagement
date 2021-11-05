@@ -14,7 +14,7 @@ import java.util.Set;
 /**
  * 保存用户的实际关键信息
  *
- * @author unknown
+ * @author xearin
  */
 @Data
 public class CustomUserDetails implements UserDetails, Serializable {

@@ -8,7 +8,7 @@ package com.xrw.springCloudAlibaba.config.security.result;
  * 根据子模块划分开头第二位数字。<br>
  *   用户模块(登陆模块)：40xx <br>
  *
- * @author leon
+ * @author xearin
  * @Date 2019-11-15 10:00
  **/
 public class ResultCode {

@@ -1,7 +1,7 @@
 package com.xrw.springCloudAlibaba.exception;
 
 /**
- * @author unknown
+ * @author xearin
  */
 public class ApiException extends RuntimeException {
 

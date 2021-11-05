@@ -1,7 +1,7 @@
 package com.xrw.springCloudAlibaba.enums;
 
 /**
- * @author xrw
+ * @author xearin
  * @Description 基本常量
  * @data 2019/11/28
  */

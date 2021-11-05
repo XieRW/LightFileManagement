@@ -14,7 +14,7 @@ import java.util.UUID;
 /**
  * 生成token
  *
- * @author admin
+ * @author xearin
  */
 public class TokenGenerator {
 

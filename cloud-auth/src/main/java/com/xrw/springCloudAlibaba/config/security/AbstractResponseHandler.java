@@ -1,7 +1,7 @@
 package com.xrw.springCloudAlibaba.config.security;
 
 /**
- * @author jetlag
+ * @author xearin
  * @date 2019/12/17 17:15
  */
 public abstract class AbstractResponseHandler {

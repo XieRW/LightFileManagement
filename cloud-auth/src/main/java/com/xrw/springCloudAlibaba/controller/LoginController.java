@@ -16,7 +16,7 @@ import java.io.IOException;
 /**
  * @program: LightFileManagement
  * @description: 系统登录控制器
- * @author: 谢荣旺 1429382875@qq.com
+ * @author: xearin-谢荣旺 1429382875@qq.com
  * @create: 2021-11-04 10:51
  **/
 @RestController

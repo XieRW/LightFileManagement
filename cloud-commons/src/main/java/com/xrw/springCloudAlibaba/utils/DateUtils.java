@@ -13,7 +13,7 @@ import java.util.Date;
 /**
  * 日期处理
  *
- * @author admin
+ * @author xearin
  */
 public class DateUtils {
 	/** 时间格式(yyyy-MM-dd) */

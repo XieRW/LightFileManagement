@@ -9,7 +9,7 @@ import com.xrw.springCloudAlibaba.entity.SysUserTokenEntity;
 /**
  * 用户Token
  *
- * @author admin
+ * @author xearin
  */
 public interface SysUserTokenService extends IService<SysUserTokenEntity> {
 

@@ -17,7 +17,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 /**
- * @author unknow
+ * @author xearin
  */
 @Slf4j
 public class DateUtil {
@@ -79,7 +79,7 @@ public class DateUtil {
      * @param dateDate 转换的日期
      * @param pattern 转换格式
      * @Return: java.lang.String
-     * @Author: xjx
+     * @Author: xearin
      * @Date: 2019/11/18 11:13
      */
     public static String dateToStrWithPattern(Date dateDate, String pattern) {

@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * 联系人表
  * 
- * @author chenshun
+ * @author xearin
  * @email sunlightcs@gmail.com
  * @date 2019-05-25 13:33:40
  */

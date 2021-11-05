@@ -33,8 +33,7 @@ import java.util.regex.Pattern;
 
 /***
  * 静态类不能使用@Autowired。
- * 见https://www.jianshu.com/p/127310cb90e0
- * @author unknow
+ * @author xearin
  */
 @Component
 @Slf4j
@@ -318,7 +317,7 @@ public class Util {
     /**
      * @param name
      * @return
-     * @author sk
+     * @author xearin
      * 后端字段名转前端字段名
      */
     public static String propertyNameTransfer(String name) {
@@ -335,7 +334,7 @@ public class Util {
     /**
      * @param str
      * @return
-     * @author sk
+     * @author xearin
      * 首字母大写
      */
     public static String firstLetterUpperCase(String str) {
@@ -345,7 +344,7 @@ public class Util {
     /**
      * @param str
      * @return
-     * @author sk
+     * @author xearin
      * 首字母小写
      */
     public static String firstLetterLowerCase(String str) {
@@ -357,7 +356,7 @@ public class Util {
      * @param clazz            实体类class
      * @param ignoreProperties 要屏蔽的实体类属性。即使json包含这些属性，生成的实体类的这些属性也不会有值。
      * @return 实体类实例
-     * @author sk
+     * @author xearin
      * 将json转换为实体类。
      * json键要求：该实体类的属性去除类型前缀，之后按驼峰规则。
      * 例如：实体类属性：vcContactorMobile -> json键：contactorMobile
@@ -438,7 +437,7 @@ public class Util {
      * @param json
      * @param <T>
      * @return
-     * @author sk
+     * @author xearin
      */
     public static <T> T jsonToEntity(JSONObject json, Class<T> clazz) {
         return jsonToEntity(json, clazz, new String[]{});
@@ -473,7 +472,7 @@ public class Util {
      * Page<DO> ---> Page<VO>
      *
      * @return
-     * @author TJQ
+     * @author xearin
      * @date 2019/09/30
      */
     public static <T, V> JSONObject pageToVOpage(Page<T> source, Class<V> target) {

@@ -17,7 +17,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @author unknown
+ * @author xearin
  */
 public class ResponseJSON extends JSONObject implements Serializable {
 
@@ -137,7 +137,7 @@ public class ResponseJSON extends JSONObject implements Serializable {
      * 忽略不需要的属性
      * @param properties: 需要忽略的属性
      * @return this
-     * @author jtb
+     * @author xearin
      * @date 2020/9/24 20:47
      */
     public ResponseJSON ignoreFieldFilter(String... properties) {

@@ -18,7 +18,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 //import com.xrw.springCloudAlibaba.config.security.sso.eerduosi.SsoEErDuoSiLoginFilter;
 
 /**
- * @author leon
+ * @author xearin
  */
 @Slf4j
 @Configuration

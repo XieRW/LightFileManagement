@@ -18,7 +18,7 @@ import org.springframework.web.client.RestTemplate;
  * 开启声明式缓存
  * 开启异步
  * 开启定时任务
- * @author: 谢荣旺 1429382875@qq.com
+ * @author: xearin-谢荣旺 1429382875@qq.com
  * @create: 2021-11-03 18:12
  **/
 @SpringBootApplication

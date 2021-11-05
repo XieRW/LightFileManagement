@@ -7,7 +7,7 @@ import java.util.Map;
  * 简单code msg映射
  * 国际化（如果需要）由前端完成，后端提供返回码以及描述即可
  *
- * @author leon
+ * @author xearin
  * @Date 2019-11-15 10:00
  **/
 public class ResultMsg {

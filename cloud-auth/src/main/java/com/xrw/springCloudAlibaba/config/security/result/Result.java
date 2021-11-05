@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.xrw.springCloudAlibaba.utils.JsonUtil;
 
 /**
- * @author leon
+ * @author xearin
  * @Date 2019-11-15 10:00
  **/
 public class Result {

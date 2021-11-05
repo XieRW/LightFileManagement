@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
 /**
  * 验证码
  *
- * @author admin
+ * @author xearin
  */
 public interface SysCaptchaService extends IService<SysCaptchaEntity> {
 

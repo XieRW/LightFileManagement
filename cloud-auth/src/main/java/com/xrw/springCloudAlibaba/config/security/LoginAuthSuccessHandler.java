@@ -23,7 +23,7 @@ import java.util.Optional;
 /**
  * 认证成功处理
  *
- * @author jetlag
+ * @author xearin
  * @date 2019/12/17 16:58
  */
 @Component

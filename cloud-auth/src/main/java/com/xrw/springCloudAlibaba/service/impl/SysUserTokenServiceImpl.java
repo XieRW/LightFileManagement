@@ -22,7 +22,7 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 
 /**
- * @author
+ * @author xearin
  */
 @Service("sysUserTokenService")
 public class SysUserTokenServiceImpl extends ServiceImpl<SysUserTokenDao, SysUserTokenEntity> implements SysUserTokenService {
