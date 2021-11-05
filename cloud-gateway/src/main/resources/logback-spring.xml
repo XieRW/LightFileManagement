@@ -146,10 +146,6 @@
         </filter>
     </appender>
 
-<!--    <springProfile name="dev">-->
-<!--        <logger name="com.sinvie.modules.dao" level="debug"/>-->
-<!--    </springProfile>-->
-
     <root level="info">
         <appender-ref ref="CONSOLE" />
         <!-- 是否输出日志文件 -->

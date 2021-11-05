@@ -16,8 +16,10 @@ CREATE TABLE user(
     source_user_id VARCHAR(255)    COMMENT '第三方用户id' ,
     source_type VARCHAR(255)    COMMENT '用户来源' ,
     role_id INT(64)    COMMENT '角色id' ,
+    status INT(10)   DEFAULT 1 COMMENT '状态;0：禁用   1：正常  2：' ,
     PRIMARY KEY (id)
-)  COMMENT = '角色表';
+)  COMMENT = '用户表';
+
 
 DROP TABLE IF EXISTS role;
 CREATE TABLE role(
@@ -73,4 +75,70 @@ CREATE TABLE captcha(
     expire_time DATETIME   DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '过期时间' ,
     PRIMARY KEY (uuid)
 )  COMMENT = '系统验证码';
+
+DROP TABLE IF EXISTS mail_contactor;
+CREATE TABLE mail_contactor(
+    id BIGINT(20) NOT NULL AUTO_INCREMENT  COMMENT '联系人id' ,
+    is_deleted BIT(1) NOT NULL  DEFAULT 0 COMMENT '删除;0：未删除  1：已删除' ,
+    revision INT(64)    COMMENT '乐观锁' ,
+    create_user_id BIGINT(20)    COMMENT '创建者id' ,
+    create_time DATETIME   DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间' ,
+    update_user_id INT(64)    COMMENT '更新人' ,
+    update_time DATETIME   DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间' ,
+    name VARCHAR(100)    COMMENT '联系人名称' ,
+    age TINYINT(4)    COMMENT '年龄' ,
+    sex BIT(1)    COMMENT '性别' ,
+    work_unit VARCHAR(100)    COMMENT '工作单位' ,
+    position VARCHAR(100)    COMMENT '职务' ,
+    is_importance BIT(1) NOT NULL  DEFAULT 0 COMMENT '是否重要联系人;0：否  1：是' ,
+    office_tel VARCHAR(200)    COMMENT '办公室号码' ,
+    mobile1 VARCHAR(200)    COMMENT '手机号码1' ,
+    mobile2 VARCHAR(200)    COMMENT '手机号码2' ,
+    home_tel VARCHAR(200)    COMMENT '家庭号码' ,
+    fax VARCHAR(200)    COMMENT '传真号码' ,
+    other_tel VARCHAR(200)    COMMENT '其他号码' ,
+    is_commonly_used BIT(1)   DEFAULT 0 COMMENT '是否常用联系人;0：否  1：是' ,
+    first_name VARCHAR(10)    COMMENT '拼音首字母' ,
+    email VARCHAR(100)    COMMENT '邮箱地址' ,
+    platform_id BIGINT(20)    COMMENT '终端用户id' ,
+    remark VARCHAR(100)    COMMENT '备注' ,
+    longitude DECIMAL(30,20)    COMMENT '经度' ,
+    latitude DECIMAL(30,20)    COMMENT '维度' ,
+    address VARCHAR(255)    COMMENT '地址' ,
+    open_id VARCHAR(255)    COMMENT '微信关注公众号的标识' ,
+    contactor_flag TINYINT(4)    COMMENT '用户标识;普通用户为1' ,
+    sms_prompt_expired_time DATETIME    COMMENT '短信可再次提醒的时间' ,
+    urgent_contactor_id BIGINT(20)    COMMENT '紧急联系人id' ,
+    personnel_mark BIT(1)    COMMENT '负责人标识;0为否 : 1为是' ,
+    images VARCHAR(255)    COMMENT '头像' ,
+    order_num INT(11)    COMMENT '' ,
+    default_phone_type INT(11)   DEFAULT 0 COMMENT '默认号码类型（0手机号码; 1办公号码 2家庭号码 3其他号码）' ,
+    wx_user BIT(1)   DEFAULT 0 COMMENT '是否微信用户，1是; 0否' ,
+    random_password VARCHAR(10)    COMMENT '' ,
+    app_user BIT(1)   DEFAULT 0 COMMENT '是否APP用户，1是; 0否' ,
+    app_status TINYINT(4)   DEFAULT 0 COMMENT 'APP状态，;0离线，1在线' ,
+    pinyin VARCHAR(100)    COMMENT '' ,
+    positioning_device_type INT(11)    COMMENT '关联定位类型' ,
+    positioning_device_id BIGINT(20)    COMMENT '关联定位的设备id' ,
+    source_contact_id VARCHAR(50)    COMMENT '' ,
+    source_type VARCHAR(50)    COMMENT '' ,
+    location_update_time DATETIME    COMMENT '位置更新时间' ,
+    cgcs_longitude DOUBLE    COMMENT '国家2000坐标系经度' ,
+    cgcs_latitude DOUBLE    COMMENT '国家2000坐标系纬度' ,
+    is_phone_display BIT(1)   DEFAULT 0 COMMENT '是否隐藏显示号码;0或null: 显示号码，1: 隐藏号码' ,
+    ring INT(11)   DEFAULT 0 COMMENT '来电语音;  0一般  1紧急' ,
+    PRIMARY KEY (id)
+)  COMMENT = '联系人表';
+
+DROP TABLE IF EXISTS sys_user_token;
+CREATE TABLE sys_user_token(
+    user_id BIGINT(20) NOT NULL   COMMENT '' ,
+    token VARCHAR(100) NOT NULL   COMMENT 'token' ,
+    expire_time DATETIME    COMMENT '过期时间' ,
+    update_time DATETIME    COMMENT '更新时间' ,
+    last_ip VARCHAR(255)    COMMENT '最后一次登录的ip' ,
+    PRIMARY KEY (user_id)
+)  COMMENT = '系统用户Token';
+
+CREATE UNIQUE INDEX token ON sys_user_token(token);
 

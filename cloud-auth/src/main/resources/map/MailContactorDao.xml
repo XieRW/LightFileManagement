@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xrw.springCloudAlibaba.dao.MailContactorDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.xrw.springCloudAlibaba.entity.MailContactorEntity" id="mailContactorMap">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="age" column="age"/>
+        <result property="sex" column="sex"/>
+        <result property="workUnit" column="work_unit"/>
+        <result property="position" column="position"/>
+        <result property="importance" column="is_importance"/>
+        <result property="officeTel" column="office_tel"/>
+        <result property="mobile1" column="mobile1"/>
+        <result property="mobile2" column="mobile2"/>
+        <result property="homeTel" column="home_tel"/>
+        <result property="fax" column="fax"/>
+        <result property="otherTel" column="other_tel"/>
+        <result property="commonlyUsed" column="is_commonly_used"/>
+        <result property="firstName" column="first_name"/>
+        <result property="email" column="email"/>
+        <result property="platformId" column="platform_id"/>
+        <result property="remark" column="remark"/>
+        <result property="deleted" column="is_deleted"/>
+        <result property="createUserId" column="create_user_id"/>
+        <result property="gmtCreate" column="gmt_create"/>
+        <result property="modifiedUserId" column="modified_user_id"/>
+        <result property="gmtModified" column="gmt_modified"/>
+        <result property="openId" column="open_id"/>
+        <result property="contactorFlag" column="contactor_flag"/>
+        <result property="smsPromptExpiredTime" column="sms_prompt_expired_time"/>
+        <result property="defaultPhoneType" column="default_phone_type"/>
+        <result property="wxUser" column="wx_user"/>
+
+    </resultMap>
+    <resultMap type="com.xrw.springCloudAlibaba.entity.MailContactorEntity" id="selectOneByOpenIdMap">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="age" column="age"/>
+        <result property="sex" column="sex"/>
+        <result property="workUnit" column="work_unit"/>
+        <result property="position" column="position"/>
+        <result property="importance" column="is_importance"/>
+        <result property="officeTel" column="office_tel"/>
+        <result property="mobile1" column="mobile1"/>
+        <result property="mobile2" column="mobile2"/>
+        <result property="homeTel" column="home_tel"/>
+        <result property="fax" column="fax"/>
+        <result property="otherTel" column="other_tel"/>
+        <result property="commonlyUsed" column="is_commonly_used"/>
+        <result property="firstName" column="first_name"/>
+        <result property="email" column="email"/>
+        <result property="platformId" column="platform_id"/>
+        <result property="remark" column="remark"/>
+        <result property="deleted" column="is_deleted"/>
+        <result property="createUserId" column="create_user_id"/>
+        <result property="gmtCreate" column="gmt_create"/>
+        <result property="modifiedUserId" column="modified_user_id"/>
+        <result property="gmtModified" column="gmt_modified"/>
+        <result property="openId" column="open_id"/>
+        <result property="contactorFlag" column="contactor_flag"/>
+        <result property="defaultPhoneType" column="default_phone_type"/>
+        <result property="wxUser" column="wx_user"/>
+    </resultMap>
+
+    <select id="selectContactorAndGroupIdsById" resultMap="selectContactorAndGroupIdsByIdMap">
+        SELECT
+        mc.id,mc.name,mc.age,mc.sex,mc.work_unit,mc.position
+        ,mc.is_importance,mc.office_tel,mc.mobile1,mc.mobile2
+        ,mc.home_tel,mc.fax,mc.other_tel,mc.is_commonly_used
+        ,mc.first_name,mc.email,mc.platform_id,mc.remark
+        ,mc.is_deleted,mc.create_user_id,mc.gmt_create
+        ,mc.modified_user_id,mc.gmt_modified,mcg.group_id,mc.open_id,mc.contactor_flag,mc.sms_prompt_expired_time
+        FROM mail_contactor mc
+        LEFT JOIN  mail_contactor_group mcg
+        ON mc.id=mcg.contacts_id
+        WHERE mc.id=#{contactorId}
+        AND mc.is_deleted=0
+    </select>
+    <resultMap type="com.xrw.springCloudAlibaba.entity.MailContactorEntity" id="selectContactorAndGroupIdsByIdMap">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="age" column="age"/>
+        <result property="sex" column="sex"/>
+        <result property="workUnit" column="work_unit"/>
+        <result property="position" column="position"/>
+        <result property="importance" column="is_importance"/>
+        <result property="officeTel" column="office_tel"/>
+        <result property="mobile1" column="mobile1"/>
+        <result property="mobile2" column="mobile2"/>
+        <result property="homeTel" column="home_tel"/>
+        <result property="fax" column="fax"/>
+        <result property="otherTel" column="other_tel"/>
+        <result property="commonlyUsed" column="is_commonly_used"/>
+        <result property="firstName" column="first_name"/>
+        <result property="email" column="email"/>
+        <result property="platformId" column="platform_id"/>
+        <result property="remark" column="remark"/>
+        <result property="deleted" column="is_deleted"/>
+        <result property="createUserId" column="create_user_id"/>
+        <result property="gmtCreate" column="gmt_create"/>
+        <result property="modifiedUserId" column="modified_user_id"/>
+        <result property="gmtModified" column="gmt_modified"/>
+        <result property="openId" column="open_id"/>
+        <result property="contactorFlag" column="contactor_flag"/>
+        <result property="smsPromptExpiredTime" column="sms_prompt_expired_time"/>
+        <result property="defaultPhoneType" column="default_phone_type"/>
+        <result property="wxUser" column="wx_user"/>
+        <result property="randomPassword" column="random_password"/>
+
+        <collection property="groups"  resultMap="selectContactorAndGroupIdsByIdMapa">
+
+        </collection>
+
+
+    </resultMap>
+    <resultMap id="selectContactorAndGroupIdsByIdMapa"  type="java.lang.Long">
+        <result column="group_id"></result>
+    </resultMap>
+
+
+    <select id="selectContactorAndGroupIdsByOpenId" resultMap="selectContactorAndGroupIdsByIdMap">
+        SELECT
+        mc.*,mcg.group_id AS group_id
+        FROM mail_contactor mc
+        LEFT JOIN  mail_contactor_group mcg
+        ON mc.id=mcg.contacts_id
+        WHERE mc.open_id = #{openId}
+        AND mc.is_deleted=0
+    </select>
+
+    <select id="selectContactir" resultMap="mailContactorsMap">
+        SELECT
+        co.*
+        FROM  mail_contactor co
+        JOIN mail_contactor_group cg ON cg.contacts_id = co.id
+        WHERE
+        <if test="groupIds != null and groupIds.length > 0">
+            cg.group_id
+            IN
+            <foreach collection="groupIds" item="groupId" open="(" separator="," close=")">
+                #{groupId}
+            </foreach>
+            AND
+        </if>
+        co.is_deleted =0
+        AND co.platform_id = #{platformId}
+        <if test="search != null and search.trim() != '' " >
+            AND ( co.`name` LIKE "%${search}%"
+            OR co.`position` LIKE "%${search}%"
+            OR co.`work_unit` LIKE "%${search}%"
+            
+            <foreach collection="plural" item="mobile">
+                OR  co.`office_tel`  LIKE  "%${mobile}%"
+                OR  co.`mobile1`  LIKE  "%${mobile}%"
+            </foreach>
+           
+            )
+            <!--  GROUP BY co.mobile1-->
+        
+        </if>
+       GROUP BY co.id
+       ORDER BY co.order_num asc
+    </select>
+
+    <select id="selectContactorListNoPage" resultMap="mailContactorsMap">
+        SELECT co.*
+        FROM mail_contactor co
+        LEFT JOIN mail_contactor_group cg ON cg.contacts_id = co.id
+        WHERE
+        <if test="groupIds != null">
+            cg.group_id
+            IN
+            <foreach collection="groupIds" item="groupId" open="(" separator="," close=")">
+                #{groupId}
+            </foreach>
+            AND
+        </if>
+        co.is_deleted =0
+        <if test="platformId != null">
+            AND co.platform_id = #{platformId}
+        </if>
+        GROUP BY co.id
+        ORDER BY co.order_num asc
+    </select>
+
+    <select id="selectCommonContact" resultMap="mailContactorsMap">
+        SELECT co.*
+        FROM
+        mail_contactor_group cg
+        LEFT JOIN
+        mail_contactor co
+        ON
+        cg.contacts_id = co.id
+        WHERE
+        co.is_deleted =0
+        AND co.is_commonly_used = 1
+        AND co.platform_id = #{platformId}
+        <if test="search != null and search.trim() != '' " >
+            AND ( co.`name`  LIKE  "%${search}%"
+            OR  co.`mobile1`  LIKE  "%${search}%"
+            OR  co.`position`  LIKE  "%${search}%")
+        </if>
+
+        GROUP BY co.id
+        ORDER BY gmt_create DESC
+
+    </select>
+
+    <select id="selectContactirByGroupId" resultMap="mailContactorsMap">
+        SELECT co.*
+        FROM
+        mail_contactor_group cg
+        LEFT JOIN
+        mail_contactor co
+        ON
+        cg.contacts_id = co.id
+        WHERE
+        cg.group_id= #{groupId}
+        AND
+        co.is_deleted =0
+
+
+
+    </select>
+
+    <resultMap type="com.xrw.springCloudAlibaba.entity.MailContactorEntity" id="mailContactorsMap" >
+
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="age" column="age"/>
+        <result property="sex" column="sex"/>
+        <result property="workUnit" column="work_unit"/>
+        <result property="position" column="position"/>
+        <result property="importance" column="is_importance"/>
+        <result property="officeTel" column="office_tel"/>
+        <result property="mobile1" column="mobile1"/>
+        <result property="mobile2" column="mobile2"/>
+        <result property="homeTel" column="home_tel"/>
+        <result property="fax" column="fax"/>
+        <result property="otherTel" column="other_tel"/>
+        <result property="commonlyUsed" column="is_commonly_used"/>
+        <result property="firstName" column="first_name"/>
+        <result property="email" column="email"/>
+        <result property="platformId" column="platform_id"/>
+        <result property="remark" column="remark"/>
+        <result property="createUserId" column="create_user_id"/>
+        <result property="gmtCreate" column="gmt_create"/>
+        <result property="modifiedUserId" column="modified_user_id"/>
+        <result property="gmtModified" column="gmt_modified"/>
+        <result property="openId" column="open_id"/>
+        <result property="contactorFlag" column="contactor_flag"/>
+        <result property="smsPromptExpiredTime" column="sms_prompt_expired_time"/>
+        <result property="defaultPhoneType" column="default_phone_type"/>
+        <result property="wxUser" column="wx_user"/>
+        <result property="randomPassword" column="random_password"/>
+
+    </resultMap>
+
+    <insert id="insertContactor" useGeneratedKeys="true" keyProperty="contactor.id"  parameterType="com.xrw.springCloudAlibaba.entity.MailContactorEntity">
+        INSERT INTO mail_contactor
+        VALUES(
+        #{contactor.id},#{contactor.name},#{contactor.age},#{contactor.sex},#{contactor.workUnit},#{contactor.position},#{contactor.importance},#{contactor.officeTel},
+        #{contactor.mobile1},#{contactor.mobile2},#{contactor.homeTel},#{contactor.fax},#{contactor.otherTel},#{contactor.commonlyUsed},#{contactor.firstName},#{contactor.email},
+        #{contactor.platformId},#{contactor.remark},#{contactor.deleted},#{contactor.createUserId},#{contactor.gmtCreate},#{contactor.modifiedUserId},#{contactor.gmtModified},
+        #{contactor.longitude},#{contactor.latitude},#{contactor.address},#{contactor.openId},#{contactor.contactorFlag},#{contactor.smsPromptExpiredTime}
+        )
+    </insert>
+
+    <insert id="insertContactorBath" useGeneratedKeys="true" keyProperty="id" >
+        INSERT INTO mail_contactor
+        VALUES
+        <foreach collection="list" item="contactor"  separator=",">
+        (
+        #{contactor.id},#{contactor.name},#{contactor.age},#{contactor.sex},#{contactor.workUnit},#{contactor.position},#{contactor.importance},#{contactor.officeTel},
+        #{contactor.mobile1},#{contactor.mobile2},#{contactor.homeTel},#{contactor.fax},#{contactor.otherTel},#{contactor.commonlyUsed},#{contactor.firstName},#{contactor.email},
+        #{contactor.platformId},#{contactor.remark},#{contactor.deleted},#{contactor.createUserId},#{contactor.gmtCreate},#{contactor.modifiedUserId},#{contactor.gmtModified},
+        #{contactor.longitude},#{contactor.latitude},#{contactor.address},#{contactor.openId},#{contactor.contactorFlag},#{contactor.smsPromptExpiredTime}
+        )
+        </foreach>
+    </insert>
+    
+    <select id="selectByRpPoliceResponseId" resultMap="mailContactorMap">
+    SELECT mc.* FROM rp_police_response rpr
+    LEFT JOIN
+    rp_personnel_associated rpa
+    ON
+    rpr.id=rpa.police_response_id
+    LEFT JOIN
+    mail_contactor mc
+    ON
+    rpa.sentinel_contactor_id =mc.id
+    WHERE
+    rpr.id=#{responseId}
+
+    </select>
+    <select id="selectOneByOpenId" resultMap="selectOneByOpenIdMap">
+        SELECT mc.*,mg.`name` AS mgname
+        FROM mail_contactor mc
+        LEFT JOIN mail_contactor_group mcg ON mc.id = mcg.contacts_id
+        LEFT JOIN mail_group mg ON mg.id = mcg.group_id
+        WHERE mc.open_id=#{openId}
+        <if test="platformId != null and platformId != 0">
+            AND mc.platform_id=#{platformId}
+        </if>
+        AND mc.contactor_flag !=1
+        AND mc.is_deleted=0
+        limit 1
+    </select>
+    <select id="selectOneById" resultType="com.xrw.springCloudAlibaba.entity.MailContactorEntity">
+        SELECT re.*,mc.`name` AS urgent_contactor_name ,mc.mobile1 AS urgent_contactor_mobile1
+        FROM
+        (
+        SELECT * from mail_contactor
+        WHERE id=#{id}
+        AND platform_id = #{platformId}
+        AND is_deleted=0
+        ) re
+        LEFT JOIN mail_contactor mc  ON re.urgent_contactor_id=mc.id
+    </select>
+<select id="selectContactorByMessageReceiverId" resultType="com.xrw.springCloudAlibaba.entity.MailContactorEntity">
+       select * from(select b.id,a.phone,b.name,b.position,b.work_unit,b.mobile1,b.mobile2 
+       from(SELECT phone FROM `message_infor` where create_user=#{userId} GROUP BY phone)a 
+       LEFT JOIN mail_contactor b ON a.phone=b.mobile1 AND b.is_deleted=0)c
+        <if test="search != null and search.trim() != '' " >
+            where  c.`phone`  LIKE  "%${search}%"
+            OR  c.`name`  LIKE  "%${search}%"
+            OR  c.`position`  LIKE  "%${search}%"
+            OR  c.`work_unit`  LIKE  "%${search}%"
+        </if>
+    </select>
+    <select id="contactorInfo" resultType="com.xrw.springCloudAlibaba.entity.MailContactorEntity">
+        select mc.id,mc.name,mc.sex,mg.name workUnit, mc.mobile1  from  mail_contactor mc
+        left join mail_contactor_group  mcg on mcg.contacts_id=mc.id
+        left join mail_group  mg   on mg.id =mcg.group_id
+        where mc.is_deleted=0
+	    <if test="contactIds.size()>0">
+            and mcg.contacts_id in
+            <foreach collection="contactIds" item="id" open="("
+                     close=")" separator=",">
+                #{id}
+            </foreach>
+        </if>
+
+    </select>
+    <select id="getDutyContactor" resultType="com.xrw.springCloudAlibaba.entity.MailContactorEntity">
+        SELECT * FROM mail_contactor  WHERE id=#{id}
+    </select>
+
+    <select id="getBySourceIdAndType" resultType="com.xrw.springCloudAlibaba.entity.MailContactorEntity">
+        select * from mail_contactor where source_type=#{sourceType} and source_contact_id=#{sourceId} and is_deleted = 0
+    </select>
+
+    <select id="getByMobile" resultType="com.xrw.springCloudAlibaba.entity.MailContactorEntity">
+        select * from mail_contactor where is_deleted = 0 and mobile1=#{mobile}
+    </select>
+
+    <select id="getListByMobile" resultType="com.xrw.springCloudAlibaba.entity.MailContactorEntity">
+        select * from mail_contactor where is_deleted = 0 and mobile1=#{mobile}
+    </select>
+</mapper>

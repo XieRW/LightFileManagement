@@ -32,7 +32,7 @@ public enum ApiError {
     DATA_SAVE_ERROR(20007, "数据保存失败"),
     DATA_TOO_LONG(20008, "数据长度过长"),
     DATA_INCORRECT_STRING(20009, "无法识别字符"),
-    DATA_EXISTS(20010, "数据已存在"),
+    DATA_EXISTS(20010, "数据已存在，无法插入重复数据"),
     DATA_GROUP_EXISTS(20011, "同一上级分组已存在相同名称分组，请重新编辑"),
     DATA_NUMBER_EXISTS(20012, "号码已存在"),
     DATA_NOT_EXISTS(20013, "数据不存在"),

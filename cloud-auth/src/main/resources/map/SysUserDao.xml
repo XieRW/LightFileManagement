@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xrw.springCloudAlibaba.dao.SysUserDao">
+
+	<select id="queryByUserName" resultType="com.xrw.springCloudAlibaba.entity.SysUserEntity">
+		select * from user where username = #{username} AND is_deleted=0
+	</select>
+
+	<!-- 根据用户名、显示名、联系方式和南海用户id查询用户，应用于南海同步用户-->
+	<select id="listBy" resultType="com.xrw.springCloudAlibaba.entity.SysUserEntity">
+		SELECT u.* FROM user u
+		<where>
+			u.is_deleted = 0
+			<if test="username != null and username != ''">
+				 AND u.username = #{username}
+			</if>
+			<if test="name != null and name != ''">
+				 AND u.name = #{name}
+			</if>
+			<if test="mobile != null and mobile != ''">
+				 AND u.mobile = #{mobile}
+			</if>
+			<if test="sourceUserId !=null">
+				 AND u.source_user_id = #{sourceUserId}
+			</if>
+			<if test="sourceType != null and sourceType != ''">
+				 AND u.source_type = #{sourceType}
+			</if>
+			<if test="platForm != null">
+				AND u.platform_id = #{platForm}
+			</if>
+		</where>
+	</select>
+
+	<select id="listByUsernameOrMobile" resultType="com.xrw.springCloudAlibaba.entity.SysUserEntity">
+		SELECT * FROM user
+		WHERE is_deleted = 0
+		<if test="mobile != null and mobile != ''">
+			AND mobile = #{mobile}
+		</if>
+		<if test="username != null and username != '' and mobile != null and mobile != ''">
+			OR username = #{username}
+		</if>
+		<if test="username != null and username != '' and (mobile == null or mobile == '')">
+			AND username = #{username}
+		</if>
+	</select>
+
+
+</mapper>

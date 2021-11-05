@@ -3,6 +3,7 @@ package com.xrw.springCloudAlibaba.exception;
 import com.xrw.springCloudAlibaba.vo.ResponseJSON;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
@@ -54,6 +55,9 @@ public class GlobalExceptionHandler {
         log.error(getExceptionAllinformation(e));
         if (e instanceof NumberFormatException) {
             return new ResponseJSON(ApiError.NUMBER_FORMAT_EXCEPTION);
+        }
+        if (e instanceof DuplicateKeyException) {
+            return new ResponseJSON(ApiError.DATA_EXISTS);
         }
         if (e instanceof NullPointerException) {
             e.printStackTrace();
