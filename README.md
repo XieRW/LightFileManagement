@@ -38,6 +38,7 @@
 
 默认缓存是2小时，使用5分钟缓存：@Cacheable(cacheManager = "cacheManagerIn1Minutes",value=RedisAutoCacheValue.PLATFORM_LIST)
 
+需要灵活使用Redis时，使用RedisUtil工具类，放在com.xrw.springCloudAlibaba.utils包下
 ## Nacos
 
 ### 官方文档
