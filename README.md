@@ -8,6 +8,17 @@
 ## 技术框架设计
 <img src="IMG/微文件管理-技术框架设计.jpg"/>
 
+1、登录以及鉴权系统
+
+1）登录服务放在cloud-auth微服务内，基于Spring-oauth2实现，内部原理还是Spring-security那一套，
+核心类是AbstractResponseHandler、CustomAuthenticationProvider、LoginAuthFailHandler、LoginAuthSuccessHandler、LoginOutSuccessHandler
+、SecurityConfig
+
+2）鉴权服务放在cloud-gateway微服务内，基于gateway实现，核心类是AuthGlobleFilter，实现了GlobalFilter接口，用filter方法过滤请求
+
+这么设计的目的是为了保证系统提供的接口统一由cloud-gateway进行路由转发，所以在路由之前需要对接口进行过滤，判断其是否可以无需验证就访问，或者是判断其
+是否有权限访问服务。保证整个系统在服务提供方面符合迪米特法则，减少前后端之间的直接依赖，只通过gateway进行通信。
+
 ## 整体架构图
 <img src="IMG/微文件管理系统整体架构图.jpg"/>
 
