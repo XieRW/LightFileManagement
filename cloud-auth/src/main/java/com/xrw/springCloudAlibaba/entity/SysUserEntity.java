@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -23,6 +24,7 @@ import java.util.List;
  * @date 2019-05-22 14:54:50
  */
 @Data
+@Accessors(chain = true)
 @TableName("user")
 public class SysUserEntity extends Model<SysUserEntity> {
 	private static final long serialVersionUID = 1L;
