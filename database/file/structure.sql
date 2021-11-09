@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS file;
 CREATE TABLE file(
     id INT(64) NOT NULL AUTO_INCREMENT  COMMENT '主键' ,
-    is_deleted VARCHAR(255)    COMMENT '逻辑删除;0:未删除，1：已删除' ,
+    is_deleted INT(1)   DEFAULT 0 COMMENT '逻辑删除;0:未删除，1：已删除' ,
     revision INT(64)    COMMENT '乐观锁' ,
     create_user_id INT(64)    COMMENT '创建人' ,
     create_time DATETIME   DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间' ,
@@ -21,7 +21,7 @@ CREATE TABLE file(
 DROP TABLE IF EXISTS file_share_friend;
 CREATE TABLE file_share_friend(
     id INT(64) NOT NULL AUTO_INCREMENT  COMMENT '主键' ,
-    is_deleted VARCHAR(255)    COMMENT '逻辑删除;0:未删除，1：已删除' ,
+    is_deleted INT(1)   DEFAULT 0 COMMENT '逻辑删除;0:未删除，1：已删除' ,
     revision INT(64)    COMMENT '乐观锁' ,
     create_user_id INT(64)    COMMENT '创建人' ,
     create_time DATETIME   DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间' ,

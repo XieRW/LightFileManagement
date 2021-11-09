@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS user;
 CREATE TABLE user(
     id INT(64) NOT NULL AUTO_INCREMENT  COMMENT '主键' ,
-    is_deleted VARCHAR(255)    COMMENT '逻辑删除;0:未删除，1：已删除' ,
+    is_deleted INT(1)   DEFAULT 0 COMMENT '逻辑删除;0:未删除，1：已删除' ,
     revision INT(64)    COMMENT '乐观锁' ,
     create_user_id INT(64)    COMMENT '创建人' ,
     create_time DATETIME   DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间' ,
@@ -24,7 +24,7 @@ CREATE TABLE user(
 DROP TABLE IF EXISTS role;
 CREATE TABLE role(
     id INT(64) NOT NULL AUTO_INCREMENT  COMMENT '主键' ,
-    is_deleted VARCHAR(255)    COMMENT '逻辑删除;0:未删除，1：已删除' ,
+    is_deleted INT(1)   DEFAULT 0 COMMENT '逻辑删除;0:未删除，1：已删除' ,
     revision INT(64)    COMMENT '乐观锁' ,
     create_user_id INT(64)    COMMENT '创建人' ,
     create_time DATETIME   DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间' ,
@@ -38,7 +38,7 @@ CREATE TABLE role(
 DROP TABLE IF EXISTS user_friend;
 CREATE TABLE user_friend(
     id INT(64) NOT NULL AUTO_INCREMENT  COMMENT '主键' ,
-    is_deleted VARCHAR(255)    COMMENT '逻辑删除;0:未删除，1：已删除' ,
+    is_deleted INT(1)   DEFAULT 0 COMMENT '逻辑删除;0:未删除，1：已删除' ,
     revision INT(64)    COMMENT '乐观锁' ,
     create_user_id INT(64)    COMMENT '创建人' ,
     create_time DATETIME   DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间' ,
@@ -54,7 +54,7 @@ CREATE TABLE user_friend(
 DROP TABLE IF EXISTS user_friend_application;
 CREATE TABLE user_friend_application(
     id INT(64) NOT NULL AUTO_INCREMENT  COMMENT '主键' ,
-    is_deleted VARCHAR(255)    COMMENT '逻辑删除;0:未删除，1：已删除' ,
+    is_deleted INT(1)   DEFAULT 0 COMMENT '逻辑删除;0:未删除，1：已删除' ,
     revision INT(64)    COMMENT '乐观锁' ,
     create_user_id INT(64)    COMMENT '创建人' ,
     create_time DATETIME   DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间' ,
@@ -79,7 +79,7 @@ CREATE TABLE captcha(
 DROP TABLE IF EXISTS mail_contactor;
 CREATE TABLE mail_contactor(
     id BIGINT(20) NOT NULL AUTO_INCREMENT  COMMENT '联系人id' ,
-    is_deleted BIT(1) NOT NULL  DEFAULT 0 COMMENT '删除;0：未删除  1：已删除' ,
+    is_deleted INT(1)   DEFAULT 0 COMMENT '逻辑删除;0:未删除，1：已删除' ,
     revision INT(64)    COMMENT '乐观锁' ,
     create_user_id BIGINT(20)    COMMENT '创建者id' ,
     create_time DATETIME   DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间' ,
@@ -142,3 +142,7 @@ CREATE TABLE sys_user_token(
 
 CREATE UNIQUE INDEX token ON sys_user_token(token);
 
+INSERT INTO `light_file_management`.`user`(`id`, `is_deleted`, `revision`, `create_user_id`, `create_time`, `update_user_id`, `update_time`, `username`, `name`, `mobile`, `email`, `password`, `salt`, `source_user_id`, `source_type`, `role_id`, `status`) VALUES (1, '0', 0, 1, '2021-11-05 11:39:38', 1, '2021-11-05 11:39:38', 'xrw', 'xearin', '18651920000', '1429382877@qq.com', 'a22c9962194e0b356341c04eaa09e8f7741c89d1c0303e9808d65ff7be61759f', '6AHIT66OR3JI9Pnr', '1', '', 1, 1);
+
+INSERT INTO `light_file_management`.`role`(`id`, `is_deleted`, `revision`, `create_user_id`, `create_time`, `update_user_id`, `update_time`, `name`, `remark`) VALUES (1, '0', NULL, 1, '2021-11-05 16:16:49', 1, '2021-11-05 16:16:56', 'admin', '管理员');
+INSERT INTO `light_file_management`.`role`(`id`, `is_deleted`, `revision`, `create_user_id`, `create_time`, `update_user_id`, `update_time`, `name`, `remark`) VALUES (2, '0', NULL, 1, '2021-11-06 09:10:03', 1, '2021-11-06 09:10:03', 'common', '一般成员');
