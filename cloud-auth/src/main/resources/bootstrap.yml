@@ -1,3 +1,6 @@
+# bootstrap.yml优先级高于application.yml
+# boostrap 由父 ApplicationContext 加载，比 applicaton 优先加载
+# boostrap 里面的属性不能被覆盖
 server:
   port: 9003
   servlet:

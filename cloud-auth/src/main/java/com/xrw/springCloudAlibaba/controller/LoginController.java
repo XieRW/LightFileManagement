@@ -73,10 +73,11 @@ public class LoginController {
                                @RequestParam(value = "uuid")String uuid,
                                @RequestParam(value = "username")String username,
                                @RequestParam(value = "password")String password,
-                               @RequestParam(value = "password",required = false)String email){
+                               @RequestParam(value = "email",required = false)String email){
         if (!sysCaptchaService.validate(uuid,captcha)){
             throw new ApiException(ApiError.CODE_ERROR);
         }
+        //todo 密码加密存储
         SysUserEntity sysUserEntity = new SysUserEntity().setUsername(username).setPassword(password).setEmail(email).setRoleId(2L);
         sysUserService.save(sysUserEntity);
         return new ResponseJSON(sysUserEntity);
