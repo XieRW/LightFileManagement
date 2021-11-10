@@ -32,11 +32,14 @@ public class LoginOutSuccessHandler implements LogoutSuccessHandler {
         String token = request.getHeader("token");
         String key = redisUtils.getKey("TOKEN:" + token + ":*");
         if(key == null){
-            response(response);
+            responseError(response);
             return;
         }
-        boolean delete = redisUtils.delete(key);
-        response(response);
+        if (redisUtils.delete(key)){
+            response(response);
+        }else {
+            responseError(response);
+        }
     }
 
 
@@ -44,6 +47,17 @@ public class LoginOutSuccessHandler implements LogoutSuccessHandler {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("errorcode",0);
         jsonObject.put("msg","success");
+        String responseStr = jsonObject.toJSONString();
+        PrintWriter out = response.getWriter();
+        out.write(new String(responseStr.getBytes(), StandardCharsets.UTF_8));
+        out.flush();
+    }
+
+    public void  responseError(HttpServletResponse response) throws IOException {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("errorcode",500);
+        //todo 解决中文乱码问题
+        jsonObject.put("msg","token error");
         String responseStr = jsonObject.toJSONString();
         PrintWriter out = response.getWriter();
         out.write(new String(responseStr.getBytes(), StandardCharsets.UTF_8));
