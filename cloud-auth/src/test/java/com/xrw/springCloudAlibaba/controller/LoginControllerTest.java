@@ -1,6 +1,7 @@
 package com.xrw.springCloudAlibaba.controller;
 
 import com.xrw.springCloudAlibaba.CloudAuthApplication;
+import com.xrw.springCloudAlibaba.utils.AESUtil;
 import com.xrw.springCloudAlibaba.vo.ResponseJSON;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,14 +27,19 @@ import org.springframework.web.client.RestTemplate;
 public class LoginControllerTest {
 
     private RestTemplate restTemplate = new RestTemplate();
+
     @Test
-    public void signUp(){
+    public void signUp() throws Exception {
         MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
-        map.add("captcha", "6f3xp");
-        map.add("uuid", "2e07a816-172d-4ad2-8f17-fbfaab339378");
-        map.add("username", "test3");
-        map.add("password", "123456");
+        String password = AESUtil.encrypt("123456").trim();
+        String username = AESUtil.encrypt("test4").trim();
+        map.add("captcha", "ga4p3");
+        map.add("uuid", "2e07a816-172d-4ad2-8f17-fbfaab339377");
+        map.add("name", "test3");
+        map.add("username", username);
+        map.add("password", password);
         map.add("email", "test1@qq.com");
+        map.add("mobile", "13920002000");
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
         HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(map, headers);

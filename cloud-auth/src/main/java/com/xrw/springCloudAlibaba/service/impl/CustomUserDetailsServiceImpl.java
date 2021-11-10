@@ -52,8 +52,8 @@ public class CustomUserDetailsServiceImpl implements UserDetailsService {
 
     public CustomUserDetails loadUserByUsernamePassword(String username, String password, String type) throws LoginException {
         try {
-            password = AESUtil.desEncrypt(password, "_aes_secret_key_", "_aes_secret_iv__").trim();
-            username = AESUtil.desEncrypt(username, "_aes_secret_key_", "_aes_secret_iv__").trim();
+            password = AESUtil.desEncrypt(password).trim();
+            username = AESUtil.desEncrypt(username).trim();
         } catch (Exception e) {
             log.warn("AESUtil解密失败>>>{}", e.getMessage());
         }

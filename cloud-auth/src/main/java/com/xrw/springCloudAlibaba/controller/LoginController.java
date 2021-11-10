@@ -6,8 +6,11 @@ import com.xrw.springCloudAlibaba.exception.ApiError;
 import com.xrw.springCloudAlibaba.exception.ApiException;
 import com.xrw.springCloudAlibaba.service.SysCaptchaService;
 import com.xrw.springCloudAlibaba.service.SysUserService;
+import com.xrw.springCloudAlibaba.service.impl.CustomUserDetailsServiceImpl;
+import com.xrw.springCloudAlibaba.utils.AESUtil;
 import com.xrw.springCloudAlibaba.vo.ResponseJSON;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -71,14 +74,30 @@ public class LoginController {
     @RequestMapping("/permit/signUp")
     public ResponseJSON signUp(@RequestParam(value = "captcha")String captcha,
                                @RequestParam(value = "uuid")String uuid,
+                               @RequestParam(value = "name")String name,
                                @RequestParam(value = "username")String username,
                                @RequestParam(value = "password")String password,
-                               @RequestParam(value = "email",required = false)String email){
+                               @RequestParam(value = "email",required = false)String email,
+                               @RequestParam(value = "mobile",required = false)String mobile){
         if (!sysCaptchaService.validate(uuid,captcha)){
             throw new ApiException(ApiError.CODE_ERROR);
         }
-        //todo 密码加密存储
-        SysUserEntity sysUserEntity = new SysUserEntity().setUsername(username).setPassword(password).setEmail(email).setRoleId(2L);
+        try {
+            password = AESUtil.desEncrypt(password).trim();
+            username = AESUtil.desEncrypt(username).trim();
+        } catch (Exception e) {
+            throw new ApiException("解密失败！");
+        }
+        String salt = RandomStringUtils.randomAlphanumeric(20);
+        password = CustomUserDetailsServiceImpl.sha256(salt, password);
+        SysUserEntity sysUserEntity = new SysUserEntity()
+                .setName(name)
+                .setUsername(username)
+                .setPassword(password)
+                .setSalt(salt)
+                .setEmail(email)
+                .setRoleId(2L)
+                .setMobile(mobile);
         sysUserService.save(sysUserEntity);
         return new ResponseJSON(sysUserEntity);
     }
