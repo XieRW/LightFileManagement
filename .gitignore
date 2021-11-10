@@ -1,9 +1,6 @@
 /nacos/logs/
 /logs/
 /nacos/bin/logs/
-/cloud-commons/target/
-/cloud-gateway/target/classes/
-/.idea/
 /.idea/
 /nacos/data/
 /**/target/
