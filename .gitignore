@@ -5,3 +5,4 @@
 /cloud-gateway/target/classes/
 /.idea/
 /.idea/
+/nacos/data/
