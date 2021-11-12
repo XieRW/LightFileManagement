@@ -3,7 +3,6 @@
 package com.xrw.springCloudAlibaba.utils;
 
 
-
 import com.xrw.springCloudAlibaba.exception.ApiError;
 import com.xrw.springCloudAlibaba.exception.ApiException;
 
@@ -25,13 +24,12 @@ public class TokenGenerator {
     private static final char[] hexCode = "0123456789abcdef".toCharArray();
 
 
-
     public static String toHexString(byte[] data) {
-        if(data == null) {
+        if (data == null) {
             return null;
         }
-        StringBuilder r = new StringBuilder(data.length*2);
-        for ( byte b : data) {
+        StringBuilder r = new StringBuilder(data.length * 2);
+        for (byte b : data) {
             r.append(hexCode[(b >> 4) & 0xF]);
             r.append(hexCode[(b & 0xF)]);
         }
