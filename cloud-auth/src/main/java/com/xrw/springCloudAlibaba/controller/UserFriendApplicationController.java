@@ -42,6 +42,13 @@ public class UserFriendApplicationController {
         return new ResponseJSON(userFriendApplicationEntity);
     }
 
+    /**
+     * @Description: page
+     * @param : 
+     * @return: com.xrw.springCloudAlibaba.vo.ResponseJSON
+     * @Author: xearin
+     * @Date: 2021/11/12
+     */
     @RequestMapping("/page")
     public ResponseJSON page(){
         return new ResponseJSON();
