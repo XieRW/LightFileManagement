@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @program: LightFileManagement
- * @description: 用户好友事情控制器层
+ * @description: 用户好友申请控制器层
  * @author: 谢荣旺 1429382875@qq.com
  * @create: 2021-11-12 10:30
  **/
