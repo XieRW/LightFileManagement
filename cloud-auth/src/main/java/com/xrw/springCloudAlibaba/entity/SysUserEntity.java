@@ -1,8 +1,5 @@
-
-
 package com.xrw.springCloudAlibaba.entity;
 
-import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -11,17 +8,11 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Data;
 import lombok.experimental.Accessors;
-
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 /**
- * TODO 系统用户
  * @author xearin
- * @date 2019-05-22 14:54:50
+ * @date 2021-11-12 14:54:50
  */
 @Data
 @Accessors(chain = true)
