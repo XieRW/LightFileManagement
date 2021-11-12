@@ -18,7 +18,7 @@ public enum ApiError {
     NOT_ADMIN_ERROR(10010, "非管理员账号无权限访问"),
     GENERATE_TOKEN_ERROR(10013, "生成Token失败"),
     OPERATION_UNPREMITTED(10014, "无操作权限"),
-    USER_NOT_FIND(10015,"获取当前用户失败"),
+    USER_NOT_FIND(10015, "获取当前用户失败"),
 
     //============通用：分页相关=============
     PAGE_ERROR(11001, "分页信息错误，必须同时为空或同时不为空"),
