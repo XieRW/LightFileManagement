@@ -40,8 +40,8 @@ public class MailContactorServiceImpl extends ServiceImpl<MailContactorDao, Mail
 
 
     @Override
-    public MailContactorEntity selectOneByOpenId(String openId , Long platformId){
-        return baseMapper.selectOneByOpenId(openId,platformId);
+    public MailContactorEntity selectOneByOpenId(String openId, Long platformId) {
+        return baseMapper.selectOneByOpenId(openId, platformId);
     }
 
     @Override
@@ -50,34 +50,34 @@ public class MailContactorServiceImpl extends ServiceImpl<MailContactorDao, Mail
     }
 
     @Override
-    public List<MailContactorEntity> selectContactorAndGroupIdsByOpenId(String openId){
+    public List<MailContactorEntity> selectContactorAndGroupIdsByOpenId(String openId) {
         return baseMapper.selectContactorAndGroupIdsByOpenId(openId);
     }
 
-	@Override
-	public List<MailContactorEntity> getListInGroup(List<String> ids) {
-		// TODO Auto-generated method stub
-		List<MailContactorEntity> ls=baseMapper.getListInGroup(ids);
-		return ls;
-	}
+    @Override
+    public List<MailContactorEntity> getListInGroup(List<String> ids) {
+        // TODO Auto-generated method stub
+        List<MailContactorEntity> ls = baseMapper.getListInGroup(ids);
+        return ls;
+    }
 
-	@Override
-	public List<MailContactorEntity> getListInMessageGroup(List<String> ids) {
-				List<MailContactorEntity> ls=baseMapper.getListInMessageGroup(ids);
-				return ls;
-	}
+    @Override
+    public List<MailContactorEntity> getListInMessageGroup(List<String> ids) {
+        List<MailContactorEntity> ls = baseMapper.getListInMessageGroup(ids);
+        return ls;
+    }
 
-	@Override
-	public List<MailContactorEntity> getListInRpUnit(long id) {
-	List<MailContactorEntity> ls=baseMapper.getListInRpUnit(id);
-	return ls;
-	}
+    @Override
+    public List<MailContactorEntity> getListInRpUnit(long id) {
+        List<MailContactorEntity> ls = baseMapper.getListInRpUnit(id);
+        return ls;
+    }
 
-	@Override
-	public List<MailContactorEntity> listByProtectIdAndType(Long id, int type) {
-		List<MailContactorEntity> ls=baseMapper.listByProtectIdAndType(id,type);
-		return ls;
-	}
+    @Override
+    public List<MailContactorEntity> listByProtectIdAndType(Long id, int type) {
+        List<MailContactorEntity> ls = baseMapper.listByProtectIdAndType(id, type);
+        return ls;
+    }
 
     @Override
     public List<MailContactorEntity> listNoPage(Map<String, Object> params) {
