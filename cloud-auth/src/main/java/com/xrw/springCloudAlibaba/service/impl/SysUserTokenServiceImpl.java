@@ -37,6 +37,7 @@ public class SysUserTokenServiceImpl extends ServiceImpl<SysUserTokenDao, SysUse
      * 过期时间，12小时后过期
      */
     private final static int EXPIRE = 3600 * 24 * 7;
+
     @Override
     public String createWxToken(long contactorId, String tokenType, int time) {
 
@@ -61,6 +62,7 @@ public class SysUserTokenServiceImpl extends ServiceImpl<SysUserTokenDao, SysUse
 
         return token;
     }
+
     @Override
     public String createToken(long userId, String tokenType) {
         //生成一个token
