@@ -1,11 +1,11 @@
 DROP TABLE IF EXISTS user;
 CREATE TABLE user(
-    id INT(64) NOT NULL AUTO_INCREMENT  COMMENT '主键' ,
+    id bigint NOT NULL AUTO_INCREMENT  COMMENT '主键' ,
     is_deleted INT(1)   DEFAULT 0 COMMENT '逻辑删除;0:未删除，1：已删除' ,
-    revision INT(64)    COMMENT '乐观锁' ,
-    create_user_id INT(64)    COMMENT '创建人' ,
+    revision bigint    COMMENT '乐观锁' ,
+    create_user_id bigint    COMMENT '创建人' ,
     create_time DATETIME   DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间' ,
-    update_user_id INT(64)    COMMENT '更新人' ,
+    update_user_id bigint    COMMENT '更新人' ,
     update_time DATETIME   DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间' ,
     username VARCHAR(255)    COMMENT '用户登录名' ,
     name VARCHAR(255)    COMMENT '用户昵称' ,
@@ -15,7 +15,7 @@ CREATE TABLE user(
     salt VARCHAR(255)    COMMENT '盐' ,
     source_user_id VARCHAR(255)    COMMENT '第三方用户id' ,
     source_type VARCHAR(255)    COMMENT '用户来源' ,
-    role_id INT(64)    COMMENT '角色id' ,
+    role_id bigint    COMMENT '角色id' ,
     status INT(10)   DEFAULT 1 COMMENT '状态;0：禁用   1：正常  2：' ,
     PRIMARY KEY (id)
 )  COMMENT = '用户表';
@@ -23,12 +23,12 @@ CREATE TABLE user(
 
 DROP TABLE IF EXISTS role;
 CREATE TABLE role(
-    id INT(64) NOT NULL AUTO_INCREMENT  COMMENT '主键' ,
+    id bigint NOT NULL AUTO_INCREMENT  COMMENT '主键' ,
     is_deleted INT(1)   DEFAULT 0 COMMENT '逻辑删除;0:未删除，1：已删除' ,
-    revision INT(64)    COMMENT '乐观锁' ,
-    create_user_id INT(64)    COMMENT '创建人' ,
+    revision bigint    COMMENT '乐观锁' ,
+    create_user_id bigint    COMMENT '创建人' ,
     create_time DATETIME   DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间' ,
-    update_user_id INT(64)    COMMENT '更新人' ,
+    update_user_id bigint    COMMENT '更新人' ,
     update_time DATETIME   DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间' ,
     name VARCHAR(255)    COMMENT '角色名称' ,
     remark VARCHAR(255)    COMMENT '备注' ,
@@ -37,15 +37,15 @@ CREATE TABLE role(
 
 DROP TABLE IF EXISTS user_friend;
 CREATE TABLE user_friend(
-    id INT(64) NOT NULL AUTO_INCREMENT  COMMENT '主键' ,
+    id bigint NOT NULL AUTO_INCREMENT  COMMENT '主键' ,
     is_deleted INT(1)   DEFAULT 0 COMMENT '逻辑删除;0:未删除，1：已删除' ,
-    revision INT(64)    COMMENT '乐观锁' ,
-    create_user_id INT(64)    COMMENT '创建人' ,
+    revision bigint    COMMENT '乐观锁' ,
+    create_user_id bigint    COMMENT '创建人' ,
     create_time DATETIME   DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间' ,
-    update_user_id INT(64)    COMMENT '更新人' ,
+    update_user_id bigint    COMMENT '更新人' ,
     update_time DATETIME   DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间' ,
-    apply_from_id INT(64)    COMMENT '申请者' ,
-    apply_to_id INT(64)    COMMENT '被申请者' ,
+    apply_from_id bigint    COMMENT '申请者' ,
+    apply_to_id bigint    COMMENT '被申请者' ,
     apply_time DATETIME    COMMENT '申请时间' ,
     agree_time DATETIME    COMMENT '通过时间' ,
     PRIMARY KEY (id)
@@ -53,15 +53,15 @@ CREATE TABLE user_friend(
 
 DROP TABLE IF EXISTS user_friend_application;
 CREATE TABLE user_friend_application(
-    id INT(64) NOT NULL AUTO_INCREMENT  COMMENT '主键' ,
+    id bigint NOT NULL AUTO_INCREMENT  COMMENT '主键' ,
     is_deleted INT(1)   DEFAULT 0 COMMENT '逻辑删除;0:未删除，1：已删除' ,
-    revision INT(64)    COMMENT '乐观锁' ,
-    create_user_id INT(64)    COMMENT '创建人' ,
+    revision bigint    COMMENT '乐观锁' ,
+    create_user_id bigint    COMMENT '创建人' ,
     create_time DATETIME   DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间' ,
-    update_user_id INT(64)    COMMENT '更新人' ,
+    update_user_id bigint    COMMENT '更新人' ,
     update_time DATETIME   DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间' ,
-    apply_from_id INT(64)    COMMENT '申请者' ,
-    apply_to_id INT(64)    COMMENT '被申请者' ,
+    apply_from_id bigint    COMMENT '申请者' ,
+    apply_to_id bigint    COMMENT '被申请者' ,
     agree_time DATETIME    COMMENT '通过时间' ,
     dispose_time DATETIME    COMMENT '处置时间' ,
     apply_status VARCHAR(255)    COMMENT '申请状态，关联字典apply_status' ,
@@ -80,10 +80,10 @@ DROP TABLE IF EXISTS mail_contactor;
 CREATE TABLE mail_contactor(
     id BIGINT(20) NOT NULL AUTO_INCREMENT  COMMENT '联系人id' ,
     is_deleted INT(1)   DEFAULT 0 COMMENT '逻辑删除;0:未删除，1：已删除' ,
-    revision INT(64)    COMMENT '乐观锁' ,
+    revision bigint    COMMENT '乐观锁' ,
     create_user_id BIGINT(20)    COMMENT '创建者id' ,
     create_time DATETIME   DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间' ,
-    update_user_id INT(64)    COMMENT '更新人' ,
+    update_user_id bigint    COMMENT '更新人' ,
     update_time DATETIME   DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间' ,
     name VARCHAR(100)    COMMENT '联系人名称' ,
     age TINYINT(4)    COMMENT '年龄' ,
@@ -132,7 +132,7 @@ CREATE TABLE mail_contactor(
 
 DROP TABLE IF EXISTS sys_user_token;
 CREATE TABLE sys_user_token(
-    user_id BIGINT(20) NOT NULL   COMMENT '' ,
+    user_id BIGINT NOT NULL   COMMENT '' ,
     token VARCHAR(100) NOT NULL   COMMENT 'token' ,
     expire_time DATETIME    COMMENT '过期时间' ,
     update_time DATETIME    COMMENT '更新时间' ,
