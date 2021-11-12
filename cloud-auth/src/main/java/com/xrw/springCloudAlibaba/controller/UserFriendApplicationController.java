@@ -44,6 +44,7 @@ public class UserFriendApplicationController {
 
     /**
      * @Description: page
+     * 暂未使用
      * @param : 
      * @return: com.xrw.springCloudAlibaba.vo.ResponseJSON
      * @Author: xearin
