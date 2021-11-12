@@ -62,7 +62,7 @@ CREATE TABLE user_friend_application(
     update_time DATETIME   DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间' ,
     apply_from_id bigint    COMMENT '申请者' ,
     apply_to_id bigint    COMMENT '被申请者' ,
-    agree_time DATETIME    COMMENT '通过时间' ,
+    apply_time DATETIME    COMMENT '申请时间' ,
     dispose_time DATETIME    COMMENT '处置时间' ,
     apply_status VARCHAR(255)    COMMENT '申请状态，关联字典apply_status' ,
     PRIMARY KEY (id)

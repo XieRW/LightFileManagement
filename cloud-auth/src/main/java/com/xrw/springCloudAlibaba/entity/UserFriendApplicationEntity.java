@@ -40,10 +40,10 @@ public class UserFriendApplicationEntity {
      */
     private Long applyToId;
     /**
-     * 通过时间
+     * 申请时间
      */
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
-    private Date agreeTime;
+    private Date applyTime;
     /**
      * 处置时间
      */

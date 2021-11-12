@@ -46,7 +46,7 @@ public class TokenGenerator {
             byte[] messageDigest = algorithm.digest();
             return toHexString(messageDigest);
         } catch (Exception e) {
-            throw new ApiException(ApiError.OAUTH2_PINGAN_GET_TOKEN_FAILED);
+            throw new ApiException(ApiError.GENERATE_TOKEN_ERROR);
         }
     }
 }
