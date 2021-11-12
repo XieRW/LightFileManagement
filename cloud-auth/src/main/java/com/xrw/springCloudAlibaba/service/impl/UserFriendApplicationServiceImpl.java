@@ -31,13 +31,13 @@ public class UserFriendApplicationServiceImpl extends ServiceImpl<UserFriendAppl
         UserFriendApplicationEntity selectOne = baseMapper.selectOne(new QueryWrapper<UserFriendApplicationEntity>()
                 .eq("apply_from_id", LoginUserHolder.getUserId())
                 .eq("apply_to_id", applyToId));
-        if (selectOne!=null){
+        if (selectOne != null) {
             throw new ApiException(ApiError.DATA_EXISTS);
         }
         UserFriendApplicationEntity selectOne2 = baseMapper.selectOne(new QueryWrapper<UserFriendApplicationEntity>()
                 .eq("apply_from_id", applyToId)
                 .eq("apply_to_id", LoginUserHolder.getUserId()));
-        if (selectOne2!=null){
+        if (selectOne2 != null) {
             throw new ApiException(ApiError.DATA_EXISTS);
         }
         //如果不存在重复记录则插入
@@ -50,25 +50,25 @@ public class UserFriendApplicationServiceImpl extends ServiceImpl<UserFriendAppl
         return applicationEntity;
     }
 
-    public UserFriendApplicationEntity dispose(Long id,String dispose){
+    public UserFriendApplicationEntity dispose(Long id, String dispose) {
         UserFriendApplicationEntity userFriendApplicationEntity = baseMapper.selectById(id);
-        if (userFriendApplicationEntity==null){
+        if (userFriendApplicationEntity == null) {
             throw new ApiException(ApiError.DATA_NOT_EXISTS);
         }
         SysDictItemEnum dict = SysDictItemEnum.getByKey(dispose);
-        if (dict==null){
+        if (dict == null) {
             throw new ApiException(ApiError.DICT_NOT_EXISTS);
         }
         userFriendApplicationEntity
                 .setDisposeTime(new Date())
                 .setApplyStatus(dict.getKey());
         baseMapper.updateById(userFriendApplicationEntity);
-        if (dict.equals(SysDictItemEnum.apply_status_1)){
+        if (dict.equals(SysDictItemEnum.apply_status_1)) {
             //先判断是否存在重复记录
             UserFriendEntity selectOne = userFriendService.getOne(new QueryWrapper<UserFriendEntity>()
                     .eq("apply_from_id", userFriendApplicationEntity.getApplyFromId())
                     .eq("apply_to_id", userFriendApplicationEntity.getApplyToId()));
-            if (selectOne!=null){
+            if (selectOne != null) {
                 //存在则直接返回
                 return userFriendApplicationEntity;
             }
