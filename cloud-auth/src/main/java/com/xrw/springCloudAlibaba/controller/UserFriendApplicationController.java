@@ -20,6 +20,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/user/friend/application")
 public class UserFriendApplicationController {
+    /**
+     * Field injection is not recommended
+     * 此提示的意思是，最好是用构造函数的方式注入bean，目的是为了显示的声明bean注入的顺序，避免在bean未被创建前使用bean的属性
+     */
     @Autowired
     private UserFriendServiceImpl userFriendService;
     @Autowired
