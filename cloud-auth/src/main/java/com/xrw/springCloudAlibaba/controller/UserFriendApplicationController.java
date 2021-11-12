@@ -30,42 +30,42 @@ public class UserFriendApplicationController {
     private UserFriendApplicationServiceImpl userFriendApplicationService;
 
     /**
-     * @Description: 新增好友请求记录
      * @param applyToId: 想要添加的好友的id
+     * @Description: 新增好友请求记录
      * @return: com.xrw.springCloudAlibaba.vo.ResponseJSON
      * @Author: xearin
      * @Date: 2021/11/12
      */
     @RequestMapping("/add")
-    public ResponseJSON add(@RequestParam(value = "applyToId")Long applyToId){
+    public ResponseJSON add(@RequestParam(value = "applyToId") Long applyToId) {
         UserFriendApplicationEntity userFriendApplicationEntity = userFriendApplicationService.addById(applyToId);
         return new ResponseJSON(userFriendApplicationEntity);
     }
 
     /**
+     * @param :
      * @Description: page
      * 暂未使用
-     * @param : 
      * @return: com.xrw.springCloudAlibaba.vo.ResponseJSON
      * @Author: xearin
      * @Date: 2021/11/12
      */
     @RequestMapping("/page")
-    public ResponseJSON page(){
+    public ResponseJSON page() {
         return new ResponseJSON();
     }
 
     /**
-     * @Description: 处置好友请求记录
-     * @param id: 记录id
+     * @param id:      记录id
      * @param dispose: 处置类型
+     * @Description: 处置好友请求记录
      * @return: com.xrw.springCloudAlibaba.vo.ResponseJSON
      * @Author: xearin
      * @Date: 2021/11/12
      */
     @RequestMapping("/dispose")
-    public ResponseJSON dispose(@RequestParam(value = "id")Long id,@RequestParam(value = "dispose")String dispose){
-        userFriendApplicationService.dispose(id,dispose);
+    public ResponseJSON dispose(@RequestParam(value = "id") Long id, @RequestParam(value = "dispose") String dispose) {
+        userFriendApplicationService.dispose(id, dispose);
         return new ResponseJSON();
     }
 }
