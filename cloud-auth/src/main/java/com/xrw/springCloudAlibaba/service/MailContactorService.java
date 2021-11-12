@@ -25,7 +25,7 @@ public interface MailContactorService extends IService<MailContactorEntity> {
     MailContactorEntity selectContactorAndGroupIdsById(Long contactorId);
 
 
-    List<MailContactorEntity> selectAllByGroupId(Long[] groupIds, String search) ;
+    List<MailContactorEntity> selectAllByGroupId(Long[] groupIds, String search);
 
 
 //    List<SysPlatformEntity> selectPlatformByOpenId(String openId);
@@ -38,13 +38,13 @@ public interface MailContactorService extends IService<MailContactorEntity> {
 
 //    PageUtils selectContactorByMessageReceiverId(Map<String, Object> params);
 
-	List<MailContactorEntity> getListInGroup(List<String> ids);
+    List<MailContactorEntity> getListInGroup(List<String> ids);
 
-	List<MailContactorEntity> getListInMessageGroup(List<String> ids);
+    List<MailContactorEntity> getListInMessageGroup(List<String> ids);
 
-	List<MailContactorEntity> getListInRpUnit(long id);
+    List<MailContactorEntity> getListInRpUnit(long id);
 
-	List<MailContactorEntity> listByProtectIdAndType(Long id, int i);
+    List<MailContactorEntity> listByProtectIdAndType(Long id, int i);
 
     List<MailContactorEntity> listNoPage(Map<String, Object> params);
 
