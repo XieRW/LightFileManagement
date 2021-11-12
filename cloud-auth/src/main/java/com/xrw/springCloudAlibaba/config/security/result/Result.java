@@ -38,25 +38,25 @@ public class Result {
         this.data = data;
     }
 
-    public static Result success(Object data){
+    public static Result success(Object data) {
         return new Result(ResultCode.SUCCESS, data);
     }
 
-    public static Result fail(int errorcode){
+    public static Result fail(int errorcode) {
         return new Result(errorcode, null);
     }
 
-    public static Result fail(int errorcode, String msg){
+    public static Result fail(int errorcode, String msg) {
         return new Result(errorcode, msg, null);
     }
 
 
-    public static Result fail(String msg){
+    public static Result fail(String msg) {
         return new Result(ResultCode.FAIL, msg, null);
     }
 
 
-    public String toJson(){
+    public String toJson() {
         return JsonUtil.toJson(this);
     }
 
@@ -86,7 +86,7 @@ public class Result {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return JSONObject.toJSONString(this);
     }
 }
