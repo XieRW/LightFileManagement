@@ -91,7 +91,5 @@
 ### 启动RokectMQ服务
 进入JAR/rocketmq-all-4.8.0-bin-release/bin目录，首先运行```mqnamesrv.cmd -n localhost:9876```
 启动Name Server,然后运行```mqbroker.cmd -n localhost:9876```启动broker服务，两个服务都启动成功，代表RocketMQ启动成功。
-
-![image-20211115141717126](C:\Users\A\AppData\Roaming\Typora\typora-user-images\image-20211115141717126.png)
-
-![image-20211115141902811](C:\Users\A\AppData\Roaming\Typora\typora-user-images\image-20211115141902811.png)
+<img src="IMG/image-20211115141717126.png"/>
+<img src="IMG/image-20211115141902811.png"/>
