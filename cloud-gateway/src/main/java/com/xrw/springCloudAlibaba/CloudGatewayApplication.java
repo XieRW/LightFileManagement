@@ -25,8 +25,8 @@ public class CloudGatewayApplication {
         return builder.routes()
                 .route("cloud-auth", r -> r.path("/auth/**")
                         .uri("lb://cloud-auth"))
-                .route("path_route_atguigu", r -> r.path("/test/guonei")
-                        .uri("http://news.baidu.com/guonei"))
+                .route("cloud-mq", r -> r.path("/mq/**")
+                        .uri("lb://cloud-mq"))
                 .build();
     }
 }
