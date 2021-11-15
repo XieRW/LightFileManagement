@@ -66,7 +66,10 @@ public enum ApiError {
     FILE_DEAL_FAILED(14017, "处理文件失败"),
 
     //============通用：字典相关=============
-    DICT_NOT_EXISTS(15000, "字典不存在");
+    DICT_NOT_EXISTS(15000, "字典不存在"),
+
+    //============通用：MQ相关=============
+    MQ_SEND_ERROR(16000,"MQ消息发送失败");
 
     public Integer errorCode;
     public String msg;
