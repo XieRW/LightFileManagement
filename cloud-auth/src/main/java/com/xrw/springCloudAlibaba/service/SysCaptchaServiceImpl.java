@@ -24,11 +24,10 @@ import java.util.Date;
  * @create: 2021-11-04 10:51
  **/
 @Service("sysCaptchaService")
-public class SysCaptchaServiceImpl extends ServiceImpl<SysCaptchaDao, SysCaptchaEntity> implements SysCaptchaService {
+public class SysCaptchaServiceImpl extends ServiceImpl<SysCaptchaDao, SysCaptchaEntity>   {
     @Autowired
     private Producer producer;
 
-    @Override
     public BufferedImage getCaptcha(String uuid) {
         if (StringUtils.isBlank(uuid)) {
             throw new ApiException("uuid不能为空");
@@ -46,7 +45,6 @@ public class SysCaptchaServiceImpl extends ServiceImpl<SysCaptchaDao, SysCaptcha
         return producer.createImage(code);
     }
 
-    @Override
     public boolean validate(String uuid, String code) {
         SysCaptchaEntity captchaEntity = this.getOne(new QueryWrapper<SysCaptchaEntity>().eq("uuid", uuid));
         if (captchaEntity == null) {

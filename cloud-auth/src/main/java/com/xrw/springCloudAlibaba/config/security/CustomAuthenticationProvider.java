@@ -2,6 +2,8 @@ package com.xrw.springCloudAlibaba.config.security;
 
 import com.xrw.springCloudAlibaba.config.config.LoginException;
 import com.xrw.springCloudAlibaba.service.CustomUserDetailsServiceImpl;
+import com.xrw.springCloudAlibaba.service.SysCaptchaServiceImpl;
+import com.xrw.springCloudAlibaba.service.SysUserServiceImpl;
 import com.xrw.springCloudAlibaba.vo.CustomUserDetails;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
@@ -32,10 +34,10 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
     private CustomUserDetailsServiceImpl userDetailsService;
 
     @Autowired
-    private SysUserService sysUserService;
+    private SysUserServiceImpl sysUserService;
 
     @Autowired
-    private SysCaptchaService sysCaptchaService;
+    private SysCaptchaServiceImpl sysCaptchaService;
 
     // 单点登录的uuid(用于跳过验证码)，勿删，以及下面对验证码的判断也不要删除
     @Value("${default.uuid:null}")

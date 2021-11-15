@@ -20,20 +20,19 @@ import java.util.Date;
  * @author xearin
  */
 @Service("sysUserTokenService")
-public class SysUserTokenServiceImpl extends ServiceImpl<SysUserTokenDao, SysUserTokenEntity> implements SysUserTokenService {
+public class SysUserTokenServiceImpl extends ServiceImpl<SysUserTokenDao, SysUserTokenEntity> {
     @Autowired
     private RedisUtils redisUtils;
     private final String tokenmark = "TOKEN:";
     @Autowired
-    private MailContactorService mailContactorService;
+    private MailContactorServiceImpl mailContactorService;
     @Autowired
-    private SysUserService sysUserService;
+    private SysUserServiceImpl sysUserService;
     /**
      * 过期时间，12小时后过期
      */
     private final static int EXPIRE = 3600 * 24 * 7;
 
-    @Override
     public String createWxToken(long contactorId, String tokenType, int time) {
 
         //生成一个token
@@ -58,7 +57,6 @@ public class SysUserTokenServiceImpl extends ServiceImpl<SysUserTokenDao, SysUse
         return token;
     }
 
-    @Override
     public String createToken(long userId, String tokenType) {
         //生成一个token
         String token = tokenType + "_" + TokenGenerator.generateValue();

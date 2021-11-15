@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.xrw.springCloudAlibaba.entity.MailContactorEntity;
 import com.xrw.springCloudAlibaba.entity.SysRoleEntity;
 import com.xrw.springCloudAlibaba.entity.SysUserEntity;
+import com.xrw.springCloudAlibaba.service.SysRoleServiceImpl;
 import com.xrw.springCloudAlibaba.vo.CustomUserDetails;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
@@ -27,9 +28,9 @@ import java.util.Optional;
 @Component
 @Slf4j
 public class LoginAuthSuccessHandler extends AbstractResponseHandler implements AuthenticationSuccessHandler {
-    private SysRoleService sysRoleService;
+    private SysRoleServiceImpl sysRoleService;
 
-    public LoginAuthSuccessHandler(SysRoleService sysRoleService){
+    public LoginAuthSuccessHandler(SysRoleServiceImpl sysRoleService){
         this.sysRoleService = sysRoleService;
     }
 

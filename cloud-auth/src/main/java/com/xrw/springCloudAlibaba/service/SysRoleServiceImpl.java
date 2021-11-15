@@ -9,6 +9,6 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service("SysRoleService")
-public class SysRoleServiceImpl extends ServiceImpl<SysRoleDao, SysRoleEntity> implements IService<SysRoleEntity> {
+public class SysRoleServiceImpl extends ServiceImpl<SysRoleDao, SysRoleEntity> {
 
 }

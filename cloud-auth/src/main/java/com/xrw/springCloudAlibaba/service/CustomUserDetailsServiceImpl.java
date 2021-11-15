@@ -21,13 +21,13 @@ import org.springframework.stereotype.Service;
 public class CustomUserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    private SysUserService sysUserService;
+    private SysUserServiceImpl sysUserService;
     @Autowired
     private RedisUtils redisUtils;
     @Autowired
-    private SysUserTokenService sysUserTokenService;
+    private SysUserTokenServiceImpl sysUserTokenService;
     @Autowired
-    private MailContactorService mailContactorService;
+    private MailContactorServiceImpl mailContactorService;
 
 
     /* public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
