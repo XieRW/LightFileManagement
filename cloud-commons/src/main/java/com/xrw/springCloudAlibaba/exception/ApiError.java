@@ -71,7 +71,10 @@ public enum ApiError {
     DICT_NOT_EXISTS(15000, "字典不存在"),
 
     //============通用：MQ相关=============
-    MQ_SEND_ERROR(16000,"MQ消息发送失败");
+    MQ_SEND_ERROR(16000,"MQ消息发送失败"),
+
+    //============通用：接口请求相关=============
+    PARAMETER_NULL_ERROR(17000, "参数不存在或者为空");
 
     public Integer errorCode;
     public String msg;
