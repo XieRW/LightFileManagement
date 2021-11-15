@@ -1,157 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.xrw.springCloudAlibaba</groupId>
-  <artifactId>LightFileManagement</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <modules>
-    <module>cloud-auth</module>
-    <module>cloud-user</module>
-    <module>cloud-file</module>
-    <module>cloud-monitor</module>
-    <module>cloud-consumer</module>
-    <module>cloud-commons</module>
-      <module>cloud-gateway</module>
-      <module>cloud-mq</module>
-  </modules>
-  <packaging>pom</packaging>
+    <groupId>com.xrw.springCloudAlibaba</groupId>
+    <artifactId>LightFileManagement</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>cloud-auth</module>
+        <module>cloud-user</module>
+        <module>cloud-file</module>
+        <module>cloud-monitor</module>
+        <module>cloud-consumer</module>
+        <module>cloud-commons</module>
+        <module>cloud-gateway</module>
+        <module>cloud-mq</module>
+        <module>cloud-rocketmq-dashboard</module>
+    </modules>
+    <packaging>pom</packaging>
 
-  <name>Maven</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://maven.apache.org/</url>
-  <inceptionYear>2001</inceptionYear>
+    <name>Maven</name>
+    <!-- FIXME change it to the project's website -->
+    <url>http://maven.apache.org/</url>
+    <inceptionYear>2001</inceptionYear>
 
 
-  <!-- 统一管理jar包版本 -->
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <junit.version>4.12</junit.version>
-    <log4j.version>1.2.17</log4j.version>
-    <lombok.version>1.16.18</lombok.version>
-    <mysql.version>5.1.47</mysql.version>
-    <druid.version>1.1.16</druid.version>
-    <mybatis.plus.boot.starter.version>3.4.1</mybatis.plus.boot.starter.version>
-    <!-- 跳过单元测试 -->
-    <skipTests>true</skipTests>
-    <fastjson.version>1.2.73</fastjson.version>
-  </properties>
+    <!-- 统一管理jar包版本 -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <junit.version>4.12</junit.version>
+        <log4j.version>1.2.17</log4j.version>
+        <lombok.version>1.16.18</lombok.version>
+        <mysql.version>5.1.47</mysql.version>
+        <druid.version>1.1.16</druid.version>
+        <mybatis.plus.boot.starter.version>3.4.1</mybatis.plus.boot.starter.version>
+        <!-- 跳过单元测试 -->
+        <skipTests>true</skipTests>
+        <fastjson.version>1.2.73</fastjson.version>
+    </properties>
 
-  <!-- 子模块继承之后，提供作用：锁定版本+子modlue不用写groupId和version  -->
-  <dependencyManagement>
-    <dependencies>
-      <!--spring boot 2.2.2-->
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-dependencies</artifactId>
-        <version>2.2.2.RELEASE</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!--spring cloud Hoxton.SR1-->
-      <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-dependencies</artifactId>
-        <version>Hoxton.SR1</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!--spring cloud alibaba 2.1.0.RELEASE-->
-      <dependency>
-        <groupId>com.alibaba.cloud</groupId>
-        <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-        <version>2.1.0.RELEASE</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId>
-        <version>${mysql.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.alibaba</groupId>
-        <artifactId>druid</artifactId>
-        <version>${druid.version}</version>
-      </dependency>
-      <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter -->
-      <dependency>
-        <groupId>com.baomidou</groupId>
-        <artifactId>mybatis-plus-boot-starter</artifactId>
-        <version>${mybatis.plus.boot.starter.version}</version>
-      </dependency>
-<!--      <dependency>-->
-<!--        <groupId>org.mybatis.spring.boot</groupId>-->
-<!--        <artifactId>mybatis-spring-boot-starter</artifactId>-->
-<!--        <version>${mybatis.spring.boot.version}</version>-->
-<!--      </dependency>-->
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>${junit.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>log4j</groupId>
-        <artifactId>log4j</artifactId>
-        <version>${log4j.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.projectlombok</groupId>
-        <artifactId>lombok</artifactId>
-        <version>${lombok.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.alibaba</groupId>
-        <artifactId>fastjson</artifactId>
-        <version>${fastjson.version}</version>
-        <!--<version>1.2.70</version> -->
-      </dependency>
-      <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310 -->
-      <dependency>
-        <groupId>com.fasterxml.jackson.datatype</groupId>
-        <artifactId>jackson-datatype-jsr310</artifactId>
-        <version>2.9.6</version>
-      </dependency>
-      <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-core</artifactId>
-        <version>2.10.3</version>
-      </dependency>
-      <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-databind</artifactId>
-        <version>2.10.3</version>
-      </dependency>
-      <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-annotations</artifactId>
-        <version>2.10.3</version>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
+    <!-- 子模块继承之后，提供作用：锁定版本+子modlue不用写groupId和version  -->
+    <dependencyManagement>
+        <dependencies>
+            <!--spring boot 2.2.2-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.2.2.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--spring cloud Hoxton.SR1-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Hoxton.SR1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--spring cloud alibaba 2.1.0.RELEASE-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>2.1.0.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.plus.boot.starter.version}</version>
+            </dependency>
+            <!--      <dependency>-->
+            <!--        <groupId>org.mybatis.spring.boot</groupId>-->
+            <!--        <artifactId>mybatis-spring-boot-starter</artifactId>-->
+            <!--        <version>${mybatis.spring.boot.version}</version>-->
+            <!--      </dependency>-->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+                <!--<version>1.2.70</version> -->
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310 -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.datatype</groupId>
+                <artifactId>jackson-datatype-jsr310</artifactId>
+                <version>2.9.6</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>2.10.3</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>2.10.3</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>2.10.3</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.3.2</version>
-      </plugin>
-      <!-- 资源文件拷贝插件 -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>2.5</version>
-        <configuration>
-          <encoding>UTF-8</encoding>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+            </plugin>
+            <!-- 资源文件拷贝插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>
