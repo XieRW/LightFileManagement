@@ -93,3 +93,18 @@
 启动Name Server,然后运行```mqbroker.cmd -n localhost:9876```启动broker服务，两个服务都启动成功，代表RocketMQ启动成功。
 <img src="IMG/image-20211115141717126.png"/>
 <img src="IMG/image-20211115141902811.png"/>
+
+### RocketMQ可视化仪表盘
+官方源码地址：https://github.com/apache/rocketmq-dashboard
+
+本项目已经将源代码clone下来并整合到本系统中，修改了后端配置文件cloud-rocketmq-dashboard/src/main/resources/application.properties
+里面的server.port=9010和rocketmq.config.namesrvAddr=localhost:9876；还修改了前端配置文件cloud-rocketmq-dashboard/frontend/package.json里面的"proxy": "http://localhost:9010",
+ 只需要用maven工具进行clean和package操作，然后将生成的jar包启动即可，
+也可以使用命令行：
+```
+mvn clean package -Dmaven.test.skip=true
+java -jar target/rocketmq-dashboard-1.0.1-SNAPSHOT.jar
+```
+- 生成的Jar包已经放到JAR目录下
+
+- cloud-rocketmq-dashboard服务不需要做成微服务发布到注册中心
