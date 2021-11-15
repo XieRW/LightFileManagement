@@ -1,6 +1,5 @@
 package com.xrw.springCloudAlibaba.config.rocketMQ;
 
-import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.xrw.springCloudAlibaba.dto.MessageEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
@@ -15,11 +14,10 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
-import java.util.TreeMap;
-import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
 /**
@@ -30,6 +28,7 @@ import java.util.stream.Collectors;
  * @create: 2021-02-07 15:23
  **/
 @Configuration
+@Order(1)
 // 将RocketMQProperties这个属性类注入到容器中，和Component的效果一样
 @EnableConfigurationProperties({RocketMQProperties.class})
 @Slf4j

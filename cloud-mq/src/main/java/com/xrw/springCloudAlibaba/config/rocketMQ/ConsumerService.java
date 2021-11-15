@@ -1,4 +1,4 @@
-package com.xrw.springCloudAlibaba.service;
+package com.xrw.springCloudAlibaba.config.rocketMQ;
 
 import com.xrw.springCloudAlibaba.dto.MessageEvent;
 import lombok.extern.slf4j.Slf4j;
