@@ -58,11 +58,11 @@
 
 ### 单机模式支持mysql
   在0.7版本之前，在单机模式时nacos使用嵌入式数据库实现数据的存储，不方便观察数据存储的基本情况。0.7版本增加了支持mysql数据源能力，具体的操作步骤：
-  
+
   1.安装数据库，版本要求：5.6.5+
-  
+
   2.初始化mysql数据库，数据库初始化文件：nacos-mysql.sql
-  
+
   3.修改conf/application.properties文件，增加支持mysql数据源配置（目前只支持mysql），添加mysql数据源的url、用户名和密码。
   ```yaml
   spring.datasource.platform=mysql
@@ -75,14 +75,23 @@
   ```
 ### Nacos启动
   Linux/Unix/Mac：
-  
+
   sh startup.sh -m standalone.
-  
+
   Standalone means it is non-cluster Mode. 
-  
+
   Windows：
-  
+
   cmd startup.cmd -m standalone.
-  
+
   Standalone means it is non-cluster Mode. 
-  
+
+## RocketMQ
+
+### 启动RokectMQ服务
+进入JAR/rocketmq-all-4.8.0-bin-release/bin目录，首先运行```mqnamesrv.cmd -n localhost:9876```
+启动Name Server,然后运行```mqbroker.cmd -n localhost:9876```启动broker服务，两个服务都启动成功，代表RocketMQ启动成功。
+
+![image-20211115141717126](C:\Users\A\AppData\Roaming\Typora\typora-user-images\image-20211115141717126.png)
+
+![image-20211115141902811](C:\Users\A\AppData\Roaming\Typora\typora-user-images\image-20211115141902811.png)
