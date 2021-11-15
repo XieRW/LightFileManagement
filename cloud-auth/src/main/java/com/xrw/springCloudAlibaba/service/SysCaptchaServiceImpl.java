@@ -1,6 +1,6 @@
 
 
-package com.xrw.springCloudAlibaba.service.impl;
+package com.xrw.springCloudAlibaba.service;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -9,7 +9,6 @@ import com.google.code.kaptcha.Producer;
 import com.xrw.springCloudAlibaba.dao.SysCaptchaDao;
 import com.xrw.springCloudAlibaba.entity.SysCaptchaEntity;
 import com.xrw.springCloudAlibaba.exception.ApiException;
-import com.xrw.springCloudAlibaba.service.SysCaptchaService;
 import com.xrw.springCloudAlibaba.utils.DateUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

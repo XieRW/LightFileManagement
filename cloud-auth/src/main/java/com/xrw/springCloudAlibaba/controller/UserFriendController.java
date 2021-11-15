@@ -1,7 +1,7 @@
 package com.xrw.springCloudAlibaba.controller;
 
-import com.xrw.springCloudAlibaba.service.impl.UserFriendApplicationServiceImpl;
-import com.xrw.springCloudAlibaba.service.impl.UserFriendServiceImpl;
+import com.xrw.springCloudAlibaba.service.UserFriendApplicationServiceImpl;
+import com.xrw.springCloudAlibaba.service.UserFriendServiceImpl;
 import com.xrw.springCloudAlibaba.vo.ResponseJSON;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +32,7 @@ public class UserFriendController {
     public ResponseJSON delete(){
         return new ResponseJSON();
     }
+
+
 
 }

@@ -1,12 +1,11 @@
 package com.xrw.springCloudAlibaba.controller;
 
-import com.xrw.springCloudAlibaba.dto.User;
 import com.xrw.springCloudAlibaba.entity.SysUserEntity;
 import com.xrw.springCloudAlibaba.exception.ApiError;
 import com.xrw.springCloudAlibaba.exception.ApiException;
-import com.xrw.springCloudAlibaba.service.SysCaptchaService;
-import com.xrw.springCloudAlibaba.service.SysUserService;
-import com.xrw.springCloudAlibaba.service.impl.CustomUserDetailsServiceImpl;
+import com.xrw.springCloudAlibaba.service.CustomUserDetailsServiceImpl;
+import com.xrw.springCloudAlibaba.service.SysCaptchaServiceImpl;
+import com.xrw.springCloudAlibaba.service.SysUserServiceImpl;
 import com.xrw.springCloudAlibaba.utils.AESUtil;
 import com.xrw.springCloudAlibaba.vo.ResponseJSON;
 import org.apache.commons.io.IOUtils;
@@ -32,9 +31,9 @@ import java.io.IOException;
 @RestController
 public class LoginController {
     @Autowired
-    private SysCaptchaService sysCaptchaService;
+    private SysCaptchaServiceImpl sysCaptchaService;
     @Autowired
-    private SysUserService sysUserService;
+    private SysUserServiceImpl sysUserService;
 
     /**
      * 验证码

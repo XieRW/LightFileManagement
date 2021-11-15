@@ -1,9 +1,8 @@
-package com.xrw.springCloudAlibaba.service.impl;
+package com.xrw.springCloudAlibaba.service;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xrw.springCloudAlibaba.dao.MailContactorDao;
 import com.xrw.springCloudAlibaba.entity.MailContactorEntity;
-import com.xrw.springCloudAlibaba.service.MailContactorService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

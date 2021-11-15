@@ -1,4 +1,4 @@
-package com.xrw.springCloudAlibaba.service.impl;
+package com.xrw.springCloudAlibaba.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

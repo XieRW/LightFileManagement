@@ -1,9 +1,7 @@
 package com.xrw.springCloudAlibaba.config.security;
 
 import com.xrw.springCloudAlibaba.config.config.LoginException;
-import com.xrw.springCloudAlibaba.service.SysCaptchaService;
-import com.xrw.springCloudAlibaba.service.SysUserService;
-import com.xrw.springCloudAlibaba.service.impl.CustomUserDetailsServiceImpl;
+import com.xrw.springCloudAlibaba.service.CustomUserDetailsServiceImpl;
 import com.xrw.springCloudAlibaba.vo.CustomUserDetails;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;

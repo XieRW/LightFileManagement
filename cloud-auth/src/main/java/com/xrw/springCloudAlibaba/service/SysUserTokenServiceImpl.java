@@ -1,18 +1,13 @@
 
 
-package com.xrw.springCloudAlibaba.service.impl;
+package com.xrw.springCloudAlibaba.service;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xrw.springCloudAlibaba.dao.SysUserTokenDao;
 import com.xrw.springCloudAlibaba.entity.MailContactorEntity;
 import com.xrw.springCloudAlibaba.entity.SysUserEntity;
 import com.xrw.springCloudAlibaba.entity.SysUserTokenEntity;
-import com.xrw.springCloudAlibaba.service.MailContactorService;
-import com.xrw.springCloudAlibaba.service.SysUserService;
-import com.xrw.springCloudAlibaba.service.SysUserTokenService;
 import com.xrw.springCloudAlibaba.utils.RedisUtils;
 import com.xrw.springCloudAlibaba.utils.TimeUtil;
 import com.xrw.springCloudAlibaba.utils.TokenGenerator;
