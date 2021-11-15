@@ -15,6 +15,7 @@
     <module>cloud-consumer</module>
     <module>cloud-commons</module>
       <module>cloud-gateway</module>
+      <module>cloud-mq</module>
   </modules>
   <packaging>pom</packaging>
 
