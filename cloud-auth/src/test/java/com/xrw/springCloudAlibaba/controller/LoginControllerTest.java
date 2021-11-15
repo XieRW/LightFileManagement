@@ -33,9 +33,9 @@ public class LoginControllerTest {
         MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
         String password = AESUtil.encrypt("123456").trim();
         String username = AESUtil.encrypt("test4").trim();
-        map.add("captcha", "ga4p3");
+        map.add("captcha", "xebey");
         map.add("uuid", "2e07a816-172d-4ad2-8f17-fbfaab339377");
-        map.add("name", "test3");
+        map.add("name", "test4");
         map.add("username", username);
         map.add("password", password);
         map.add("email", "test1@qq.com");
