@@ -108,3 +108,5 @@ java -jar target/rocketmq-dashboard-1.0.1-SNAPSHOT.jar
 - 生成的Jar包已经放到JAR目录下
 
 - cloud-rocketmq-dashboard服务不需要做成微服务发布到注册中心
+
+- 使用localhost:9010访问可视化界面。
