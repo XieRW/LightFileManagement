@@ -5,6 +5,7 @@ import com.xrw.springCloudAlibaba.dto.User;
 import com.xrw.springCloudAlibaba.exception.ApiError;
 import com.xrw.springCloudAlibaba.exception.ApiException;
 import com.xrw.springCloudAlibaba.vo.ResponseJSON;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.producer.*;
 import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.common.message.MessageQueue;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @program: LightFileManagement
@@ -25,6 +27,7 @@ import java.util.List;
  **/
 @RestController
 @RequestMapping("/rocket")
+@Slf4j
 public class ProducerController {
     @Qualifier("defaultMQProducer")
     @Autowired
@@ -33,19 +36,25 @@ public class ProducerController {
     @Autowired
     private TransactionMQProducer transactionProducer;
 
-
     /**
      * 发送普通消息
      */
     @GetMapping("/sendMessage")
-    public ResponseJSON sendMsg(@RequestParam(value = "msg") String msg) {
+    public ResponseJSON sendMsg(@RequestParam(value = "topic",required = false) String topic,
+                                @RequestParam(value = "tags",required = false) String tags,
+                                @RequestParam(value = "msg") String msg) {
+        if ("".equals(msg)){
+            throw new ApiException(ApiError.PARAMETER_NULL_ERROR);
+        }
         String json = JSON.toJSONString(msg);
-        Message message = new Message("user-topic", "white", json.getBytes());
+        Message message = new Message(Optional.ofNullable(topic).orElse("user-topic"),
+                Optional.ofNullable(tags).orElse("white"),
+                json.getBytes());
         try {
             SendResult result = defaultProducer.send(message);
-            System.out.println("消息id:" + result.getMsgId() + ":" + "," + "发送状态:" + result.getSendStatus());
+            log.info("消息id:" + result.getMsgId() + ":" + "," + "发送状态:" + result.getSendStatus());
         } catch (Exception e) {
-
+            log.info(e.getMessage());
             throw new ApiException(ApiError.MQ_SEND_ERROR);
         }
         return new ResponseJSON();
