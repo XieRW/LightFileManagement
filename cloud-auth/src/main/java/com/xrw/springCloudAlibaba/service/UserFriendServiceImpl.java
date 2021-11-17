@@ -29,8 +29,8 @@ public class UserFriendServiceImpl extends ServiceImpl<UserFriendDao, UserFriend
         if (page != null && size != null) {
             offset = (page - 1) * size;
         }
-        ArrayList<UserFriendEntity> applicationEntities = baseMapper.getSelectPage(applyToId,select, offset, size);
-        Long pageCount = baseMapper.getSelectPageCount(applyToId,select, offset, size);
+        ArrayList<UserFriendEntity> applicationEntities = baseMapper.getSelectPage(applyToId, select, offset, size);
+        Long pageCount = baseMapper.getSelectPageCount(applyToId, select, offset, size);
         Page<UserFriendEntity> entityPage = new Page<>(Optional.ofNullable(page).orElse(0),
                 Optional.ofNullable(size).orElse(0),
                 Optional.ofNullable(pageCount).orElse(0L));
