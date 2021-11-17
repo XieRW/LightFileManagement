@@ -40,4 +40,6 @@ public class SysUserController {
         List<SysUserEntity> sysUserEntities = userService.perfectMatching(search);
         return new ResponseJSON(sysUserEntities);
     }
+
+    // todo 根据用户id查询详细信息
 }
