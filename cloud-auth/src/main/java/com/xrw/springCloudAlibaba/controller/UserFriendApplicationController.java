@@ -43,22 +43,22 @@ public class UserFriendApplicationController {
     @RequestMapping("/add")
     public ResponseJSON add(@RequestParam(value = "applyToId") Long applyToId) {
         UserFriendApplicationEntity userFriendApplicationEntity = userFriendApplicationService.addById(applyToId);
-        feignCloudMqService.sendMsg("cloud-auth","friendApplication-"+userFriendApplicationEntity.getApplyToId(),"收到一条好友请求");
+        feignCloudMqService.sendMsg("cloud-auth", "friendApplication-" + userFriendApplicationEntity.getApplyToId(), "收到一条好友请求");
         return new ResponseJSON(userFriendApplicationEntity);
     }
 
     /**
-     * @Description: 获取收到的好友申请记录
      * @param page: 页码，从1开始
      * @param size: 每页条数
+     * @Description: 获取收到的好友申请记录
      * @return: com.xrw.springCloudAlibaba.vo.ResponseJSON
      * @Author: xearin 1429382875@qq.com
      * @Date: 2021/11/17
      */
     @RequestMapping("/page")
-    public ResponseJSON page(@RequestParam(value = "page",required = false)Integer page,
-                             @RequestParam(value = "size",required = false)Integer size) {
-        return new ResponseJSON(userFriendApplicationService.page(LoginUserHolder.getUserId(),page,size));
+    public ResponseJSON page(@RequestParam(value = "page", required = false) Integer page,
+                             @RequestParam(value = "size", required = false) Integer size) {
+        return new ResponseJSON(userFriendApplicationService.page(LoginUserHolder.getUserId(), page, size));
     }
 
     /**
