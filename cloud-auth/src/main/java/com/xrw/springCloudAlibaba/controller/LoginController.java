@@ -60,25 +60,25 @@ public class LoginController {
     }
 
     /**
-     * @Description: 普通用户注册
-     * @param captcha: 验证码
-     * @param uuid: uuid
+     * @param captcha:  验证码
+     * @param uuid:     uuid
      * @param username: 用户名
      * @param password: 密码
-     * @param email: 邮箱
+     * @param email:    邮箱
+     * @Description: 普通用户注册
      * @return: com.xrw.springCloudAlibaba.vo.ResponseJSON
      * @Author: xearin
      * @Date: 2021/11/6
      */
     @RequestMapping("/permit/signUp")
-    public ResponseJSON signUp(@RequestParam(value = "captcha")String captcha,
-                               @RequestParam(value = "uuid")String uuid,
-                               @RequestParam(value = "name")String name,
-                               @RequestParam(value = "username")String username,
-                               @RequestParam(value = "password")String password,
-                               @RequestParam(value = "email",required = false)String email,
-                               @RequestParam(value = "mobile",required = false)String mobile){
-        if (!sysCaptchaService.validate(uuid,captcha)){
+    public ResponseJSON signUp(@RequestParam(value = "captcha") String captcha,
+                               @RequestParam(value = "uuid") String uuid,
+                               @RequestParam(value = "name") String name,
+                               @RequestParam(value = "username") String username,
+                               @RequestParam(value = "password") String password,
+                               @RequestParam(value = "email", required = false) String email,
+                               @RequestParam(value = "mobile", required = false) String mobile) {
+        if (!sysCaptchaService.validate(uuid, captcha)) {
             throw new ApiException(ApiError.CODE_ERROR);
         }
         try {
