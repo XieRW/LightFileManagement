@@ -3,6 +3,7 @@ package com.xrw.springCloudAlibaba.controller;
 import com.xrw.springCloudAlibaba.entity.UserFriendApplicationEntity;
 import com.xrw.springCloudAlibaba.service.UserFriendApplicationServiceImpl;
 import com.xrw.springCloudAlibaba.service.UserFriendServiceImpl;
+import com.xrw.springCloudAlibaba.service.feign.FeignCloudMqService;
 import com.xrw.springCloudAlibaba.vo.ResponseJSON;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,8 @@ public class UserFriendApplicationController {
     private UserFriendServiceImpl userFriendService;
     @Autowired
     private UserFriendApplicationServiceImpl userFriendApplicationService;
+    @Autowired
+    private FeignCloudMqService feignCloudMqService;
 
     /**
      * @param applyToId: 想要添加的好友的id
@@ -39,6 +42,7 @@ public class UserFriendApplicationController {
     @RequestMapping("/add")
     public ResponseJSON add(@RequestParam(value = "applyToId") Long applyToId) {
         UserFriendApplicationEntity userFriendApplicationEntity = userFriendApplicationService.addById(applyToId);
+        feignCloudMqService.sendMsg("cloud-auth","friendApplication-"+userFriendApplicationEntity.getApplyToId(),"收到一条好友请求");
         return new ResponseJSON(userFriendApplicationEntity);
     }
 

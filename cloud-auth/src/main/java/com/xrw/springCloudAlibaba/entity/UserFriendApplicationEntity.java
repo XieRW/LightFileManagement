@@ -17,7 +17,7 @@ import java.util.Date;
  **/
 @Data
 @Accessors(chain = true)
-@TableName(value = "user_friend")
+@TableName(value = "user_friend_application")
 public class UserFriendApplicationEntity {
     @TableId
     private Long id;
