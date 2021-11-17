@@ -26,15 +26,15 @@ public class SysUserController {
     private SysUserServiceImpl userService;
 
     /**
-     * @Description: 通过关键字全匹配用户名、昵称、手机号、邮箱查找用户
      * @param search: 关键字
+     * @Description: 通过关键字全匹配用户名、昵称、手机号、邮箱查找用户
      * @return: com.xrw.springCloudAlibaba.vo.ResponseJSON
      * @Author: xearin 1429382875@qq.com
      * @Date: 2021/11/17
      */
     @RequestMapping("/select/perfectMatching")
-    public ResponseJSON perfectMatching(@RequestParam(value = "search",required = false)String search){
-        if (StringUtils.isEmpty(search)){
+    public ResponseJSON perfectMatching(@RequestParam(value = "search", required = false) String search) {
+        if (StringUtils.isEmpty(search)) {
             return new ResponseJSON(userService.list());
         }
         List<SysUserEntity> sysUserEntities = userService.perfectMatching(search);
