@@ -11,12 +11,9 @@ import feign.RequestTemplate;
 public class FeignHeadConfig implements RequestInterceptor {
     @Override
     public void apply(RequestTemplate requestTemplate) {
-
         try {
             String token = LoginUserHolder.getToken();
-
             String userStr = LoginUserHolder.getUserStr();
-
             requestTemplate.header("token", token);
             requestTemplate.header("user", userStr);
         } catch (Exception e) {
