@@ -28,27 +28,26 @@ public class UserFriendController {
     private UserFriendApplicationServiceImpl userFriendApplicationService;
 
     /**
-     * @Description: 分页查询好友，并支持对用户名、昵称、电话号码、邮箱的模糊查询
-     * @param page: 页码，从1开始
-     * @param size: 每页数量
+     * @param page:   页码，从1开始
+     * @param size:   每页数量
      * @param select: 模糊查询关键字
+     * @Description: 分页查询好友，并支持对用户名、昵称、电话号码、邮箱的模糊查询
      * @return: com.xrw.springCloudAlibaba.vo.ResponseJSON
      * @Author: xearin
      * @Date: 2021/11/17
      */
     @RequestMapping("/page")
-    public ResponseJSON page(@RequestParam(value = "page",required = false)Integer page,
-                             @RequestParam(value = "size",required = false)Integer size,
-                             @RequestParam(value = "select",required = false,defaultValue = "")String select){
+    public ResponseJSON page(@RequestParam(value = "page", required = false) Integer page,
+                             @RequestParam(value = "size", required = false) Integer size,
+                             @RequestParam(value = "select", required = false, defaultValue = "") String select) {
         Page<UserFriendEntity> entityPage = userFriendService.pageSelect(LoginUserHolder.getUserId(), select, page, size);
         return new ResponseJSON(entityPage);
     }
 
     @RequestMapping("/delete")
-    public ResponseJSON delete(){
+    public ResponseJSON delete() {
         return new ResponseJSON();
     }
-
 
 
 }
