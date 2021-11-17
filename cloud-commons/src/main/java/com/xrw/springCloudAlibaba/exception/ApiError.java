@@ -74,7 +74,8 @@ public enum ApiError {
     MQ_SEND_ERROR(16000,"MQ消息发送失败"),
 
     //============通用：接口请求相关=============
-    PARAMETER_NULL_ERROR(17000, "参数不存在或者为空");
+    PARAMETER_NULL_ERROR(17000, "参数不存在或者为空"),
+    FEIGN_CLOUD_MQ_ERROR(17001,"远程调用cloudMq服务失败");
 
     public Integer errorCode;
     public String msg;
