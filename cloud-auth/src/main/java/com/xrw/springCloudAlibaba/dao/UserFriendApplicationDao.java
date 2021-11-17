@@ -10,13 +10,13 @@ import java.util.ArrayList;
 
 /**
  * @author xearin
- * @email 
+ * @email
  * @date 2021-11-12 14:00:58
  */
 @Mapper
 public interface UserFriendApplicationDao extends BaseMapper<UserFriendApplicationEntity> {
 
-    @Select("<script> "+
+    @Select("<script> " +
             " select ufa.*,u.name as applyFromName " +
             " from user_friend_application ufa " +
             " left join user u on ufa.apply_from_id = u.id " +
@@ -24,16 +24,16 @@ public interface UserFriendApplicationDao extends BaseMapper<UserFriendApplicati
             " and ufa.apply_to_id = #{applyToId} and ufa.apply_status = #{status} order by ufa.id " +
 
             "<if test='offset!=null and size!=null'> " +
-            " limit #{offset},#{size} "+
-            "</if>"+
+            " limit #{offset},#{size} " +
+            "</if>" +
 
             "</script>")
     ArrayList<UserFriendApplicationEntity> getSelectPage(@Param("status") String status,
-                                                         @Param("applyToId")Long applyToId,
-                                                         @Param("offset")Integer offset,
-                                                         @Param("size")Integer size);
+                                                         @Param("applyToId") Long applyToId,
+                                                         @Param("offset") Integer offset,
+                                                         @Param("size") Integer size);
 
-    @Select("<script> "+
+    @Select("<script> " +
             " select count(ufa.id) " +
             " from user_friend_application ufa " +
             " left join user u on ufa.apply_from_id = u.id " +
@@ -41,12 +41,12 @@ public interface UserFriendApplicationDao extends BaseMapper<UserFriendApplicati
             " and ufa.apply_to_id = #{applyToId} and ufa.apply_status = #{status} order by ufa.id " +
 
             "<if test='offset!=null and size!=null'> " +
-            " limit #{offset},#{size} "+
-            "</if>"+
+            " limit #{offset},#{size} " +
+            "</if>" +
 
             "</script>")
     Long getSelectPageCount(@Param("status") String status,
-                            @Param("applyToId")Long applyToId,
-                            @Param("offset")Integer offset,
-                            @Param("size")Integer size);
+                            @Param("applyToId") Long applyToId,
+                            @Param("offset") Integer offset,
+                            @Param("size") Integer size);
 }
