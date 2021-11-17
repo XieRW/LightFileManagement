@@ -1,6 +1,8 @@
 package com.xrw.springCloudAlibaba.service;
 
+import cn.hutool.core.util.PageUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xrw.springCloudAlibaba.dao.UserFriendApplicationDao;
 import com.xrw.springCloudAlibaba.entity.UserFriendApplicationEntity;
@@ -12,8 +14,11 @@ import com.xrw.springCloudAlibaba.utils.login.LoginUserHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Optional;
 
 /**
  * @Description: 好友表服务层
@@ -82,5 +87,22 @@ public class UserFriendApplicationServiceImpl extends ServiceImpl<UserFriendAppl
             userFriendService.save(userFriendEntity);
         }
         return userFriendApplicationEntity;
+    }
+
+    public Page<UserFriendApplicationEntity> page(Long applyToId,
+                                                  @RequestParam(value = "page", required = false) Integer page,
+                                                  @RequestParam(value = "size", required = false) Integer size) {
+        int offset = 0;
+        if (page != null && size != null) {
+            offset = (page - 1) * size;
+        }
+        String status = SysDictItemEnum.apply_status_0.getKey();
+        ArrayList<UserFriendApplicationEntity> applicationEntities = baseMapper.getSelectPage(status,applyToId, offset, size);
+        Long pageCount = baseMapper.getSelectPageCount(status,applyToId, offset, size);
+        Page<UserFriendApplicationEntity> entityPage = new Page<>(Optional.ofNullable(page).orElse(0),
+                Optional.ofNullable(size).orElse(0),
+                Optional.ofNullable(pageCount).orElse(0L));
+        entityPage.setRecords(applicationEntities);
+        return entityPage;
     }
 }

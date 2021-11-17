@@ -1,6 +1,7 @@
 package com.xrw.springCloudAlibaba.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -53,4 +54,8 @@ public class UserFriendApplicationEntity {
      * 申请状态，关联字典apply_status
      */
     private String applyStatus;
+    @TableField(exist = false)
+    private String applyFromName;
+    @TableField(exist = false)
+    private String applyToName;
 }

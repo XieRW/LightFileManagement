@@ -4,6 +4,7 @@ import com.xrw.springCloudAlibaba.entity.UserFriendApplicationEntity;
 import com.xrw.springCloudAlibaba.service.UserFriendApplicationServiceImpl;
 import com.xrw.springCloudAlibaba.service.UserFriendServiceImpl;
 import com.xrw.springCloudAlibaba.service.feign.FeignCloudMqService;
+import com.xrw.springCloudAlibaba.utils.login.LoginUserHolder;
 import com.xrw.springCloudAlibaba.vo.ResponseJSON;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,22 +48,23 @@ public class UserFriendApplicationController {
     }
 
     /**
-     * @param :
-     * @Description: page
-     * 暂未使用
+     * @Description: 获取收到的好友申请记录
+     * @param page: 页码，从1开始
+     * @param size: 每页条数
      * @return: com.xrw.springCloudAlibaba.vo.ResponseJSON
-     * @Author: xearin
-     * @Date: 2021/11/12
+     * @Author: xearin 1429382875@qq.com
+     * @Date: 2021/11/17
      */
     @RequestMapping("/page")
-    public ResponseJSON page() {
-        return new ResponseJSON();
+    public ResponseJSON page(@RequestParam(value = "page",required = false)Integer page,
+                             @RequestParam(value = "size",required = false)Integer size) {
+        return new ResponseJSON(userFriendApplicationService.page(LoginUserHolder.getUserId(),page,size));
     }
 
     /**
      * @param id:      记录id
      * @param dispose: 处置类型
-     * @Description: 处置好友请求记录
+     * @Description: 处置好友请求
      * @return: com.xrw.springCloudAlibaba.vo.ResponseJSON
      * @Author: xearin
      * @Date: 2021/11/12

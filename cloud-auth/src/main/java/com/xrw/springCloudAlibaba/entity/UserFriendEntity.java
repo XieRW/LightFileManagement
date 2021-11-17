@@ -1,6 +1,7 @@
 package com.xrw.springCloudAlibaba.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -49,4 +50,8 @@ public class UserFriendEntity {
      */
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date agreeTime;
+    @TableField(exist = false)
+    private String applyFromName;
+    @TableField(exist = false)
+    private String applyToName;
 }
