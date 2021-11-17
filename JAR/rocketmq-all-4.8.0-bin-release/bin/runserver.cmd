@@ -24,7 +24,7 @@ set BASE_DIR=%~dp0
 set BASE_DIR=%BASE_DIR:~0,-1%
 for %%d in (%BASE_DIR%) do set BASE_DIR=%%~dpd
 
-set CLASSPATH=.;%BASE_DIR%conf;%CLASSPATH%
+set CLASSPATH=.;%BASE_DIR%conf;"%CLASSPATH%"
 
 set "JAVA_OPT=%JAVA_OPT% -server -Xms2g -Xmx2g -Xmn1g -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=320m"
 set "JAVA_OPT=%JAVA_OPT% -XX:+UseConcMarkSweepGC -XX:+UseCMSCompactAtFullCollection -XX:CMSInitiatingOccupancyFraction=70 -XX:+CMSParallelRemarkEnabled -XX:SoftRefLRUPolicyMSPerMB=0 -XX:+CMSClassUnloadingEnabled -XX:SurvivorRatio=8 -XX:-UseParNewGC"
