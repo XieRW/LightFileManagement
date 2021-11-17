@@ -12,13 +12,13 @@ import java.util.List;
 
 /**
  * @author xearin
- * @email 
+ * @email
  * @date 2021-11-12 14:00:58
  */
 @Mapper
 public interface UserFriendDao extends BaseMapper<UserFriendEntity> {
 
-    @Select("<script> "+
+    @Select("<script> " +
             " select uf.*,u.name as applyFromName " +
             " from user u " +
             " left join user_friend uf on uf.apply_from_id = u.id or uf.apply_to_id = u.id " +
@@ -32,16 +32,16 @@ public interface UserFriendDao extends BaseMapper<UserFriendEntity> {
             " order by u.name " +
 
             "<if test='offset!=null and size!=null'> " +
-            " limit #{offset},#{size} "+
-            "</if>"+
+            " limit #{offset},#{size} " +
+            "</if>" +
 
             "</script>")
     ArrayList<UserFriendEntity> getSelectPage(@Param("applyToId") Long applyToId,
-                                              @Param("select")String select,
-                                              @Param("offset")Integer offset,
-                                              @Param("size")Integer size);
+                                              @Param("select") String select,
+                                              @Param("offset") Integer offset,
+                                              @Param("size") Integer size);
 
-    @Select("<script> "+
+    @Select("<script> " +
             " select count(uf.id) " +
             " from user u " +
             " left join user_friend uf on uf.apply_from_id = u.id or uf.apply_to_id = u.id " +
@@ -55,12 +55,12 @@ public interface UserFriendDao extends BaseMapper<UserFriendEntity> {
             " order by u.name " +
 
             "<if test='offset!=null and size!=null'> " +
-            " limit #{offset},#{size} "+
-            "</if>"+
+            " limit #{offset},#{size} " +
+            "</if>" +
 
             "</script>")
     Long getSelectPageCount(@Param("applyToId") Long applyToId,
-                            @Param("select")String select,
-                            @Param("offset")Integer offset,
-                            @Param("size")Integer size);
+                            @Param("select") String select,
+                            @Param("offset") Integer offset,
+                            @Param("size") Integer size);
 }
