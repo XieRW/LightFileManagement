@@ -35,7 +35,7 @@
 ```
 
 ## Redis
-启动Redis服务：redis-server ./redis.windows.conf
+启动Redis服务：进入JAR/Redis-x64-5.0.10目录,运行命令```redis-server ./redis.windows.conf```
 
 使用注解，尽量避免手动代码使用缓存。注解参考例子。主要使用@Cacheable(读缓存如果没有则执行代码)和@CacheEvict(清缓存)， 
 如果是明确key的例如user的插入更新，则使用@CachePut(执行代码并将结果放入缓存)和@Cacheable读取缓存  
@@ -89,6 +89,8 @@
 ## RocketMQ
 
 ### 启动RokectMQ服务
+首先配置环境变量ROCKETMQ_HOME，值为rocketmq根目录，例如E:\code\LightFileManagement\JAR\rocketmq-all-4.8.0-bin-release
+
 进入JAR/rocketmq-all-4.8.0-bin-release/bin目录，首先运行```mqnamesrv.cmd -n localhost:9876```
 启动Name Server,然后运行```mqbroker.cmd -n localhost:9876```启动broker服务，两个服务都启动成功，代表RocketMQ启动成功。
 <img src="IMG/image-20211115141717126.png"/>
@@ -103,9 +105,9 @@
 也可以使用命令行：
 ```
 mvn clean package -Dmaven.test.skip=true
-java -jar target/rocketmq-dashboard-1.0.1-SNAPSHOT.jar
+java -jar target/cloud-rocketmq-dashboard-1.0.1-SNAPSHOT.jar
 ```
-- 生成的Jar包已经放到JAR目录下
+- 生成的Jar包已经放到JAR目录下,可以进入JAR目录，然后运行```java -jar cloud-rocketmq-dashboard-1.0.1-SNAPSHOT.jar```
 
 - cloud-rocketmq-dashboard服务不需要做成微服务发布到注册中心
 
