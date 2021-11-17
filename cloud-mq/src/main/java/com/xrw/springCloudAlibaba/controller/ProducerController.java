@@ -37,9 +37,9 @@ public class ProducerController {
     private TransactionMQProducer transactionProducer;
 
     /**
-     * 发送普通消息
+     * 发送普通消息,并发消费
      */
-    @GetMapping("/sendMessage")
+    @RequestMapping("/sendMessage")
     public ResponseJSON sendMsg(@RequestParam(value = "topic",required = false) String topic,
                                 @RequestParam(value = "tags",required = false) String tags,
                                 @RequestParam(value = "msg") String msg) {
@@ -52,7 +52,7 @@ public class ProducerController {
                 json.getBytes());
         try {
             SendResult result = defaultProducer.send(message);
-            log.info("消息id:" + result.getMsgId() + ":" + "," + "发送状态:" + result.getSendStatus());
+            log.info("消息id:" + result.getMsgId() + ";" + "发送状态:" + result.getSendStatus()+ ";" +"消息体："+ msg);
         } catch (Exception e) {
             log.info(e.getMessage());
             throw new ApiException(ApiError.MQ_SEND_ERROR);
@@ -65,7 +65,7 @@ public class ProducerController {
      *
      * @return
      */
-    @GetMapping("/sendTransactionMess")
+    @RequestMapping("/sendTransactionMess")
     public String sendTransactionMsg() {
         SendResult sendResult = null;
         try {
@@ -97,7 +97,7 @@ public class ProducerController {
     /**
      * 支持顺序发送消息
      */
-    @GetMapping("/sendMessOrder")
+    @RequestMapping("/sendMessOrder")
     public void sendMsgOrder() {
         for (int i = 0; i < 100; i++) {
             User user = new User();
