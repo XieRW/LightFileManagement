@@ -97,8 +97,8 @@ public class UserFriendApplicationServiceImpl extends ServiceImpl<UserFriendAppl
             offset = (page - 1) * size;
         }
         String status = SysDictItemEnum.apply_status_0.getKey();
-        ArrayList<UserFriendApplicationEntity> applicationEntities = baseMapper.getSelectPage(status,applyToId, offset, size);
-        Long pageCount = baseMapper.getSelectPageCount(status,applyToId, offset, size);
+        ArrayList<UserFriendApplicationEntity> applicationEntities = baseMapper.getSelectPage(status, applyToId, offset, size);
+        Long pageCount = baseMapper.getSelectPageCount(status, applyToId, offset, size);
         Page<UserFriendApplicationEntity> entityPage = new Page<>(Optional.ofNullable(page).orElse(0),
                 Optional.ofNullable(size).orElse(0),
                 Optional.ofNullable(pageCount).orElse(0L));
