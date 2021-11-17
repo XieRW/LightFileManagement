@@ -20,13 +20,13 @@ public interface UserFriendDao extends BaseMapper<UserFriendEntity> {
 
     @Select("<script> "+
             " select uf.*,u.name as applyFromName " +
-            " from user_friend uf " +
-            " left join user u on uf.apply_from_id = u.id or uf.apply_to_id = u.id " +
-            " where uf.is_deleted=0 " +
+            " from user u " +
+            " left join user_friend uf on uf.apply_from_id = u.id or uf.apply_to_id = u.id " +
+            " where uf.is_deleted=0 and u.id != #{applyToId} " +
             " and (uf.apply_to_id = #{applyToId} or uf.apply_from_id = #{applyToId}) " +
 
             "<if test='select!=null '> " +
-            " and (uf.username like '%${select}%' or uf.name like '%${select}%' or uf.mobile like '%${select}%' or  uf.email like '%${select}%')" +
+            " and (u.username like '%${select}%' or u.name like '%${select}%' or u.mobile like '%${select}%' or  u.email like '%${select}%')" +
             "</if> " +
 
             " order by u.name " +
@@ -36,17 +36,20 @@ public interface UserFriendDao extends BaseMapper<UserFriendEntity> {
             "</if>"+
 
             "</script>")
-    ArrayList<UserFriendEntity> getSelectPage(Long applyToId,String select, Integer offset, Integer size);
+    ArrayList<UserFriendEntity> getSelectPage(@Param("applyToId") Long applyToId,
+                                              @Param("select")String select,
+                                              @Param("offset")Integer offset,
+                                              @Param("size")Integer size);
 
     @Select("<script> "+
             " select count(uf.id) " +
-            " from user_friend uf " +
-            " left join user u on uf.apply_from_id = u.id or uf.apply_to_id = u.id " +
-            " where uf.is_deleted=0 " +
+            " from user u " +
+            " left join user_friend uf on uf.apply_from_id = u.id or uf.apply_to_id = u.id " +
+            " where uf.is_deleted=0 and u.id != #{applyToId} " +
             " and (uf.apply_to_id = #{applyToId} or uf.apply_from_id = #{applyToId}) " +
 
             "<if test='select!=null '> " +
-            " and (uf.username like '%${select}%' or uf.name like '%${select}%' or uf.mobile like '%${select}%' or  uf.email like '%${select}%')" +
+            " and (u.username like '%${select}%' or u.name like '%${select}%' or u.mobile like '%${select}%' or  u.email like '%${select}%')" +
             "</if> " +
 
             " order by u.name " +
@@ -56,5 +59,8 @@ public interface UserFriendDao extends BaseMapper<UserFriendEntity> {
             "</if>"+
 
             "</script>")
-    Long getSelectPageCount(Long applyToId,String select,Integer offset, Integer size);
+    Long getSelectPageCount(@Param("applyToId") Long applyToId,
+                            @Param("select")String select,
+                            @Param("offset")Integer offset,
+                            @Param("size")Integer size);
 }

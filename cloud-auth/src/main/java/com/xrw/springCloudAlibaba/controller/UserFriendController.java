@@ -39,7 +39,7 @@ public class UserFriendController {
     @RequestMapping("/page")
     public ResponseJSON page(@RequestParam(value = "page",required = false)Integer page,
                              @RequestParam(value = "size",required = false)Integer size,
-                             @RequestParam(value = "String",required = false,defaultValue = "")String select){
+                             @RequestParam(value = "select",required = false,defaultValue = "")String select){
         Page<UserFriendEntity> entityPage = userFriendService.pageSelect(LoginUserHolder.getUserId(), select, page, size);
         return new ResponseJSON(entityPage);
     }

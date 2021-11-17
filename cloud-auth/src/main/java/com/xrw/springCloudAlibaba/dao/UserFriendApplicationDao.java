@@ -3,6 +3,7 @@ package com.xrw.springCloudAlibaba.dao;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.xrw.springCloudAlibaba.entity.UserFriendApplicationEntity;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.ArrayList;
@@ -27,7 +28,10 @@ public interface UserFriendApplicationDao extends BaseMapper<UserFriendApplicati
             "</if>"+
 
             "</script>")
-    ArrayList<UserFriendApplicationEntity> getSelectPage(String status,Long applyToId,Integer offset, Integer size);
+    ArrayList<UserFriendApplicationEntity> getSelectPage(@Param("status") String status,
+                                                         @Param("applyToId")Long applyToId,
+                                                         @Param("offset")Integer offset,
+                                                         @Param("size")Integer size);
 
     @Select("<script> "+
             " select count(ufa.id) " +
@@ -41,5 +45,8 @@ public interface UserFriendApplicationDao extends BaseMapper<UserFriendApplicati
             "</if>"+
 
             "</script>")
-    Long getSelectPageCount(String status,Long applyToId,Integer offset, Integer size);
+    Long getSelectPageCount(@Param("status") String status,
+                            @Param("applyToId")Long applyToId,
+                            @Param("offset")Integer offset,
+                            @Param("size")Integer size);
 }

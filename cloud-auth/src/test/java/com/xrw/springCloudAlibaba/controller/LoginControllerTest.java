@@ -46,4 +46,12 @@ public class LoginControllerTest {
         ResponseEntity<ResponseJSON> entity = restTemplate.postForEntity("http://localhost:9101/auth/permit/signUp", request, ResponseJSON.class);
         System.out.println(entity.getBody());
     }
+
+    @Test
+    public void encrypt() throws Exception {
+        String username = AESUtil.encrypt("xrw").trim();
+        String password = AESUtil.encrypt("123").trim();
+        System.out.println(username);
+        System.out.println(password);
+    }
 }
