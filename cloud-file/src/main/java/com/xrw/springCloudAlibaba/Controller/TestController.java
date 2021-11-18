@@ -29,48 +29,50 @@ public class TestController {
      * @Date: 2020/12/14
      */
     @RequestMapping("/upload")
-    public CommonResult<String> upload(){
-        return new CommonResult<String>("cloud-file:"+port+"/cloud/consumer/upload"+"调用成功！");
+    public CommonResult<String> upload() {
+        return new CommonResult<String>("cloud-file:" + port + "/cloud/consumer/upload" + "调用成功！");
     }
 
     /**
-     * @Description: paymentFeignTimeout 超时控制
      * @param :
+     * @Description: paymentFeignTimeout 超时控制
      * @return: java.lang.String
      * @Author: 谢荣旺
      * @Date: 2020/12/21
      */
     @GetMapping(value = "/feign/timeout")
-    public CommonResult<String> paymentFeignTimeout()
-    {
+    public CommonResult<String> paymentFeignTimeout() {
         // 业务逻辑处理正确，但是需要耗费3秒钟
-        try { TimeUnit.SECONDS.sleep(3); } catch (InterruptedException e) { e.printStackTrace(); }
-        return new CommonResult<String>("cloud-file:"+port+"/cloud/consumer/feign/timeout"+"调用成功！");
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return new CommonResult<String>("cloud-file:" + port + "/cloud/consumer/feign/timeout" + "调用成功！");
     }
 
     /**
-     * @Description: testSentinelResource3
      * @param :
+     * @Description: testSentinelResource3
      * @return: com.xrw.springCloudAlibaba.vo.CommonResult
      * @Author: 谢荣旺
      * @Date: 2020/12/28
      */
     @RequestMapping("/testSentinelResource3")
-    public CommonResult testSentinelResource3(){
+    public CommonResult testSentinelResource3() {
 //        throw new IllegalArgumentException ("IllegalArgumentException,非法参数异常....");
         return new CommonResult("=========testSentinelResource3");
     }
 
     /**
-     * @Description: 测试zipkin链路追踪
      * @param :
+     * @Description: 测试zipkin链路追踪
      * @return: java.lang.String
      * @Author: 谢荣旺
      * @Date: 2020/12/28
      */
     @GetMapping("/zipkin")
-    public CommonResult cloudFileZipkin()
-    {
+    public CommonResult cloudFileZipkin() {
         return new CommonResult("hi ,i'am cloudFileZipkin server，welcome to cloudXRW，O(∩_∩)O哈哈~");
     }
 
