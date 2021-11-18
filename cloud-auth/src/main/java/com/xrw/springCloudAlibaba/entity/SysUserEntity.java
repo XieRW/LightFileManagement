@@ -12,6 +12,7 @@ import lombok.experimental.Accessors;
 import java.util.Date;
 
 /**
+ * 用户表
  * @author xearin
  * @date 2021-11-12 14:54:50
  */
