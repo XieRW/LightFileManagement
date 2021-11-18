@@ -12,7 +12,7 @@ import java.util.Date;
 
 /**
  * @program: LightFileManagement
- * @description: 好友表
+ * @description: 好友申请表
  * @author: 谢荣旺 1429382875@qq.com
  * @create: 2021-11-12 09:43
  **/
