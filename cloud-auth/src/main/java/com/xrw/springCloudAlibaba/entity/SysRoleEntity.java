@@ -13,7 +13,7 @@ import lombok.Data;
 import java.util.Date;
 
 /**
- * TODO 系统用户
+ * 角色表
  *
  * @author xearin
  * @date 2019-05-22 14:54:50
