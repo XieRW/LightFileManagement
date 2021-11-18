@@ -50,8 +50,14 @@ public class UserFriendEntity {
      */
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date agreeTime;
+    /**
+     * 申请者昵称
+     */
     @TableField(exist = false)
     private String applyFromName;
+    /**
+     * 被申请者昵称
+     */
     @TableField(exist = false)
     private String applyToName;
 }

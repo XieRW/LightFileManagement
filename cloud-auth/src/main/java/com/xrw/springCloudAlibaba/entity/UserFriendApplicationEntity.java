@@ -54,8 +54,14 @@ public class UserFriendApplicationEntity {
      * 申请状态，关联字典apply_status
      */
     private String applyStatus;
+    /**
+     * 申请者昵称
+     */
     @TableField(exist = false)
     private String applyFromName;
+    /**
+     * 被申请者昵称
+     */
     @TableField(exist = false)
     private String applyToName;
 }
