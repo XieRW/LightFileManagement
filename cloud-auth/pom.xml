@@ -13,7 +13,6 @@
 
     <properties>
         <kaptcha.version>0.0.9</kaptcha.version>
-        <mybatisplus.version>3.4.2</mybatisplus.version>
     </properties>
 
     <dependencies>
@@ -54,12 +53,6 @@
             <groupId>com.github.axet</groupId>
             <artifactId>kaptcha</artifactId>
             <version>${kaptcha.version}</version>
-        </dependency>
-        <!--mybatis-plus-->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>${mybatisplus.version}</version>
         </dependency>
         <!--mysql-connector-java-->
         <dependency>
