@@ -33,6 +33,15 @@ public class SysUserTokenServiceImpl extends ServiceImpl<SysUserTokenDao, SysUse
      */
     private final static int EXPIRE = 3600 * 24 * 7;
 
+    /**
+     * @Description: 创建微信用户的token，微信用户信息存储于联系人表mail_contactor
+     * @param contactorId:
+     * @param tokenType:
+     * @param time:
+     * @return: java.lang.String
+     * @Author: xearin 1429382875@qq.com
+     * @Date: 2021/11/19
+     */
     public String createWxToken(long contactorId, String tokenType, int time) {
 
         //生成一个token
@@ -57,6 +66,14 @@ public class SysUserTokenServiceImpl extends ServiceImpl<SysUserTokenDao, SysUse
         return token;
     }
 
+    /**
+     * @Description: 创建普通用户的token，普通用户存储于系统用户表user
+     * @param userId:
+     * @param tokenType:
+     * @return: java.lang.String
+     * @Author: xearin 1429382875@qq.com
+     * @Date: 2021/11/19
+     */
     public String createToken(long userId, String tokenType) {
         //生成一个token
         String token = tokenType + "_" + TokenGenerator.generateValue();
