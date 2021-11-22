@@ -33,6 +33,10 @@ public class FileEntity {
     private Integer isDeleted;
 
     /**
+     * 文件类型
+     */
+    private String type;
+    /**
      * 文件大小,单位：byte
      */
     private Integer size;
