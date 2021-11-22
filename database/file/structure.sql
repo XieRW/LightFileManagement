@@ -17,6 +17,7 @@ CREATE TABLE file(
     remark VARCHAR(255)    COMMENT '文件备注' ,
     directory VARCHAR(255)    COMMENT '文件分类目录' ,
     file_group_id bigint(64)    COMMENT '文件分组' ,
+    user_id bigint COMMENT '用户id' ,
     PRIMARY KEY (id)
 )  COMMENT = '文件表';
 
@@ -49,5 +50,6 @@ CREATE TABLE file_group(
     p_id bigint(64)   DEFAULT 0 COMMENT '父id' ,
     name VARCHAR(255)    COMMENT '分组名' ,
     detail VARCHAR(255)    COMMENT '分组说明' ,
+    user_id bigint COMMENT '用户id' ,
     PRIMARY KEY (id)
 )  COMMENT = '文件分组表';
