@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * @Date: 2021-11-12
  */
 @Slf4j
-@Service("UserFriendServiceImpl")
+@Service("FileShareFriendServiceImpl")
 public class FileShareFriendServiceImpl extends ServiceImpl<FileShareFriendDao, FileShareFriendEntity> {
 
 }

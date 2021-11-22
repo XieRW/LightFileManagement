@@ -1,13 +1,16 @@
 package com.xrw.springCloudAlibaba.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @program: LightFileManagement
@@ -34,7 +37,18 @@ public class FileGroupEntity {
     /**
      * 父分组id
      */
+    @JSONField(name = "pId")
     private Long pId;
+
+    public Long getpId() {
+        return pId;
+    }
+
+    public FileGroupEntity setpId(Long pId) {
+        this.pId = pId;
+        return this;
+    }
+
     /**
      * 分组名
      */
@@ -43,4 +57,11 @@ public class FileGroupEntity {
      * 分组说明
      */
     private String detail;
+    /**
+     * 用户id
+     */
+    private Long userId;
+
+    @TableField(exist = false)
+    private List<FileGroupEntity> children;
 }

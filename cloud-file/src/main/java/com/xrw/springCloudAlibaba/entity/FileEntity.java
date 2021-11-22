@@ -72,4 +72,8 @@ public class FileEntity {
      * 文件分组
      */
     private Long fileGroupId;
+    /**
+     * 用户id
+     */
+    private Long userId;
 }
