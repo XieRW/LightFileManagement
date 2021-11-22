@@ -34,6 +34,11 @@
             <artifactId>cloud-commons</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <!--单元测试-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
