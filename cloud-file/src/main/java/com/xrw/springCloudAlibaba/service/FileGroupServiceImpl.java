@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 /**
- * @Description: 好友表服务层
+ * @Description: 文件分组服务层
  * @Author: xearin
  * @Date: 2021-11-12
  */
