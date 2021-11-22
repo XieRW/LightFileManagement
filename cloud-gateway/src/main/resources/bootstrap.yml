@@ -1,6 +1,5 @@
 # springboot中配置文件是存在优先级的，bootstrap优先级高于application
-server:
-  port: 9101
+
 
 spring:
   profiles:

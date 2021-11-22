@@ -27,6 +27,8 @@ public class CloudGatewayApplication {
                         .uri("lb://cloud-auth"))
                 .route("cloud-mq", r -> r.path("/mq/**")
                         .uri("lb://cloud-mq"))
+                .route("cloud-file", r -> r.path("/file/**")
+                        .uri("lb://cloud-file"))
                 .build();
     }
 }
