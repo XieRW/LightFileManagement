@@ -21,7 +21,11 @@ public enum SysDictEnum {
     /**
      * 文件共享权限
      */
-    file_share_permission("file_share_permission","文件共享权限");
+    file_share_permission("file_share_permission","文件共享权限"),
+    /**
+     * 文件类型
+     */
+    file_type("file_type","文件类型");
 
     private String key;
     private String value;

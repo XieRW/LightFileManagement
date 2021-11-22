@@ -43,6 +43,7 @@ public enum ApiError {
     DATA_ORDER_OBJECT_NOT_EXIST(12017, "排序对象已删除，请刷新后重试"),
     NUMBER_FORMAT_EXCEPTION(12018, "参数格式错误"),
     NULL_POINT_EXCEPTION(12019, "暂无数据"),
+    DATA_DELETE_ERROR(12020, "数据删除失败"),
 
     //============通用：数据修改相关=============
     DATA_GROUP_NOT_EMPTY(13001, "无法删除包含子节点或数据的分组"),
