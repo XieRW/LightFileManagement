@@ -69,11 +69,11 @@ public class GlobalExceptionHandler {
         }
         if (e instanceof DataAccessException) {
             e.printStackTrace();
-            return new ResponseJSON(ApiError.NULL_POINT_EXCEPTION);
+            return new ResponseJSON(ApiError.DATA_ACCESS_ERROR);
         }
         if (e instanceof IndexOutOfBoundsException) {
             e.printStackTrace();
-            return new ResponseJSON(ApiError.NULL_POINT_EXCEPTION);
+            return new ResponseJSON(ApiError.INDEX_OUT_OF_BOUNDS_ERROR);
         }
         if (e instanceof MaxUploadSizeExceededException) {
             //上传的文件大小超过限制

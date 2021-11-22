@@ -42,8 +42,11 @@ public enum ApiError {
     DATA_DEVICE_CODE_NOT_EXISTS(12016, "设备编码不存在"),
     DATA_ORDER_OBJECT_NOT_EXIST(12017, "排序对象已删除，请刷新后重试"),
     NUMBER_FORMAT_EXCEPTION(12018, "参数格式错误"),
-    NULL_POINT_EXCEPTION(12019, "暂无数据"),
+    NULL_POINT_EXCEPTION(12019, "空指针异常"),
     DATA_DELETE_ERROR(12020, "数据删除失败"),
+    DATA_FORMAT_TREE_ERROR(12021, "数据转换成树失败"),
+    INDEX_OUT_OF_BOUNDS_ERROR(12022, "数组越界"),
+    DATA_ACCESS_ERROR(12023, "数据访问异常"),
 
     //============通用：数据修改相关=============
     DATA_GROUP_NOT_EMPTY(13001, "无法删除包含子节点或数据的分组"),
