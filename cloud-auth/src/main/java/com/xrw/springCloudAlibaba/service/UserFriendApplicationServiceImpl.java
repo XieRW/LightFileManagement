@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xrw.springCloudAlibaba.dao.UserFriendApplicationDao;
 import com.xrw.springCloudAlibaba.entity.UserFriendApplicationEntity;
 import com.xrw.springCloudAlibaba.entity.UserFriendEntity;
+import com.xrw.springCloudAlibaba.enums.SysDictEnum;
 import com.xrw.springCloudAlibaba.enums.SysDictItemEnum;
 import com.xrw.springCloudAlibaba.exception.ApiError;
 import com.xrw.springCloudAlibaba.exception.ApiException;
@@ -60,7 +61,7 @@ public class UserFriendApplicationServiceImpl extends ServiceImpl<UserFriendAppl
         if (userFriendApplicationEntity == null) {
             throw new ApiException(ApiError.DATA_NOT_EXISTS);
         }
-        SysDictItemEnum dict = SysDictItemEnum.getByKey(dispose);
+        SysDictItemEnum dict = SysDictItemEnum.getByKey(SysDictEnum.apply_status.getKey(),dispose);
         if (dict == null) {
             throw new ApiException(ApiError.DICT_NOT_EXISTS);
         }
