@@ -33,10 +33,10 @@ public class FileGroupController {
     private FileServiceImpl fileService;
 
     /**
-     * @Description:    添加一个文件分组
-     * @param pId:      父节点id
-     * @param name:     分组名称
-     * @param detail:   分组详情
+     * @param pId:    父节点id
+     * @param name:   分组名称
+     * @param detail: 分组详情
+     * @Description: 添加一个文件分组
      * @return: com.xrw.springCloudAlibaba.vo.ResponseJSON
      * @Author: xearin 1429382875@qq.com
      * @Date: 2021/11/22
@@ -48,7 +48,7 @@ public class FileGroupController {
         FileGroupEntity one = fileGroupService.getOne(new QueryWrapper<FileGroupEntity>().eq("p_id", pId)
                 .eq("name", name)
                 .eq("user_id", LoginUserHolder.getUserId()));
-        if (one!=null){
+        if (one != null) {
             throw new ApiException(ApiError.DATA_EXISTS);
         }
         FileGroupEntity fileGroupEntity = new FileGroupEntity().setpId(pId)
@@ -57,19 +57,19 @@ public class FileGroupController {
                 .setUserId(LoginUserHolder.getUserId())
                 .setCreateUserId(LoginUserHolder.getUserId())
                 .setUpdateUserId(LoginUserHolder.getUserId());
-        if (fileGroupService.save(fileGroupEntity)){
+        if (fileGroupService.save(fileGroupEntity)) {
             return new ResponseJSON(fileGroupEntity);
-        }else {
+        } else {
             throw new ApiException(ApiError.DATA_SAVE_ERROR);
         }
     }
 
     /**
-     * @Description:    修改一个文件分组
-     * @param id:       文件分组id
-     * @param pId:      文件分组的父id
-     * @param name:     文件名称
-     * @param detail:   文件详情
+     * @param id:     文件分组id
+     * @param pId:    文件分组的父id
+     * @param name:   文件名称
+     * @param detail: 文件详情
+     * @Description: 修改一个文件分组
      * @return: com.xrw.springCloudAlibaba.vo.ResponseJSON
      * @Author: xearin 1429382875@qq.com
      * @Date: 2021/11/22
@@ -80,23 +80,23 @@ public class FileGroupController {
                                @RequestParam(value = "name") String name,
                                @RequestParam(value = "detail") String detail) {
         FileGroupEntity fileGroupEntity = fileGroupService.getById(id);
-        if (fileGroupEntity==null){
+        if (fileGroupEntity == null) {
             throw new ApiException(ApiError.DATA_NOT_EXISTS);
         }
         fileGroupEntity.setpId(pId)
                 .setName(name)
                 .setDetail(detail)
                 .setUpdateUserId(LoginUserHolder.getUserId());
-        if (fileGroupService.saveOrUpdate(fileGroupEntity)){
+        if (fileGroupService.saveOrUpdate(fileGroupEntity)) {
             return new ResponseJSON(fileGroupEntity);
-        }else {
+        } else {
             throw new ApiException(ApiError.DATA_SAVE_ERROR);
         }
     }
 
     /**
-     * @Description:    删除一个文件分组
-     * @param id:       分组id
+     * @param id: 分组id
+     * @Description: 删除一个文件分组
      * @return: com.xrw.springCloudAlibaba.vo.ResponseJSON
      * @Author: xearin 1429382875@qq.com
      * @Date: 2021/11/22
@@ -104,16 +104,16 @@ public class FileGroupController {
     @RequestMapping("delete")
     public ResponseJSON delete(@RequestParam(value = "id") Long id) {
         int countFile = fileService.count(new QueryWrapper<FileEntity>().eq("file_group_id", id));
-        if (countFile!=0){
+        if (countFile != 0) {
             throw new ApiException(ApiError.DATA_GROUP_NOT_EMPTY);
         }
         int countFileGroup = fileGroupService.count(new QueryWrapper<FileGroupEntity>().eq("p_id", id));
-        if (countFileGroup!=0){
+        if (countFileGroup != 0) {
             throw new ApiException(ApiError.DATA_GROUP_NOT_EMPTY);
         }
-        if (fileGroupService.removeById(id)){
+        if (fileGroupService.removeById(id)) {
             return new ResponseJSON();
-        }else {
+        } else {
             throw new ApiException(ApiError.DATA_DELETE_ERROR);
         }
     }
