@@ -47,7 +47,7 @@ public class MyThreadPoolExecutor {
     private static final RejectedExecutionHandler HANDLER = new ThreadPoolExecutor.CallerRunsPolicy();
 
     @Bean
-    public ThreadPoolExecutor MyThreadPoolExecutor1(){
+    public ThreadPoolExecutor MyThreadPoolExecutor1() {
         return new ThreadPoolExecutor(
                 CORE_POOL_SIZE,
                 MAXIMUM_POOL_SIZE,
