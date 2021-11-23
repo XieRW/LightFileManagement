@@ -11,6 +11,7 @@ import com.xrw.springCloudAlibaba.utils.tree.TreeUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 /**
@@ -24,13 +25,13 @@ public class FileGroupServiceImpl extends ServiceImpl<FileGroupDao, FileGroupEnt
     @Autowired
     private TreeNodeConfig treeNodeConfig;
 
-    public List<FileGroupEntity> pageSelect(Long userId){
+    public List<FileGroupEntity> pageSelect(Long userId) {
         List<FileGroupEntity> entities = baseMapper.selectList(new QueryWrapper<FileGroupEntity>().eq("user_id", userId));
         List<FileGroupEntity> tree;
         try {
             tree = TreeUtil.getTree(entities, "id", "pId", "children");
         } catch (Exception e) {
-            throw  new ApiException(ApiError.DATA_FORMAT_TREE_ERROR);
+            throw new ApiException(ApiError.DATA_FORMAT_TREE_ERROR);
         }
         return tree;
     }
