@@ -23,9 +23,11 @@ public enum SysDictItemEnum {
     file_share_permission_3("file_share_permission","3","删除"),
     /**
      * 文件类型
+     * 0 普通文件
+     * 1 用户系统文件，如用户头像
      */
-    file_type_0("file_type","0","普通文件"),
-    file_type_1("file_type","1","用户系统文件，头像等");
+    file_type_0("file_type","0","/common/"),
+    file_type_1("file_type","1","/system/");
     private String dicKey;
     private String key;
     private String value;
