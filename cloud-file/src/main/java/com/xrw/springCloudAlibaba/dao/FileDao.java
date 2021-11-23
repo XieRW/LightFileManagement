@@ -36,11 +36,11 @@ public interface FileDao extends BaseMapper<FileEntity> {
             "</if>" +
 
             "</script>")
-    ArrayList<FileEntity> getSelectPage(@Param("offset")Long offset,
-                                        @Param("size")Long size,
+    ArrayList<FileEntity> getSelectPage(@Param("offset") Long offset,
+                                        @Param("size") Long size,
                                         @Param("select") String select,
-                                        @Param("fileGroupId")Long fileGroupId,
-                                        @Param("userId")Long userId);
+                                        @Param("fileGroupId") Long fileGroupId,
+                                        @Param("userId") Long userId);
 
     @Select("<script> " +
             " select count(f.id) " +
@@ -62,9 +62,9 @@ public interface FileDao extends BaseMapper<FileEntity> {
             "</if>" +
 
             "</script>")
-    Long getSelectPageCount(@Param("offset")Long offset,
-                            @Param("size")Long size,
+    Long getSelectPageCount(@Param("offset") Long offset,
+                            @Param("size") Long size,
                             @Param("select") String select,
-                            @Param("fileGroupId")Long fileGroupId,
-                            @Param("userId")Long userId);
+                            @Param("fileGroupId") Long fileGroupId,
+                            @Param("userId") Long userId);
 }
