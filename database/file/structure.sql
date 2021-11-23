@@ -8,7 +8,7 @@ CREATE TABLE file(
     update_user_id bigint(64)    COMMENT '更新人' ,
     update_time DATETIME   DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间' ,
     type VARCHAR(255)    COMMENT '文件类型' ,
-    size INT    COMMENT '文件大小,单位：byte' ,
+    size bigint    COMMENT '文件大小,单位：byte' ,
     filename VARCHAR(255)    COMMENT '文件实际名称' ,
     url VARCHAR(255)    COMMENT '文件URL' ,
     path VARCHAR(255)    COMMENT '文件物理存储相对路径' ,
