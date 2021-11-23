@@ -1,6 +1,5 @@
 package com.xrw.springCloudAlibaba.service;
 
-import cn.hutool.core.lang.tree.TreeNodeConfig;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xrw.springCloudAlibaba.dao.FileGroupDao;
@@ -9,7 +8,6 @@ import com.xrw.springCloudAlibaba.exception.ApiError;
 import com.xrw.springCloudAlibaba.exception.ApiException;
 import com.xrw.springCloudAlibaba.utils.tree.TreeUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,8 +20,6 @@ import java.util.List;
 @Slf4j
 @Service("FileGroupServiceImpl")
 public class FileGroupServiceImpl extends ServiceImpl<FileGroupDao, FileGroupEntity> {
-    @Autowired
-    private TreeNodeConfig treeNodeConfig;
 
     public List<FileGroupEntity> pageSelect(Long userId) {
         List<FileGroupEntity> entities = baseMapper.selectList(new QueryWrapper<FileGroupEntity>().eq("user_id", userId));
