@@ -39,7 +39,7 @@ public class FileEntity {
     /**
      * 文件大小,单位：byte
      */
-    private Integer size;
+    private Long size;
     /**
      * 文件实际名称
      */
