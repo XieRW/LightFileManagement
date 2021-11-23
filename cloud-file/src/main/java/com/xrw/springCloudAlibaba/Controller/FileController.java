@@ -1,8 +1,6 @@
 package com.xrw.springCloudAlibaba.Controller;
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xrw.springCloudAlibaba.entity.FileEntity;
-import com.xrw.springCloudAlibaba.service.FileGroupServiceImpl;
 import com.xrw.springCloudAlibaba.service.FileServiceImpl;
 import com.xrw.springCloudAlibaba.utils.login.LoginUserHolder;
 import com.xrw.springCloudAlibaba.vo.ResponseJSON;
@@ -80,20 +78,20 @@ public class FileController {
     }
 
     /**
-     * @Description: 分页查询文件列表
-     * @param page: 页码，从1开始
-     * @param size: 每页数量
-     * @param select: 模糊查询关键字，按文件名称查询
+     * @param page:        页码，从1开始
+     * @param size:        每页数量
+     * @param select:      模糊查询关键字，按文件名称查询
      * @param fileGroupId: 文件分组id，默认为0，即查全部分组下的文件
+     * @Description: 分页查询文件列表
      * @return: com.xrw.springCloudAlibaba.vo.ResponseJSON
      * @Author: xearin 1429382875@qq.com
      * @Date: 2021/11/23
      */
     @RequestMapping("page")
     public ResponseJSON page(@RequestParam(value = "page", required = false) Long page,
-                     @RequestParam(value = "size", required = false) Long size,
-                     @RequestParam(value = "select", required = false, defaultValue = "") String select,
-                     @RequestParam(value = "fileGroupId",defaultValue = "0") Long fileGroupId) {
-        return new ResponseJSON(fileService.getSelectPage(page,size,select,fileGroupId,LoginUserHolder.getUserId()));
+                             @RequestParam(value = "size", required = false) Long size,
+                             @RequestParam(value = "select", required = false, defaultValue = "") String select,
+                             @RequestParam(value = "fileGroupId", defaultValue = "0") Long fileGroupId) {
+        return new ResponseJSON(fileService.getSelectPage(page, size, select, fileGroupId, LoginUserHolder.getUserId()));
     }
 }
