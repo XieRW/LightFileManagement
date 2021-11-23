@@ -79,7 +79,13 @@ public enum ApiError {
 
     //============通用：接口请求相关=============
     PARAMETER_NULL_ERROR(17000, "参数不存在或者为空"),
-    FEIGN_CLOUD_MQ_ERROR(17001,"远程调用cloudMq服务失败");
+    FEIGN_CLOUD_MQ_ERROR(17001,"远程调用cloudMq服务失败"),
+
+    //============通用：IO相关=============
+    FILE_MKDIR_ERROR(18000, "文件创建失败"),
+    FILE_DELETE_ERROR(18001, "文件删除失败"),
+    FILE_TRANSFER_ERROR(18002, "文件转换失败"),
+    FILE_GET_ERROR(18003, "文件获取失败");
 
     public Integer errorCode;
     public String msg;
