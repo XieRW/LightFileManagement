@@ -49,8 +49,8 @@ public class LoginControllerTest {
 
     @Test
     public void encrypt() throws Exception {
-        String username = AESUtil.encrypt("xrw").trim();
-        String password = AESUtil.encrypt("123").trim();
+        String username = AESUtil.encrypt("ynjd6").trim();
+        String password = AESUtil.encrypt("ynjd6@123").trim();
         System.out.println(username);
         System.out.println(password);
     }
