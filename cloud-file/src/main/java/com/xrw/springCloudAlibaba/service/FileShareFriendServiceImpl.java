@@ -84,9 +84,9 @@ public class FileShareFriendServiceImpl extends ServiceImpl<FileShareFriendDao, 
     }
 
     /**
-     * @Description: delete 删除文件
-     * @param id: 文件id
+     * @param id:     文件id
      * @param userId: 用户id
+     * @Description: delete 删除文件
      * @return: void
      * @Author: xearin 1429382875@qq.com
      * @Date: 2021/11/29
@@ -106,9 +106,9 @@ public class FileShareFriendServiceImpl extends ServiceImpl<FileShareFriendDao, 
     }
 
     /**
-     * @Description: deleteShare 删除共享关系（共享给他人或者收到的共享文件）
-     * @param id: 文件id
+     * @param id:     文件id
      * @param userId: 用户id
+     * @Description: deleteShare 删除共享关系（共享给他人或者收到的共享文件）
      * @return: void
      * @Author: xearin 1429382875@qq.com
      * @Date: 2021/11/29
