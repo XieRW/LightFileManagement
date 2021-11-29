@@ -25,27 +25,27 @@ public class FileShareFriendController {
     private FileShareFriendServiceImpl fileShareFriendService;
 
     /**
-     * @Description: 新增或者修改文件共享权限
-     * @param fileId: 文件id
-     * @param friendId: 共享文件的目标用户
+     * @param fileId:     文件id
+     * @param friendId:   共享文件的目标用户
      * @param permission: 共享权限
+     * @Description: 新增或者修改文件共享权限
      * @return: com.xrw.springCloudAlibaba.vo.ResponseJSON
      * @Author: xearin 1429382875@qq.com
      * @Date: 2021/11/29
      */
     @RequestMapping("/save")
-    public ResponseJSON save(@RequestParam("fileId")Long fileId,
-                            @RequestParam("friendId")Long friendId,
-                            @RequestParam(value = "permission",defaultValue = "1")String permission){
-        fileShareFriendService.save(fileId,friendId,permission, LoginUserHolder.getUserId());
+    public ResponseJSON save(@RequestParam("fileId") Long fileId,
+                             @RequestParam("friendId") Long friendId,
+                             @RequestParam(value = "permission", defaultValue = "1") String permission) {
+        fileShareFriendService.save(fileId, friendId, permission, LoginUserHolder.getUserId());
         return new ResponseJSON();
     }
 
     /**
-     * @Description: 分页查询共享文件列表
-     * @param page: 页码，从1开始
-     * @param size: 每页数量
+     * @param page:   页码，从1开始
+     * @param size:   每页数量
      * @param select: 模糊查询关键字，按文件名称查询
+     * @Description: 分页查询共享文件列表
      * @return: com.xrw.springCloudAlibaba.vo.ResponseJSON
      * @Author: xearin 1429382875@qq.com
      * @Date: 2021/11/29
@@ -53,14 +53,14 @@ public class FileShareFriendController {
     @RequestMapping("page")
     public ResponseJSON page(@RequestParam(value = "page", required = false) Long page,
                              @RequestParam(value = "size", required = false) Long size,
-                             @RequestParam(value = "select", required = false, defaultValue = "") String select){
+                             @RequestParam(value = "select", required = false, defaultValue = "") String select) {
         Page<FileEntity> selectPage = fileShareFriendService.getSelectPage(page, size, select, LoginUserHolder.getUserId());
         return new ResponseJSON(selectPage);
     }
 
     /**
-     * @Description: delete 删除文件
      * @param fileId:
+     * @Description: delete 删除文件
      * @return: com.xrw.springCloudAlibaba.vo.ResponseJSON
      * @Author: xearin 1429382875@qq.com
      * @Date: 2021/11/29
@@ -72,8 +72,8 @@ public class FileShareFriendController {
     }
 
     /**
-     * @Description: deleteShare 删除共享关系（共享给他人或者收到的共享文件）
      * @param fileId: 文件id
+     * @Description: deleteShare 删除共享关系（共享给他人或者收到的共享文件）
      * @return: com.xrw.springCloudAlibaba.vo.ResponseJSON
      * @Author: xearin 1429382875@qq.com
      * @Date: 2021/11/29
