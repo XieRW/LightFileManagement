@@ -84,9 +84,9 @@ public class FileShareFriendServiceImpl extends ServiceImpl<FileShareFriendDao, 
     }
 
     /**
-     * @Description: delete
-     * @param id: 
-     * @param userId: 
+     * @Description: delete 删除文件
+     * @param id: 文件id
+     * @param userId: 用户id
      * @return: void
      * @Author: xearin 1429382875@qq.com
      * @Date: 2021/11/29
