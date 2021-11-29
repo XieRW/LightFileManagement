@@ -42,7 +42,7 @@ public class FileShareFriendController {
     }
 
     /**
-     * @Description: page
+     * @Description: 分页查询共享文件列表
      * @param page: 页码，从1开始
      * @param size: 每页数量
      * @param select: 模糊查询关键字，按文件名称查询
@@ -78,7 +78,7 @@ public class FileShareFriendController {
      * @Author: xearin 1429382875@qq.com
      * @Date: 2021/11/29
      */
-    @RequestMapping("delete")
+    @RequestMapping("deleteShare")
     public ResponseJSON deleteShare(@RequestParam("fileId") Long fileId) {
         fileShareFriendService.deleteShare(fileId, LoginUserHolder.getUserId());
         return new ResponseJSON();
