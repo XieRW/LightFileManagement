@@ -105,6 +105,14 @@ public class FileShareFriendServiceImpl extends ServiceImpl<FileShareFriendDao, 
         fileService.delete(id, selectOne.getShareFrom());
     }
 
+    /**
+     * @Description: deleteShare 删除共享关系（共享给他人或者收到的共享文件）
+     * @param id: 文件id
+     * @param userId: 用户id
+     * @return: void
+     * @Author: xearin 1429382875@qq.com
+     * @Date: 2021/11/29
+     */
     public void deleteShare(Long id, Long userId) {
         FileShareFriendEntity selectOne = baseMapper.selectOne(new QueryWrapper<FileShareFriendEntity>().eq("file_id", id)
                 .eq("share_to", userId));
