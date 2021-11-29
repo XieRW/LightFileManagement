@@ -28,6 +28,16 @@ public class FileShareFriendServiceImpl extends ServiceImpl<FileShareFriendDao, 
     @Autowired
     private FileServiceImpl fileService;
 
+    /**
+     * @Description: 新增或者修改文件共享权限
+     * @param fileId: 文件id
+     * @param friendId: 共享文件的目标用户
+     * @param permission: 共享权限,关联数据字典 SysDictEnum.file_share_permission
+     * @param userId: 用户id
+     * @return: void
+     * @Author: xearin 1429382875@qq.com
+     * @Date: 2021/11/29
+     */
     public void save(Long fileId, Long friendId, String permission, Long userId) {
         FileEntity file = fileService.getById(fileId);
         if (file == null) {
