@@ -28,16 +28,16 @@ public class FileShareFriendServiceImpl extends ServiceImpl<FileShareFriendDao, 
     @Autowired
     private FileServiceImpl fileService;
 
-    public void save(Long fileId,Long friendId,String permission,Long userId){
+    public void save(Long fileId, Long friendId, String permission, Long userId) {
         FileEntity file = fileService.getById(fileId);
-        if (file == null){
+        if (file == null) {
             throw new ApiException(ApiError.DATA_NOT_EXISTS);
         }
         FileShareFriendEntity fileShareFriendEntity = baseMapper.selectOne(new QueryWrapper<FileShareFriendEntity>()
                 .eq("share_from", userId)
                 .eq("share_to", friendId)
                 .eq("file_id", fileId));
-        if (fileShareFriendEntity!=null){
+        if (fileShareFriendEntity != null) {
             fileShareFriendEntity.setFileSharePermission(permission);
             baseMapper.updateById(fileShareFriendEntity);
             return;
@@ -63,27 +63,27 @@ public class FileShareFriendServiceImpl extends ServiceImpl<FileShareFriendDao, 
         return entityPage;
     }
 
-    public void delete(Long id, Long userId){
+    public void delete(Long id, Long userId) {
         FileShareFriendEntity selectOne = baseMapper.selectOne(new QueryWrapper<FileShareFriendEntity>().eq("file_id", id)
                 .eq("share_to", userId));
-        if (selectOne == null){
+        if (selectOne == null) {
             throw new ApiException(ApiError.INTERFACE_UNPREMITTED);
         }
         if (!selectOne.getFileSharePermission().equals(SysDictItemEnum.file_share_permission_0.getKey())
-                && !selectOne.getFileSharePermission().equals(SysDictItemEnum.file_share_permission_3.getKey())){
+                && !selectOne.getFileSharePermission().equals(SysDictItemEnum.file_share_permission_3.getKey())) {
             throw new ApiException(ApiError.INTERFACE_UNPREMITTED);
         }
         baseMapper.deleteById(selectOne.getId());
-        fileService.delete(id,selectOne.getShareFrom());
+        fileService.delete(id, selectOne.getShareFrom());
     }
 
-    public void deleteShare(Long id, Long userId){
+    public void deleteShare(Long id, Long userId) {
         FileShareFriendEntity selectOne = baseMapper.selectOne(new QueryWrapper<FileShareFriendEntity>().eq("file_id", id)
                 .eq("share_to", userId));
-        if (selectOne == null){
+        if (selectOne == null) {
             selectOne = baseMapper.selectOne(new QueryWrapper<FileShareFriendEntity>().eq("file_id", id)
                     .eq("share_from", userId));
-            if (selectOne == null){
+            if (selectOne == null) {
                 throw new ApiException(ApiError.DATA_NOT_EXISTS);
             }
         }
