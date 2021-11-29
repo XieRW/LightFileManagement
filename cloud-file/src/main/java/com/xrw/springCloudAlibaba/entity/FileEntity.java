@@ -76,4 +76,7 @@ public class FileEntity {
      * 用户id
      */
     private Long userId;
+
+    @TableField(exist = false)
+    private String fileSharePermission;
 }
