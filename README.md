@@ -34,6 +34,7 @@
     "msg": "错误信息"
 }
 ```
+
 ### 接口文档地址
 通过postman生成的在线API文档，地址：https://documenter.getpostman.com/view/6237002/UVJckwet,这只是个临时的接口文档发布地址，正式使用的时候应该将接口文档发布到专门的接口管理平台上面去。
 
