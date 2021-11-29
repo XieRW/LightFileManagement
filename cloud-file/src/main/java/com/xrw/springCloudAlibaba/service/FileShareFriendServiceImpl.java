@@ -83,6 +83,14 @@ public class FileShareFriendServiceImpl extends ServiceImpl<FileShareFriendDao, 
         return entityPage;
     }
 
+    /**
+     * @Description: delete
+     * @param id: 
+     * @param userId: 
+     * @return: void
+     * @Author: xearin 1429382875@qq.com
+     * @Date: 2021/11/29
+     */
     public void delete(Long id, Long userId) {
         FileShareFriendEntity selectOne = baseMapper.selectOne(new QueryWrapper<FileShareFriendEntity>().eq("file_id", id)
                 .eq("share_to", userId));
