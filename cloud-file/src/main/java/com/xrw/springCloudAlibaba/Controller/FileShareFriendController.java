@@ -59,7 +59,7 @@ public class FileShareFriendController {
     }
 
     /**
-     * @param fileId:
+     * @param fileId: 文件id
      * @Description: delete 删除文件
      * @return: com.xrw.springCloudAlibaba.vo.ResponseJSON
      * @Author: xearin 1429382875@qq.com
