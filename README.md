@@ -23,8 +23,9 @@
 <img src="IMG/微文件管理系统整体架构图.jpg"/>
 
 # 技术框架使用注意事项
-## 接口规范
-接口统一输出标准
+
+## 开发规范
+### 接口统一输出标准
 ```json
 #com.xrw.springCloudAlibaba.vo.ResponseJSON.java
 {
@@ -33,6 +34,8 @@
     "msg": "错误信息"
 }
 ```
+### 接口文档地址
+通过postman生成的在线API文档，地址：https://documenter.getpostman.com/view/6237002/UVJckwet
 
 ## Redis
 启动Redis服务：进入JAR/Redis-x64-5.0.10目录,运行命令```redis-server ./redis.windows.conf```
