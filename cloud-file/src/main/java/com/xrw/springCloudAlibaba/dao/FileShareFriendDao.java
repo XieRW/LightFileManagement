@@ -12,7 +12,7 @@ import java.util.ArrayList;
 /**
  * @author xearin
  * @email
- * @date 2021-11-12 14:00:58
+ * @date 2021-11-29 14:00:58
  */
 @Mapper
 public interface FileShareFriendDao extends BaseMapper<FileShareFriendEntity> {
