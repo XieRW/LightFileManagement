@@ -59,6 +59,16 @@ public class FileShareFriendServiceImpl extends ServiceImpl<FileShareFriendDao, 
         baseMapper.insert(fileShareFriendEntity);
     }
 
+    /**
+     * @param page:   页码，从1开始
+     * @param size:   每页数量
+     * @param select: 模糊查询关键字，按文件名称查询
+     * @Description: 分页查询共享文件列表
+     * @param userId: 用户id
+     * @return: com.baomidou.mybatisplus.extension.plugins.pagination.Page<com.xrw.springCloudAlibaba.entity.FileEntity>
+     * @Author: xearin 1429382875@qq.com
+     * @Date: 2021/11/29
+     */
     public Page<FileEntity> getSelectPage(Long page, Long size, String select, Long userId) {
         Long offset = 0L;
         if (page != null && size != null) {
