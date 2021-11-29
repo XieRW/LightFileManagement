@@ -29,11 +29,11 @@ public class FileShareFriendServiceImpl extends ServiceImpl<FileShareFriendDao, 
     private FileServiceImpl fileService;
 
     /**
-     * @Description: 新增或者修改文件共享权限
-     * @param fileId: 文件id
-     * @param friendId: 共享文件的目标用户
+     * @param fileId:     文件id
+     * @param friendId:   共享文件的目标用户
      * @param permission: 共享权限,关联数据字典 SysDictEnum.file_share_permission
-     * @param userId: 用户id
+     * @param userId:     用户id
+     * @Description: 新增或者修改文件共享权限
      * @return: void
      * @Author: xearin 1429382875@qq.com
      * @Date: 2021/11/29
@@ -63,8 +63,8 @@ public class FileShareFriendServiceImpl extends ServiceImpl<FileShareFriendDao, 
      * @param page:   页码，从1开始
      * @param size:   每页数量
      * @param select: 模糊查询关键字，按文件名称查询
-     * @Description: 分页查询共享文件列表
      * @param userId: 用户id
+     * @Description: 分页查询共享文件列表
      * @return: com.baomidou.mybatisplus.extension.plugins.pagination.Page<com.xrw.springCloudAlibaba.entity.FileEntity>
      * @Author: xearin 1429382875@qq.com
      * @Date: 2021/11/29
