@@ -18,9 +18,10 @@ import java.util.ArrayList;
 public interface FileShareFriendDao extends BaseMapper<FileShareFriendEntity> {
 
     @Select("<script> " +
-            " select f.*，fsf.file_share_permission as fileSharePermission " +
+            " select f.*,u.name as userName,fsf.file_share_permission as fileSharePermission " +
             " from file_share_friend fsf " +
             " left join file f on fsf.file_id = f.id " +
+            " left join user u on f.user_id = u.id " +
             " where f.is_deleted=0 and fsf.is_deleted=0 and fsf.share_to = #{userId} " +
 
             "<if test='select!=null '> " +
@@ -43,6 +44,7 @@ public interface FileShareFriendDao extends BaseMapper<FileShareFriendEntity> {
             " select count(f.id) " +
             " from file_share_friend fsf " +
             " left join file f on fsf.file_id = f.id " +
+            " left join user u on f.user_id = u.id " +
             " where f.is_deleted=0 and fsf.is_deleted=0 and fsf.share_to = #{userId} " +
 
             "<if test='select!=null '> " +
