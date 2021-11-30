@@ -4,7 +4,7 @@
         <property name="FILE_SIZE" value="50 MB" />
         <property name="FILE_PATH" value="./logs/cloud-gateway/" />
         <property name="FILE_NAME" value="app" />
-        <property name="LOG_PATTERN" value="%date{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n" />
+        <property name="LOG_PATTERN" value="%highlight{[%p] %-d{yyyy-MM-dd HH:mm:ss} --> %l%n[massage] %m%n}{FATAL=red, ERROR=red, WARN=yellow, INFO=cyan, DEBUG=cyan,TRACE=blue}" />
     </Properties>
     <Appenders>
 
