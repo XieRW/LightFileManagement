@@ -146,3 +146,10 @@ java -jar target/cloud-rocketmq-dashboard-1.0.1-SNAPSHOT.jar
 - cloud-rocketmq-dashboard服务不需要做成微服务发布到注册中心
 
 - 使用localhost:9010访问可视化界面。
+
+## 服务监控平台
+本系统具备服务监控的能力，服务监控平台基于SpringBoot Admin搭建，具备GC、线程、内存、日志等的监控能力，搭建好的效果部分截图如下：
+<img src="IMG/监控系统截图1.png" width="" alt=""/>
+<img src="IMG/监控系统截图2.png" width="" alt=""/>
+<img src="IMG/监控系统截图3.png" width="" alt=""/>
+<img src="IMG/监控系统截图4.png" width="" alt=""/>
