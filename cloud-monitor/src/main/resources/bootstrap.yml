@@ -1,0 +1,67 @@
+server:
+  servlet:
+    context-path: /monitor
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: cloud-monitor
+  boot:
+    admin:
+      ui:
+        # 页面标题
+        title: 文件管理系统服务监控平台
+        brand: <img src="assets/img/icon-spring-boot-admin.svg"><span>${spring.boot.admin.ui.title}</span>
+  cloud:
+    server-addr: 127.0.0.1:8849
+    namespace: dev-namespace
+    nacos:
+      discovery:
+        # 配置Nacos服务注册地址
+        server-addr: ${spring.cloud.server-addr}
+        namespace: ${spring.cloud.namespace}
+        #springbootadmin的监控路径
+        metadata:
+          management:
+            context-path: ${server.servlet.context-path}/actuator
+      config:
+        # 配置Nacos配置中心地址
+        server-addr: ${spring.cloud.server-addr}
+        # 命名空间,默认为public保留空间，否则为命名空间id，如b705b760-02dd-4df1-aac6-f99eca98b28e
+        namespace: ${spring.cloud.namespace}
+        # 指定yaml格式的配置,目前只支持yaml和properties类型
+        file-extension: yml
+        # 组，默认DEFAULT_GROUP
+        # group: DEV_GROUP
+      # nacos中dataId的完整格式：
+      # ${spring.application.name}-${spring.profile.active}.${spring.cloud.nacos.config.file-extension}
+      # cloud-auth-dev.yml
+#  zipkin:
+#    base-url: http://localhost:9411
+#  sleuth:
+#    sampler:
+#    #采样率值介于 0 到 1 之间，1 则表示全部采集
+#    probability: 1
+
+#打开客户端 Actuator 的监控；不要改
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: env,configprops
+  endpoint:
+    health:
+      show-details: always
+    # 启用日志监控功能
+    logfile:
+      external-file: logs/cloud-monitor/info.log
+logging:
+  config: classpath:log4j2.xml
+  #  file: D:/sample-boot-application.log
+  #  pattern:
+  # 修改在控制台输出的日志格式
+  #    console: %date{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+  # 修改输出到文件的日志格式
+#    file: %d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger ： %msg%n

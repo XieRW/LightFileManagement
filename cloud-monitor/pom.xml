@@ -11,6 +11,10 @@
 
     <artifactId>cloud-monitor</artifactId>
 
+    <properties>
+        <spring-boot-admin.version>2.2.2</spring-boot-admin.version>
+    </properties>
+
     <dependencies>
         <!--包含了sleuth+zipkin,用于服务链路追踪-->
         <dependency>
@@ -34,27 +38,85 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
         <!-- 引入自己定义的api通用包 -->
         <dependency>
             <groupId>com.xrw.springCloudAlibaba</groupId>
             <artifactId>cloud-commons</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!--日常通用jar包配置-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
+        <!--单元测试-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- security 权限 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <!-- spring-boot-admin-starter-server -->
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-server</artifactId>
+            <version>${spring-boot-admin.version}</version>
+<!--            <exclusions>-->
+<!--                <exclusion> &lt;!&ndash; 注：一定要把旧的包排除掉，再引入新的包,该版本reactor-natty:0.9.8.RELEASE 存在描述符泄漏问题 &ndash;&gt;-->
+<!--                    <groupId>io.projectreactor.netty</groupId>-->
+<!--                    <artifactId>reactor-netty</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+        </dependency>
+<!--        &lt;!&ndash; 解决jar包不一致问题, &ndash;&gt;-->
+<!--        &lt;!&ndash; 注：reactor-natty:0.9.8.RELEASE 存在描述符泄漏问题 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>io.projectreactor.netty</groupId>-->
+<!--            <artifactId>reactor-netty</artifactId>-->
+<!--            <version>0.9.12.RELEASE</version>-->
+<!--        </dependency>-->
+        <!-- 配置文件密码加密工具 -->
+        <dependency>
+            <groupId>com.github.ulisesbocchio</groupId>
+            <artifactId>jasypt-spring-boot-starter</artifactId>
+            <version>2.1.0</version>
+        </dependency>
     </dependencies>
+
+    <build>
+        <finalName>
+            ${project.artifactId}-${project.version}_${timestamp}
+        </finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            <!-- 跳过单元测试 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>1.4</version>
+                <configuration>
+                    <timestampFormat>yyyyMMddHHmmss</timestampFormat>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>create-timestamp</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <inherited>false</inherited>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
