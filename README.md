@@ -1,4 +1,6 @@
-基于cloud alibaba微服务架构的微文件管理系统
+基于cloud alibaba微服务架构的微文件管理系统。
+
+应用到的主要技术栈：Nacos、OpenFeign、Sentinel、Gateway、oauth2、Seata、MySql、Redis、RocketMQ、MyBatis-plus、SpringBoot Admin、线程池
 
 # 整体设计
 
