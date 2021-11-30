@@ -18,6 +18,10 @@ spring:
         # 配置Nacos服务注册地址
         server-addr: ${spring.cloud.server-addr}
         namespace: ${spring.cloud.namespace}
+        #springbootadmin的监控路径
+        metadata:
+          management:
+            context-path: ${server.servlet.context-path}/actuator
       config:
         # 配置Nacos配置中心地址
         server-addr: ${spring.cloud.server-addr}
