@@ -75,6 +75,8 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         String type = StringUtils.isBlank(request.getParameter("type")) ? "PC" : request.getParameter("type");
 
         log.info("后端接收到的用户名：{} 密码：{}", username, password);
+        log.warn("后端接收到的用户名：{} 密码：{}", username, password);
+        log.error("后端接收到的用户名：{} 密码：{}", username, password);
         if (StringUtils.isAnyBlank(username, password)) {
             throw new LoginException("用户或密码不能为空");
         } else {
