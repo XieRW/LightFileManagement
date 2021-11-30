@@ -39,7 +39,7 @@ public class FileServiceImpl extends ServiceImpl<FileDao, FileEntity> {
     private String contextPath;
     @Value("${file.upload-path}")
     private String fileUploadPath;
-    @Resource(name = "MyThreadPoolExecutor1")
+    @Resource(name = "MyCpuThreadPoolExecutor")
     private ThreadPoolExecutor threadPoolExecutor;
 
 

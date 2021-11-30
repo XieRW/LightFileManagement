@@ -1,5 +1,6 @@
 package com.xrw.springCloudAlibaba.bean;
 
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
@@ -46,15 +47,47 @@ public class MyThreadPoolExecutor {
      */
     private static final RejectedExecutionHandler HANDLER = new ThreadPoolExecutor.CallerRunsPolicy();
 
+    /**
+     * @Description: IO密集型线程池
+     * @return: java.util.concurrent.ThreadPoolExecutor
+     * @Author: xearin 1429382875@qq.com
+     * @Date: 2021/11/30
+     */
     @Bean
-    public ThreadPoolExecutor MyThreadPoolExecutor1() {
+    public ThreadPoolExecutor MyIoThreadPoolExecutor() {
+        final String threadNamePrefix = "xrwIoThreadNamePrefix";
+        ThreadFactory threadFactory = new ThreadFactoryBuilder()
+                .setNameFormat(threadNamePrefix + "-%d")
+                .setDaemon(true).build();
         return new ThreadPoolExecutor(
-                CORE_POOL_SIZE,
-                MAXIMUM_POOL_SIZE,
-                KEEP_ALIVE_TIME,
+                16,
+                100,
+                10L,
                 TIME_UNIT,
                 WORK_QUEUE,
-                THREAD_FACTORY,
+                threadFactory,
+                HANDLER);
+    }
+
+    /**
+     * @Description: CPU密集型线程池
+     * @return: java.util.concurrent.ThreadPoolExecutor
+     * @Author: xearin 1429382875@qq.com
+     * @Date: 2021/11/30
+     */
+    @Bean
+    public ThreadPoolExecutor MyCpuThreadPoolExecutor() {
+        final String threadNamePrefix = "xrwCpuThreadNamePrefix";
+        ThreadFactory threadFactory = new ThreadFactoryBuilder()
+                .setNameFormat(threadNamePrefix + "-%d")
+                .setDaemon(true).build();
+        return new ThreadPoolExecutor(
+                9,
+                100,
+                10L,
+                TIME_UNIT,
+                WORK_QUEUE,
+                threadFactory,
                 HANDLER);
     }
 }
