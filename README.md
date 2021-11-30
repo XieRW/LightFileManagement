@@ -3,10 +3,10 @@
 # 整体设计
 
 ## 业务框架设计
-<img src="IMG/业务框架设计.jpg" width=""/>
+<img src="IMG/业务框架设计.jpg" width="" alt=""/>
 
 ## 技术框架设计
-<img src="IMG/微文件管理-技术框架设计.jpg"/>
+<img src="IMG/微文件管理-技术框架设计.jpg" alt=""/>
 
 1、登录以及鉴权系统
 
@@ -20,14 +20,14 @@
 是否有权限访问服务。保证整个系统在服务提供方面符合迪米特法则，减少前后端之间的直接依赖，只通过gateway进行通信。
 
 ## 整体架构图
-<img src="IMG/微文件管理系统整体架构图.jpg"/>
+<img src="IMG/微文件管理系统整体架构图.jpg" alt=""/>
 
 # 技术框架使用注意事项
 
 ## 开发规范
 ### 接口统一输出标准
-```json
-#com.xrw.springCloudAlibaba.vo.ResponseJSON.java
+```
+//com.xrw.springCloudAlibaba.vo.ResponseJSON.java
 {
     "errorcode": "错误码",
     "data": "数据体",
@@ -38,6 +38,33 @@
 ### 接口文档地址
 通过postman生成的在线API文档，地址：https://documenter.getpostman.com/view/6237002/UVJckwet。
 这只是个临时的接口文档发布地址，正式使用的时候应该将接口文档发布到专门的接口管理平台上面去。
+
+## 多线程
+多线程尽量使用配置好的线程池，本系统采用的是《阿里巴巴Java开发手册》ThreadPoolExecutor，本系统在com.xrw.springCloudAlibaba.bean.MyThreadPoolExecutor
+类下创建了按场景分类配置线程池参数的线程池Bean：MyIoThreadPoolExecutor和MyCpuThreadPoolExecutor，分别用于CPU密集型业务和IO密集型业务，
+可根据实际的业务分类，每个业务根据实际场景创建自己的线程池！
+
+## 事务
+### 一般事务
+
+1、避免长事务：对事务方法进行拆分，尽量让事务变小，变快，减小事务的颗粒度。
+
+注：长事务会导致的问题：
+
+- 数据库连接池被占满，应用无法获取连接资源；（对于@Transactional注解包裹的整个方法都是使用同一个connection连接。如果我们出现了耗时的操作，比如第三方接口调用，
+业务逻辑复杂，大批量数据处理等就会导致我们我们占用这个connection的时间会很长，数据库连接一直被占用不释放。一旦类似操作过多，就会导致数据库连接池耗尽。）
+- 容易引发数据库死锁；
+- 数据库回滚时间长；
+- 在主从架构中会导致主从延时变大。
+
+2、在拆分长事务中注意，当调用的@Transactional声明的方法位于同一类中会导致注解失效，原因是因为@Transactional基于SpringAop动态代理实现，同类调用基于this，而不是代理类。
+这时可以将方法放入另一个类，如新增manager层，通过spring注入，这样符合了在对象之间调用的条件。
+
+3、对于复杂且无法拆分的业务，或者需要对非数据库数据进行回滚时，使用TransactionTemplate编程式事务替代声明式事务
+
+### 分布式事务
+当存在一个请求中，数据在不同的微服务之间传播时，需要用到分布式事务，本系统的分布式事务实现是seata，简单使用@GlobalTransactional注解实现分布式事务。
+
 
 ## Redis
 启动Redis服务：进入JAR/Redis-x64-5.0.10目录,运行命令```redis-server ./redis.windows.conf```
