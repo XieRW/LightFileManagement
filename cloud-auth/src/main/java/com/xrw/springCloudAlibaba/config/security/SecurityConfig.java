@@ -33,7 +33,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        //crsf资源跨域访问限制取消
         http.csrf().disable();
+        //X-Frame-Options请求头限制取消
+        http.headers().frameOptions().disable();
         http
                 .httpBasic()
                 .and()
