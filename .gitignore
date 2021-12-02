@@ -5,3 +5,4 @@
 /nacos/data/
 /**/target/
 /JAR/Redis-x64-5.0.10/dump.rdb
+**.iml
