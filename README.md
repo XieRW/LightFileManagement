@@ -1,3 +1,4 @@
+
 基于cloud alibaba微服务架构的微文件管理系统。
 
 应用到的主要技术栈：Nacos、OpenFeign、Sentinel、Gateway、oauth2、Seata、MySql、Redis、RocketMQ、MyBatis-plus、SpringBoot Admin、线程池
@@ -153,3 +154,5 @@ java -jar target/cloud-rocketmq-dashboard-1.0.1-SNAPSHOT.jar
 <img src="IMG/监控系统截图2.png" width="" alt=""/>
 <img src="IMG/监控系统截图3.png" width="" alt=""/>
 <img src="IMG/监控系统截图4.png" width="" alt=""/>
+# Stats
+![Alt](https://repobeats.axiom.co/api/embed/f7d0f61d156646dd1b27e587aa618faf8c3d7e4e.svg "Repobeats analytics image")
